@@ -37,6 +37,74 @@ import { servicesData, businessInfo, type ServiceItem } from './data/servicesDat
 import { portfolioItems, craftClustersList, type PortfolioItem } from './data/portfolioData'
 import { studioTeam, equipmentInventory, productionProcessSteps } from './data/studioData'
 
+interface SmartImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+  fallbackTitle?: string
+  fallbackCategory?: string
+  fallbackIcon?: 'book' | 'film' | 'camera'
+}
+
+function SmartImage({
+  src,
+  alt,
+  className = '',
+  fallbackTitle,
+  fallbackCategory,
+  fallbackIcon = 'film',
+  loading = 'lazy',
+  ...props
+}: SmartImageProps) {
+  const [hasError, setHasError] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    setHasError(false)
+    setIsLoaded(false)
+  }, [src])
+
+  if (hasError || !src) {
+    return (
+      <div
+        className={`w-full h-full min-h-[140px] flex flex-col items-center justify-center p-6 bg-gradient-to-br from-[#faf8f5] to-[#eeeae0] text-center select-none border border-[#ded8cb]/60 ${className}`}
+        role="img"
+        aria-label={alt || fallbackTitle || 'Shlokh Archival Record'}
+      >
+        <div className="w-11 h-11 rounded-full bg-white/95 border border-[#ded8cb] shadow-sm flex items-center justify-center text-[#b82329] mb-2.5 shrink-0">
+          {fallbackIcon === 'book' ? (
+            <BookOpen className="w-5 h-5 text-[#b82329]/80" />
+          ) : fallbackIcon === 'camera' ? (
+            <Camera className="w-5 h-5 text-[#b82329]/80" />
+          ) : (
+            <Film className="w-5 h-5 text-[#b82329]/80" />
+          )}
+        </div>
+        {fallbackCategory && (
+          <span className="text-[10px] uppercase tracking-widest font-mono font-bold text-[#b82329] mb-1">
+            {fallbackCategory}
+          </span>
+        )}
+        <span className="font-serif font-bold text-xs sm:text-sm text-[#141310] max-w-[90%] leading-snug line-clamp-2">
+          {fallbackTitle || alt || 'Shlokh Production Archive'}
+        </span>
+        <span className="text-[10px] text-[#747169] mt-1 font-light tracking-wide">
+          Official Visual Record
+        </span>
+      </div>
+    )
+  }
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      loading={loading}
+      onLoad={() => setIsLoaded(true)}
+      onError={() => setHasError(true)}
+      className={`${className} ${isLoaded ? 'opacity-100' : 'opacity-90'} transition-opacity duration-300`}
+      {...props}
+    />
+  )
+}
+
 export default function App() {
   // Navigation & UI state
   const [isScrolled, setIsScrolled] = useState(false)
@@ -388,9 +456,12 @@ export default function App() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
               {/* Main Video Hero Card */}
               <div className="lg:col-span-8 bg-[#141310] rounded-md overflow-hidden relative group min-h-[420px] lg:min-h-[500px] flex flex-col justify-end p-6 sm:p-10 text-white shadow-xl">
-                <img
+                <SmartImage
                   src={featuredFilms[featuredFilmIndex].image}
                   alt={featuredFilms[featuredFilmIndex].title}
+                  fallbackTitle={featuredFilms[featuredFilmIndex].title}
+                  fallbackCategory={featuredFilms[featuredFilmIndex].category}
+                  fallbackIcon="film"
                   className="absolute inset-0 w-full h-full object-cover filter brightness-[0.78] group-hover:scale-102 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
@@ -441,7 +512,13 @@ export default function App() {
                       }`}
                     >
                       <div className="w-20 h-20 rounded-lg overflow-hidden shrink-0 relative bg-black shadow-sm">
-                        <img src={film.image} alt={film.title} className="w-full h-full object-cover" />
+                        <SmartImage
+                          src={film.image}
+                          alt={film.title}
+                          fallbackTitle={film.title}
+                          fallbackIcon="film"
+                          className="w-full h-full object-cover"
+                        />
                         {featuredFilmIndex === idx && (
                           <div className="absolute inset-0 bg-[#b82329]/40 flex items-center justify-center">
                             <Play className="w-5 h-5 fill-white text-white" />
@@ -534,13 +611,16 @@ export default function App() {
                   onClick={() => setSelectedServiceModal(service)}
                 >
                   <div className="service-card-image">
-                    <img
+                    <SmartImage
                       src={service.image}
                       alt={service.title}
+                      fallbackTitle={service.title}
+                      fallbackCategory={service.category}
+                      fallbackIcon="film"
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-black/30" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-black/30 pointer-events-none" />
                     
                     {/* Top Status Bar */}
                     <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
@@ -658,24 +738,30 @@ export default function App() {
               </div>
             </div>
 
-            {/* Featured Books Grid — Fluid & Expansive */}
+            {/* Featured Books Grid — Consistent, Proportional Architectural Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 mb-16">
               {[
                 {
                   title: 'WEAVES ANDHRA PRADESH',
                   sub: 'Coffee Table Book',
-                  badge: "Launched by Hon'ble CM Sri Nara Chandrababu Naidu",
+                  badge: "Govt of AP • Handlooms & Textiles",
                   image: '/images/portfolio_photos/p10_weaves_andhra_book.jpg',
                   launchImg: '/images/portfolio_photos/p10_cm_launching_weaves_book.jpg',
+                  launchDignitary: "Hon'ble CM Sri Nara Chandrababu Naidu",
                   desc: "A tribute to Andhra Pradesh's timeless weaving traditions. Showcases the legacy, diversity, and excellence of handloom weaves across the state along with the stories of artisans behind them.",
+                  supportLabel: "Official Launch Ceremony",
+                  supportDetail: "Statewide Handloom & Artisan Legacy Archive",
                 },
                 {
                   title: 'MEPMA — PRERANA SAKHI',
                   sub: 'Coffee Table Book',
-                  badge: "Launched by Hon'ble CM Sri Nara Chandrababu Naidu",
+                  badge: "Govt of AP • MEPMA & SHG Federations",
                   image: '/images/portfolio_photos/p10_mepma_prerana_sakhi_book.jpg',
                   launchImg: '/images/portfolio_photos/p10_cm_launching_mepma_book.jpg',
+                  launchDignitary: "Hon'ble CM Sri Nara Chandrababu Naidu",
                   desc: 'A celebration of women empowerment and the incredible journey of Self Help Groups under MEPMA, capturing inspiring stories of rural women driving community development.',
+                  supportLabel: "Official Launch Ceremony",
+                  supportDetail: "Women Self-Help Groups Transformation Chronicle",
                 },
                 {
                   title: 'SAVARA TRIBAL ART',
@@ -683,6 +769,8 @@ export default function App() {
                   badge: 'Tribal Welfare & APITCO',
                   image: '/images/portfolio_photos/p10_savara_tribal_art_book.jpg',
                   desc: 'Comprehensive visual research and branding preserving the sacred indigenous murals, art practices, and cultural lore of the Savara tribe.',
+                  supportLabel: "Indigenous Heritage Documentation",
+                  supportDetail: "Preserving sacred indigenous murals & tribal lineages",
                 },
                 {
                   title: '25 YEARS OF SERP',
@@ -690,6 +778,8 @@ export default function App() {
                   badge: 'Interactive QR-Code Media',
                   image: '/images/portfolio_photos/p10_serp_25_years_qr_book.jpg',
                   desc: 'A milestone publication celebrating 25 years of poverty elimination. Features embedded QR codes on pages allowing readers to scan and watch documentary video stories of beneficiaries.',
+                  supportLabel: "Interactive Media Integration",
+                  supportDetail: "Embedded QR-code streaming video documentary stories",
                 },
                 {
                   title: 'VIZAG — PIXELS & PANORAMAS',
@@ -697,6 +787,8 @@ export default function App() {
                   badge: 'VMRDA Tourism Collection',
                   image: '/images/portfolio_photos/p10_vizag_pixels_panoramas_book.jpg',
                   desc: 'Featuring VMRDA parks, submarine museums, panoramic coastal aerials, QR-enabled immersive experiences, and the visual essence of Visakhapatnam.',
+                  supportLabel: "Coastal & City Heritage Series",
+                  supportDetail: "VMRDA panoramic coastal aerials & museum archives",
                 },
                 {
                   title: 'GOVT OF INDIA HANDICRAFTS',
@@ -704,141 +796,151 @@ export default function App() {
                   badge: 'Ministry of Textiles, GOI',
                   image: '/images/portfolio_photos/p10_cm_launching_mepma_book.jpg',
                   desc: 'Branding, documenting, and publishing the living legacy of 10 major artisan clusters across Gujarat, Telangana, Andhra Pradesh, Karnataka, Rajasthan, and UP.',
+                  supportLabel: "National Craft Archive",
+                  supportDetail: "Living crafts of 10 nationwide artisan clusters",
                 },
               ].map((book, idx) => (
-                <div
+                <article
                   key={idx}
-                  className="bg-white rounded-2xl border border-[#ded8cb] overflow-hidden flex flex-col justify-between hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 group shadow-sm"
+                  className="bg-white rounded-2xl border border-[#ded8cb] overflow-hidden flex flex-col justify-between hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group shadow-sm"
                 >
                   <div>
-                    {/* Archival Showcase Stage */}
+                    {/* 1. Project Image Stage with intentional aspect ratio */}
                     <div
-                      className="w-full h-72 sm:h-80 md:h-96 bg-gradient-to-br from-[#faf8f5] to-[#ece5d8] p-6 sm:p-8 flex items-center justify-center relative cursor-pointer border-b border-[#ded8cb]/60 overflow-hidden"
+                      className="w-full aspect-[16/10] bg-[#faf8f5] relative overflow-hidden flex items-center justify-center cursor-pointer border-b border-[#ded8cb]/70 group/img"
                       onClick={() => setLightboxImage({ src: book.image, title: book.title, subtitle: book.sub })}
                     >
-                      <img
+                      <SmartImage
                         src={book.image}
                         alt={book.title}
-                        className="max-h-full max-w-full object-contain filter drop-shadow-[0_16px_32px_rgba(0,0,0,0.22)] group-hover:scale-105 transition-transform duration-500"
+                        fallbackTitle={book.title}
+                        fallbackCategory={book.badge}
+                        fallbackIcon="book"
+                        className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs uppercase font-bold tracking-widest gap-2">
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center text-white text-xs uppercase font-bold tracking-widest gap-2 backdrop-blur-[2px]">
                         <ZoomIn className="w-4 h-4" />
                         Click to Zoom Archive
                       </div>
                     </div>
 
-                    {/* Expanded, Spacious White Box Content */}
-                    <div className="p-7 sm:p-9 lg:p-10">
-                      <div className="inline-block px-3.5 py-1.5 rounded-full bg-[#fbebed] border border-[#b82329]/20 text-[#b82329] text-[11px] font-bold uppercase tracking-wider mb-4">
-                        {book.badge}
+                    {/* Card Content */}
+                    <div className="p-6 sm:p-7 lg:p-8">
+                      {/* 2. Small organization or launch label */}
+                      <div className="mb-3">
+                        <span className="inline-block px-3 py-1 rounded-full bg-[#fbebed] border border-[#b82329]/20 text-[#b82329] text-[11px] font-bold uppercase tracking-wider">
+                          {book.badge}
+                        </span>
                       </div>
 
-                      <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#141310] leading-tight group-hover:text-[#b82329] transition-colors mb-2">
+                      {/* 3. Project title */}
+                      <h3 className="font-serif text-2xl sm:text-[26px] font-bold text-[#141310] leading-snug group-hover:text-[#b82329] transition-colors mb-2">
                         {book.title}
                       </h3>
-                      <div className="text-xs sm:text-sm uppercase tracking-wider font-semibold text-[#747169] mb-4">
+
+                      {/* 4. Project category or format */}
+                      <div className="text-xs uppercase tracking-wider font-semibold text-[#747169] mb-3">
                         {book.sub}
                       </div>
 
-                      <p className="text-sm sm:text-base text-[#4e4a42] leading-relaxed font-light">
+                      {/* 5. Short description */}
+                      <p className="text-sm sm:text-[15px] text-[#4e4a42] leading-relaxed font-light">
                         {book.desc}
                       </p>
                     </div>
                   </div>
 
-                  {book.launchImg && (
-                    <div className="p-7 sm:p-9 lg:p-10 pt-0">
+                  {/* 6. Optional launch ceremony or supporting information panel */}
+                  <div className="p-6 sm:p-7 lg:p-8 pt-0 mt-auto">
+                    {book.launchImg ? (
                       <div
-                        className="p-4 sm:p-5 rounded-xl bg-[#faf8f5] border border-[#ded8cb] flex items-center gap-4 cursor-pointer group/launch hover:bg-[#eeeae0] hover:border-[#b82329]/40 transition-all shadow-sm"
+                        className="p-3.5 sm:p-4 rounded-xl bg-[#faf8f5] border border-[#ded8cb] flex items-center gap-3.5 cursor-pointer group/launch hover:bg-[#eeeae0] hover:border-[#b82329]/40 transition-all shadow-sm"
                         onClick={() => setLightboxImage({ src: book.launchImg!, title: `${book.title} — Official Launch`, subtitle: book.badge })}
                       >
-                        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden shrink-0 bg-black border border-white/20 shadow-md">
-                          <img src={book.launchImg} alt="Book Launch Ceremony" className="w-full h-full object-cover group-hover/launch:scale-110 transition-transform duration-300" />
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden shrink-0 bg-[#faf8f5] border border-[#ded8cb] shadow-sm relative">
+                          <SmartImage
+                            src={book.launchImg}
+                            alt="Book Launch Ceremony"
+                            fallbackTitle="Launch Ceremony"
+                            fallbackCategory="Govt Event"
+                            fallbackIcon="camera"
+                            className="w-full h-full object-cover group-hover/launch:scale-105 transition-transform duration-300"
+                          />
                         </div>
-                        <div className="text-xs sm:text-sm text-[#141310] font-medium leading-relaxed group-hover/launch:text-[#b82329] transition-colors flex-1">
-                          <span className="font-bold block text-[11px] sm:text-xs uppercase tracking-wider text-[#b82329] mb-0.5">
+                        <div className="text-xs sm:text-sm text-[#141310] font-medium leading-snug group-hover/launch:text-[#b82329] transition-colors flex-1 min-w-0">
+                          <span className="font-bold block text-[10px] sm:text-[11px] uppercase tracking-wider text-[#b82329] mb-0.5">
                             Official Launch Ceremony
                           </span>
-                          Chief Minister Sri Nara Chandrababu Naidu Garu
-                          <span className="text-[11px] block text-[#747169] mt-0.5 font-normal">Click to view full photograph & ceremonial launch</span>
+                          <span className="block truncate font-serif font-bold text-[#141310] text-xs sm:text-sm">
+                            {book.launchDignitary || "Hon'ble CM Sri Nara Chandrababu Naidu"}
+                          </span>
+                          <span className="text-[11px] block text-[#747169] mt-0.5 font-normal truncate">
+                            View full ceremonial launch photograph &rarr;
+                          </span>
                         </div>
                         <ChevronRight className="w-4 h-4 text-[#747169] group-hover/launch:translate-x-1 transition-transform shrink-0" />
                       </div>
-                    </div>
-                  )}
-                </div>
+                    ) : (
+                      <div className="p-3.5 sm:p-4 rounded-xl bg-[#faf8f5] border border-[#ded8cb] flex items-center gap-3.5 shadow-sm">
+                        <div className="w-11 h-11 rounded-lg bg-white border border-[#ded8cb] flex items-center justify-center text-[#b82329] shrink-0">
+                          <BookOpen className="w-4 h-4" />
+                        </div>
+                        <div className="text-xs sm:text-sm text-[#141310] leading-snug flex-1 min-w-0">
+                          <span className="font-bold block text-[10px] sm:text-[11px] uppercase tracking-wider text-[#747169] mb-0.5">
+                            {book.supportLabel || "Archival Publication"}
+                          </span>
+                          <span className="text-xs text-[#4e4a42] font-normal line-clamp-1 block">
+                            {book.supportDetail || "Preserved in official state and national archives"}
+                          </span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </article>
               ))}
             </div>
 
             {/* 10 Clusters of India — Expansive National Artisan Showcase */}
-            <div className="p-5 sm:p-8 lg:p-12 rounded-xl bg-white border border-[#ded8cb] shadow-sm">
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-6 sm:mb-8 pb-6 border-b border-[#eeeae0]">
+            <div className="p-6 sm:p-8 lg:p-12 rounded-2xl bg-white border border-[#ded8cb] shadow-sm">
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-10 lg:mb-12 pb-6 sm:pb-8 border-b border-[#eeeae0]">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-widest text-[#b82329] flex items-center gap-2 mb-2">
                     <span className="w-2 h-2 rounded-full bg-[#b82329] animate-pulse" />
                     National Footprint • Ministry of Textiles, GOI
                   </span>
-                  <h3 className="text-2xl sm:text-4xl font-serif text-[#141310]">
+                  <h3 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#141310]">
                     10 Clusters. Countless Stories. One Heritage.
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#747169] mt-2 max-w-2xl font-light">
+                  <p className="text-sm sm:text-base text-[#747169] mt-3 max-w-2xl font-light leading-relaxed">
                     Comprehensive visual documentation, branding, and publication of India’s living craft traditions across Gujarat, Telangana, Andhra Pradesh, Karnataka, Rajasthan, and Uttar Pradesh.
                   </p>
                 </div>
-                <div className="flex items-center justify-between sm:justify-end gap-3 text-xs uppercase tracking-widest text-[#5d5951] font-semibold shrink-0">
+                <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-[#5d5951] font-semibold shrink-0">
                   <span>6 States • 10 Living Traditions</span>
-                  <span className="sm:hidden text-[10px] text-[#b82329] font-mono font-bold flex items-center gap-1">Swipe →</span>
                 </div>
               </div>
 
-              {/* Mobile Horizontal Swipeable Deck */}
-              <div className="flex sm:hidden overflow-x-auto gap-3.5 pb-4 snap-x snap-mandatory scrollbar-none -mx-2 px-2">
+              {/* Clean, Full Responsive Grid - 100% visible, reflows without horizontal overflow or clipping */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-5">
                 {craftClustersList.map((cluster, idx) => (
                   <div
                     key={idx}
-                    className="snap-start min-w-[220px] shrink-0 p-4 rounded-xl bg-[#faf8f5] border border-[#ded8cb] flex flex-col justify-between shadow-sm min-h-[125px]"
+                    className="group p-5 lg:p-6 rounded-xl bg-[#faf8f5] hover:bg-white border border-[#ded8cb] hover:border-[#b82329]/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between min-h-[145px] sm:min-h-[160px]"
                   >
                     <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-[10px] font-mono font-bold text-[#9d998f]">
-                          0{idx + 1}
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-xs font-mono font-bold text-[#9d998f]">
+                          {idx < 9 ? `0${idx + 1}` : idx + 1}
                         </span>
-                        <span className="text-[9px] px-2 py-0.5 rounded-full bg-[#fbebed] text-[#b82329] font-bold uppercase tracking-wider">
+                        <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-[#fbebed] text-[#b82329] font-bold uppercase tracking-wider">
                           {cluster.state}
                         </span>
                       </div>
-                      <h4 className="font-serif text-lg font-bold text-[#141310]">
+                      <h4 className="font-serif text-xl font-bold text-[#141310] group-hover:text-[#b82329] transition-colors leading-snug">
                         {cluster.name}
                       </h4>
                     </div>
-                    <div className="pt-3 mt-3 border-t border-[#ded8cb]/60 text-xs text-[#5d5951] font-medium">
-                      {cluster.craft}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Desktop / Tablet Grid */}
-              <div className="hidden sm:grid sm:grid-cols-3 md:grid-cols-5 gap-4 lg:gap-6">
-                {craftClustersList.map((cluster, idx) => (
-                  <div
-                    key={idx}
-                    className="group p-4 lg:p-5 rounded-lg bg-[#faf8f5] hover:bg-white border border-[#ded8cb] hover:border-[#b82329]/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-[10px] font-mono font-bold text-[#9d998f]">
-                          0{idx + 1}
-                        </span>
-                        <span className="text-[9px] px-2 py-0.5 rounded-full bg-[#fbebed] text-[#b82329] font-bold uppercase tracking-wider">
-                          {cluster.state}
-                        </span>
-                      </div>
-                      <h4 className="font-serif text-lg font-bold text-[#141310] group-hover:text-[#b82329] transition-colors">
-                        {cluster.name}
-                      </h4>
-                    </div>
-                    <div className="pt-3 mt-3 border-t border-[#ded8cb]/60 text-xs text-[#5d5951] font-medium">
+                    <div className="pt-3 mt-3 border-t border-[#ded8cb]/70 text-xs text-[#5d5951] font-medium leading-relaxed">
                       {cluster.craft}
                     </div>
                   </div>
@@ -864,7 +966,7 @@ export default function App() {
             </div>
 
             {/* Photo Mosaic of Real Ground-Level Filming */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 mb-16">
               {[
                 {
                   src: '/images/portfolio_photos/p08_bus_beneficiary_shoot.jpg',
@@ -909,14 +1011,27 @@ export default function App() {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="group relative rounded-md overflow-hidden bg-black h-64 cursor-pointer shadow-sm hover:shadow-md transition-shadow"
+                  className="group relative rounded-xl overflow-hidden bg-[#141310] aspect-[4/3] cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 border border-[#ded8cb]"
                   onClick={() => setLightboxImage({ src: item.src, title: item.title, subtitle: item.caption })}
                 >
-                  <img src={item.src} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex flex-col justify-end p-4 text-white">
-                    <span className="text-[10px] text-[#b82329] uppercase tracking-widest font-bold">Field Document</span>
-                    <h4 className="font-serif text-lg font-bold leading-tight">{item.title}</h4>
-                    <p className="text-[11px] text-white/70 line-clamp-1 mt-1">{item.caption}</p>
+                  <SmartImage
+                    src={item.src}
+                    alt={item.title}
+                    fallbackTitle={item.title}
+                    fallbackCategory="Field Document"
+                    fallbackIcon="camera"
+                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent flex flex-col justify-end p-5 text-white">
+                    <span className="text-[10px] text-[#b82329] uppercase tracking-widest font-mono font-bold mb-1">
+                      Field Document • 0{idx + 1}
+                    </span>
+                    <h4 className="font-serif text-lg sm:text-xl font-bold leading-tight group-hover:text-[#f7f5f0] transition-colors">
+                      {item.title}
+                    </h4>
+                    <p className="text-xs text-white/80 line-clamp-2 mt-1.5 font-light leading-relaxed">
+                      {item.caption}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -1167,8 +1282,15 @@ export default function App() {
                       className="bg-[#1b1915] rounded-md border border-white/10 overflow-hidden cursor-pointer group"
                       onClick={() => setLightboxImage({ src: space.src, title: space.title, subtitle: space.desc })}
                     >
-                      <div className="h-48 overflow-hidden relative">
-                        <img src={space.src} alt={space.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <div className="h-48 overflow-hidden relative bg-black/40">
+                        <SmartImage
+                          src={space.src}
+                          alt={space.title}
+                          fallbackTitle={space.title}
+                          fallbackCategory="Studio Space"
+                          fallbackIcon="camera"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
                         <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition-colors" />
                       </div>
                       <div className="p-4">
@@ -1227,13 +1349,20 @@ export default function App() {
             {/* Portfolio Grid — Spacious 3-Column Architectural Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
               {filteredPortfolio.map((item) => (
-                <div
+                <article
                   key={item.id}
                   onClick={() => setLightboxImage({ src: item.image, title: item.title, subtitle: `${item.client} • ${item.category}` })}
                   className="bg-white rounded-2xl border border-[#ded8cb] overflow-hidden group cursor-pointer shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
                 >
-                  <div className="h-72 sm:h-80 md:h-88 overflow-hidden relative bg-black">
-                    <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="w-full aspect-[16/10] overflow-hidden relative bg-[#faf8f5] border-b border-[#ded8cb]">
+                    <SmartImage
+                      src={item.image}
+                      alt={item.title}
+                      fallbackTitle={item.title}
+                      fallbackCategory={item.category}
+                      fallbackIcon="film"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
                     <span className="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#b82329] text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
                       {item.category}
@@ -1243,15 +1372,15 @@ export default function App() {
                     </span>
                   </div>
 
-                  <div className="p-7 sm:p-9 lg:p-10 flex-1 flex flex-col justify-between bg-white">
+                  <div className="p-6 sm:p-7 lg:p-8 flex-1 flex flex-col justify-between bg-white">
                     <div>
                       <div className="text-xs uppercase tracking-wider font-bold text-[#b82329] mb-2">
                         {item.client}
                       </div>
-                      <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#141310] leading-snug mb-3 group-hover:text-[#b82329] transition-colors">
+                      <h3 className="font-serif text-2xl sm:text-[26px] font-bold text-[#141310] leading-snug mb-3 group-hover:text-[#b82329] transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-sm sm:text-base text-[#524e47] leading-relaxed line-clamp-3 mb-4 font-normal">
+                      <p className="text-sm sm:text-[15px] text-[#524e47] leading-relaxed line-clamp-3 mb-4 font-normal">
                         {item.description}
                       </p>
                     </div>
@@ -1264,7 +1393,7 @@ export default function App() {
                       <ZoomIn className="w-4 h-4 text-[#9d998f]" />
                     </div>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           </div>
@@ -1786,9 +1915,12 @@ export default function App() {
             </div>
 
             <div className="w-full max-h-[70vh] bg-black rounded overflow-hidden flex items-center justify-center mb-4">
-              <img
+              <SmartImage
                 src={lightboxImage.src}
                 alt={lightboxImage.title}
+                fallbackTitle={lightboxImage.title}
+                fallbackCategory={lightboxImage.subtitle}
+                fallbackIcon="film"
                 className="max-h-[68vh] w-auto max-w-full object-contain mx-auto"
               />
             </div>
@@ -1834,9 +1966,12 @@ export default function App() {
             </h3>
 
             <div className="w-full h-56 rounded overflow-hidden mb-6 bg-black">
-              <img
+              <SmartImage
                 src={selectedServiceModal.image}
                 alt={selectedServiceModal.title}
+                fallbackTitle={selectedServiceModal.title}
+                fallbackCategory={selectedServiceModal.category}
+                fallbackIcon="film"
                 className="w-full h-full object-cover"
               />
             </div>
