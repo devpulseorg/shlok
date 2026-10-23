@@ -922,43 +922,61 @@ export default function App() {
               ))}
             </div>
 
-            {/* Core Commitments from PDF Page 8 */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {[
-                {
-                  num: '01',
-                  title: 'Capture Accurately',
-                  desc: 'Preserving the authentic voice and dialects of everyday citizens without staging or artificial bias.',
-                },
-                {
-                  num: '02',
-                  title: 'Document Responsibly',
-                  desc: 'Ethical filming with verified consent protocols, respectful community engagement, and dignified framing.',
-                },
-                {
-                  num: '03',
-                  title: 'Deliver on Time',
-                  desc: 'Rapid overnight editing turnaround, multilingual subtitle integration, and seamless governmental submissions.',
-                },
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="p-7 rounded-xl bg-white border border-[#ded8cb] shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between"
-                >
-                  <span className="text-6xl font-serif font-bold text-[#141310]/5 absolute right-4 top-2 pointer-events-none">
-                    {item.num}
+            {/* Core Commitments Manifesto Triad */}
+            <div className="p-8 sm:p-12 lg:p-16 rounded-2xl bg-white border border-[#ded8cb] shadow-md">
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-6 border-b border-[#eeeae0]">
+                <div>
+                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#b82329] block mb-2">
+                    Ethical Protocol • Field Standard
                   </span>
-                  <div>
-                    <div className="w-10 h-10 rounded-full bg-[#b82329] text-white flex items-center justify-center font-serif font-bold text-sm mb-4 shadow-sm">
-                      {item.num}
-                    </div>
-                    <h4 className="font-serif text-xl font-bold text-[#141310] mb-2">{item.title}</h4>
-                    <p className="text-xs text-[#5d5951] leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
+                  <h3 className="font-serif text-3xl sm:text-4xl font-bold text-[#141310]">
+                    Three Principles of Ground-Level Filming
+                  </h3>
                 </div>
-              ))}
+                <p className="text-xs sm:text-sm text-[#747169] max-w-md font-light">
+                  How our field crews maintain trust, authentic testimony, and institutional accuracy across every village and urban ward.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 md:divide-x md:divide-[#ded8cb]/80">
+                {[
+                  {
+                    num: '01',
+                    title: 'Capture Accurately',
+                    desc: 'Preserving the authentic voice, local dialects, and genuine reactions of everyday citizens without staging, scripts, or artificial bias.',
+                  },
+                  {
+                    num: '02',
+                    title: 'Document Responsibly',
+                    desc: 'Ethical filming with formal consent protocols, respectful community engagement, dignified framing, and sensitivity to privacy.',
+                  },
+                  {
+                    num: '03',
+                    title: 'Deliver on Time',
+                    desc: 'Rapid overnight editing turnaround, multilingual subtitle integration, and broadcast-ready delivery for urgent governmental submissions.',
+                  },
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    className={`flex flex-col justify-between ${idx > 0 ? 'md:pl-8 lg:pl-12 pt-6 md:pt-0 border-t md:border-t-0 border-[#ded8cb]/60' : ''}`}
+                  >
+                    <div>
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="w-10 h-10 rounded-full bg-[#b82329] text-white flex items-center justify-center font-serif font-bold text-sm shadow-sm shrink-0">
+                          {item.num}
+                        </span>
+                        <span className="text-xs font-mono font-bold tracking-widest uppercase text-[#9d998f]">
+                          Standard {item.num}
+                        </span>
+                      </div>
+                      <h4 className="font-serif text-2xl font-bold text-[#141310] mb-3">{item.title}</h4>
+                      <p className="text-sm text-[#524e47] leading-relaxed font-light">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -1206,42 +1224,42 @@ export default function App() {
               </div>
             </div>
 
-            {/* Portfolio Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-8 2xl:gap-10">
+            {/* Portfolio Grid — Spacious 3-Column Architectural Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
               {filteredPortfolio.map((item) => (
                 <div
                   key={item.id}
                   onClick={() => setLightboxImage({ src: item.image, title: item.title, subtitle: `${item.client} • ${item.category}` })}
-                  className="bg-white rounded-xl border border-[#ded8cb] overflow-hidden group cursor-pointer shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                  className="bg-white rounded-2xl border border-[#ded8cb] overflow-hidden group cursor-pointer shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
                 >
-                  <div className="h-64 sm:h-72 overflow-hidden relative bg-black">
+                  <div className="h-72 sm:h-80 md:h-88 overflow-hidden relative bg-black">
                     <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
-                    <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-[#b82329] text-[9px] font-bold uppercase tracking-wider text-white shadow-sm">
+                    <span className="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#b82329] text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
                       {item.category}
                     </span>
-                    <span className="absolute bottom-3 left-3 text-xs text-white/90 font-mono font-bold bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded border border-white/10">
+                    <span className="absolute bottom-4 left-4 text-xs text-white/95 font-mono font-bold bg-black/60 backdrop-blur-md px-3 py-1 rounded-md border border-white/15">
                       {item.year || 'Selected Project'}
                     </span>
                   </div>
 
-                  <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div className="p-7 sm:p-9 lg:p-10 flex-1 flex flex-col justify-between bg-white">
                     <div>
-                      <div className="text-[10px] uppercase tracking-wider font-bold text-[#b82329] mb-1">
+                      <div className="text-xs uppercase tracking-wider font-bold text-[#b82329] mb-2">
                         {item.client}
                       </div>
-                      <h3 className="font-serif text-2xl font-bold text-[#141310] leading-snug mb-2 group-hover:text-[#b82329] transition-colors">
+                      <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#141310] leading-snug mb-3 group-hover:text-[#b82329] transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-[#5d5951] leading-relaxed line-clamp-3">
+                      <p className="text-sm sm:text-base text-[#524e47] leading-relaxed line-clamp-3 mb-4 font-normal">
                         {item.description}
                       </p>
                     </div>
 
-                    <div className="mt-5 pt-3 border-t border-[#f0ede6] flex items-center justify-between text-xs text-[#747169]">
-                      <span className="font-bold text-[#b82329] group-hover:underline inline-flex items-center gap-1">
+                    <div className="pt-4 border-t border-[#f0ede6] flex items-center justify-between text-xs sm:text-sm text-[#747169]">
+                      <span className="font-bold text-[#b82329] group-hover:underline inline-flex items-center gap-1.5">
                         View Project Details
-                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </span>
                       <ZoomIn className="w-4 h-4 text-[#9d998f]" />
                     </div>
@@ -1267,69 +1285,99 @@ export default function App() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Sector Expertise — Expansive Luxury Editorial Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
               {[
                 {
                   number: '01',
                   title: 'Government & Welfare',
-                  desc: 'Public communication that reaches the people it is made for.',
+                  tagline: 'Public Communication with Verifiable Grassroots Impact',
+                  desc: 'Trusted by state departments to film, edit, and deliver authentic citizen voices, welfare scheme progress, and statewide public awareness campaigns.',
                   points: [
-                    'Government communication & policy reels',
-                    'Statewide public awareness campaigns',
-                    'Welfare scheme impact documentation',
+                    'Government policy reels & departmental films',
+                    'Statewide welfare scheme impact documentation',
                     'Beneficiary testimonials with verified consent',
-                    'Election ad films & public feedback vox-pops',
+                    'Election campaign films & public feedback vox-pops',
+                    'Multilingual subtitle mastering for official submission',
                   ],
                 },
                 {
                   number: '02',
                   title: 'Knowledge Documentation',
-                  desc: 'Important knowledge shaped into objects people keep and revisit.',
+                  tagline: 'Statecraft, Culture & Heritage Preserved for History',
+                  desc: 'Crafting museum-grade coffee table books, annual reports, and national handicraft cluster compendiums officially launched by state leadership.',
                   points: [
-                    'Premium coffee table books with QR videos',
-                    'National handicraft cluster archives',
-                    'Annual reports & institutional compendiums',
-                    'Heritage, art & tribal culture documentation',
-                    'State ministry commemorative volumes',
+                    'Premium coffee table books with integrated QR video',
+                    'National handicraft cluster archival books (GOI)',
+                    'Institutional compendiums & silver jubilee archives',
+                    'Tribal heritage, living art & cultural lore documentation',
+                    'High-resolution archival print and digital publishing',
                   ],
                 },
                 {
                   number: '03',
                   title: 'Visual Production & Studio',
-                  desc: 'Full-scale film craft, from the field to the final broadcast master.',
+                  tagline: 'Broadcast-Grade Craft from Concept to Final Master',
+                  desc: 'Equipped with in-house cinema rigs, acoustic podcast suites, ATEM live switchers, and cutting-edge AI video synthesis for commercial scale.',
                   points: [
-                    'TV commercials (TVCs) and digital ads',
-                    'Corporate films & C-suite interviews',
-                    'Multi-camera 4K podcast studio suites',
-                    'Live ATEM switcher event broadcast',
-                    'AI-powered video generation & avatar synthesis',
+                    'TV commercials (TVCs) & high-conversion digital ads',
+                    'Corporate brand films & executive leadership interviews',
+                    'Turnkey 4K podcast studio suites with ambient lighting',
+                    'Live multi-camera broadcast & switcher operations',
+                    'AI-powered video generation, avatars & rapid versioning',
                   ],
                 },
               ].map((area) => (
-                <div key={area.number} className="bg-white rounded-md border border-[#ded8cb] p-8 flex flex-col justify-between">
+                <div
+                  key={area.number}
+                  className="p-8 sm:p-10 lg:p-12 rounded-2xl bg-white border border-[#ded8cb] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden"
+                >
+                  <span className="text-8xl font-serif font-bold text-[#141310]/5 absolute right-4 top-2 pointer-events-none select-none">
+                    {area.number}
+                  </span>
                   <div>
-                    <span className="text-xs font-mono font-bold text-[#b82329] block mb-2">
-                      Sector {area.number}
-                    </span>
-                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#141310] mb-3">
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="px-3 py-1 rounded-full bg-[#fbebed] text-[#b82329] text-[11px] font-mono font-bold tracking-widest uppercase">
+                        Sector {area.number}
+                      </span>
+                    </div>
+
+                    <h3 className="font-serif text-3xl sm:text-4xl font-bold text-[#141310] mb-2 group-hover:text-[#b82329] transition-colors leading-tight">
                       {area.title}
                     </h3>
-                    <p className="text-xs text-[#747169] mb-6">
+
+                    <div className="text-xs uppercase tracking-wider font-semibold text-[#b82329] mb-4">
+                      {area.tagline}
+                    </div>
+
+                    <p className="text-sm text-[#5d5951] leading-relaxed mb-8 font-light">
                       {area.desc}
                     </p>
-                    <ul className="space-y-2 border-t border-[#ded8cb] pt-4">
-                      {area.points.map((p, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-xs text-[#423f39]">
-                          <span className="text-[#b82329] font-bold">—</span>
-                          <span>{p}</span>
-                        </li>
-                      ))}
-                    </ul>
+
+                    <div className="pt-6 border-t border-[#ded8cb]/80">
+                      <span className="text-xs uppercase tracking-widest font-bold text-[#141310] block mb-4">
+                        Core Capabilities
+                      </span>
+                      <ul className="space-y-3">
+                        {area.points.map((p, idx) => (
+                          <li key={idx} className="flex items-start gap-3 text-sm text-[#423f39] leading-relaxed font-normal">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#b82329] mt-2 shrink-0" />
+                            <span>{p}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
 
-                  <a href="#contact" className="mt-8 text-xs font-bold uppercase tracking-wider text-[#b82329] hover:underline flex items-center gap-1.5">
-                    Discuss Sector Brief <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
+                  <div className="pt-8 mt-8 border-t border-[#f0ede6]">
+                    <a
+                      href="#contact"
+                      className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#b82329] group-hover:text-[#9e1c21] group-hover:gap-3 transition-all"
+                    >
+                      <span>Discuss Sector Brief</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+                  </div>
                 </div>
               ))}
             </div>
