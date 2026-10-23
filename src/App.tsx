@@ -356,56 +356,59 @@ export default function App() {
           </div>
 
           <div className="site-container relative z-10 w-full">
-            <div className="max-w-3xl py-12 sm:py-16 lg:py-24">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[10px] sm:text-xs uppercase tracking-widest text-[#d5d0c5] mb-5 font-semibold">
-                <span className="w-2 h-2 rounded-full bg-[#b82329] animate-pulse shrink-0" />
+            <div className="max-w-3xl pt-4 pb-8 sm:py-16 lg:py-24">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[10px] sm:text-xs uppercase tracking-widest text-[#d5d0c5] mb-4 sm:mb-5 font-semibold">
+                <span className="w-2 h-2 rounded-full bg-[#e0434b] animate-pulse shrink-0" />
                 <span className="hidden sm:inline">AI Video Production • Ad Films • Corporate Video • Documentaries</span>
                 <span className="sm:hidden">AI Video • Ad Films • Documentaries</span>
               </div>
 
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white font-serif leading-[0.94] tracking-tight mb-5">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white font-serif leading-[1.0] tracking-tight mb-4 sm:mb-5">
                 Stories deserve
                 <br />
-                to be <em>seen.</em>
+                to be <em className="italic text-[#e0434b]">seen.</em>
               </h1>
 
-              <p className="text-sm sm:text-base md:text-lg text-[#ccc7bd] leading-relaxed max-w-xl font-light mb-8">
-                Pioneering AI-driven video synthesis and two decades of human cinematic storytelling for brands, institutions, and statecraft across Telangana & Andhra Pradesh.
+              <p className="text-sm sm:text-base md:text-lg text-[#ccc7bd] leading-relaxed max-w-xl font-light mb-6 sm:mb-8">
+                Pioneering AI video synthesis and two decades of master cinematic storytelling for brands, institutions, and statecraft across Telangana & Andhra Pradesh.
               </p>
 
-              <div className="flex flex-wrap items-center gap-3.5 sm:gap-5 mb-10">
+              <div className="flex flex-row items-center gap-3 sm:gap-5 mb-7 sm:mb-10 max-w-md">
                 <button
                   onClick={() => {
                     setVideoModalTitle('Shlokh Entertainments — 2026 Master Showreel')
                     setVideoModalOpen(true)
                   }}
-                  className="btn-primary group"
+                  className="btn-primary group flex-1 sm:flex-initial justify-center py-3 px-3 sm:py-3.5 sm:px-6 text-[11px] sm:text-xs"
                 >
-                  <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
-                    <Play className="w-3 h-3 fill-current ml-0.5" />
+                  <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                    <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
                   </span>
-                  Watch Showreel
+                  <span>Watch Showreel</span>
                 </button>
 
-                <a href="#services" className="btn-outline-white">
-                  Explore 14 Capabilities
-                  <ArrowRight className="w-3.5 h-3.5" />
+                <a
+                  href="#services"
+                  className="btn-outline-white flex-1 sm:flex-initial justify-center py-3 px-3 sm:py-3.5 sm:px-5 text-[11px] sm:text-xs"
+                >
+                  <span>14 Capabilities</span>
+                  <ArrowRight className="w-3.5 h-3.5 shrink-0" />
                 </a>
               </div>
 
               {/* Location and Heritage Badges */}
-              <div className="pt-5 border-t border-white/15 flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] sm:text-xs uppercase tracking-wider text-[#a9a59c]">
-                <div className="flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-[#b82329]" />
+              <div className="pt-4 border-t border-white/15 flex items-center gap-x-2.5 sm:gap-x-5 text-[10px] sm:text-xs uppercase tracking-wider text-[#a9a59c] overflow-x-auto scrollbar-none">
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <MapPin className="w-3 h-3 text-[#e0434b] shrink-0" />
                   <span>Hyderabad & Guntur</span>
                 </div>
-                <span className="text-white/25 hidden sm:inline">•</span>
-                <div className="flex items-center gap-1.5">
-                  <Award className="w-3.5 h-3.5 text-[#b82329]" />
-                  <span>20+ Years Leadership</span>
+                <span className="text-white/25 shrink-0">•</span>
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <Award className="w-3 h-3 text-[#e0434b] shrink-0" />
+                  <span>20+ Years</span>
                 </div>
-                <span className="text-white/25 hidden sm:inline">•</span>
-                <span className="text-white/80 font-medium">500+ Films Produced</span>
+                <span className="text-white/25 shrink-0">•</span>
+                <span className="text-white/90 font-medium shrink-0">500+ Films</span>
               </div>
             </div>
           </div>
