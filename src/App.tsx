@@ -1199,6 +1199,34 @@ export default function App() {
                   </span>
                 </div>
 
+                {/* Visual Grip & Lighting Feature */}
+                <div className="p-6 rounded-md bg-[#1b1915] border border-white/10 flex flex-col md:flex-row items-center gap-6">
+                  <div className="w-full md:w-56 h-40 rounded overflow-hidden shrink-0 bg-black/40 border border-white/10">
+                    <img
+                      src="/images/studio_spaces/studio_lighting_gear_arsenal.jpg"
+                      alt="Owned Godox Continuous Lighting, Fresnel Lenses & C-Stands"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <span className="text-[10px] uppercase tracking-widest text-[#b82329] font-bold block mb-1">
+                      Professional Studio Grip & Lighting Arsenal
+                    </span>
+                    <h4 className="font-serif text-xl sm:text-2xl font-bold text-white mb-2">
+                      Precision Light Shaping & Rigging Infrastructure
+                    </h4>
+                    <p className="text-xs text-[#a9a59c] leading-relaxed mb-3">
+                      Complete in-house arsenal of Godox continuous bi-color heads, high-output Fresnel focusing lenses, optical snoots, heavy-duty wheeled boom stands, and stainless steel C-stands for pinpoint cinematic diffusion.
+                    </p>
+                    <div className="flex flex-wrap gap-2 text-[10px] font-mono text-[#ccc7bd]">
+                      <span className="px-2 py-0.5 rounded bg-white/10">Godox DP600 & SL300II</span>
+                      <span className="px-2 py-0.5 rounded bg-white/10">FLS10 Fresnel Focusing</span>
+                      <span className="px-2 py-0.5 rounded bg-white/10">Optical Snoots & Barn Doors</span>
+                      <span className="px-2 py-0.5 rounded bg-white/10">15+ Stainless C-Stands</span>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   {equipmentInventory.map((cat, idx) => (
                     <div key={idx} className="p-6 rounded-md bg-[#1b1915] border border-white/10">
@@ -1255,34 +1283,40 @@ export default function App() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
                     {
+                      src: '/images/studio_spaces/studio_spotlight_soundstage.jpg',
+                      title: 'Acoustic Cyclorama Soundstage',
+                      desc: '1,500 sq.ft. commercial stage with continuous softbox diffusers, circular spotlight wall projection, and multi-angle camera floor space.',
+                      position: 'object-center',
+                    },
+                    {
+                      src: '/images/studio_spaces/live_soundstage_cinema_rig.jpg',
+                      title: 'Live Soundstage & Cinema Rig',
+                      desc: 'Atmospheric performance bay with heavy-duty cinema camera package, overhead amber softlight panel, and multi-point stage fixtures.',
+                      stylePosition: '50% 55%',
+                    },
+                    {
+                      src: '/images/studio_spaces/crimson_brand_studio_bay.jpg',
+                      title: 'Signature Crimson Brand Studio',
+                      desc: "High-output Godox softboxes bathed in Shlokh's signature crimson ambient light, directional barn doors, and floor perimeter neon bounds.",
+                      position: 'object-center',
+                    },
+                    {
                       src: '/images/extracted/raw_p15_1.jpeg',
                       title: 'Ambient RGB Podcast Suite',
                       desc: 'Sound-treated intimate studio with custom ambient color-temperature RGB backlighting, armchairs, and multi-mic acoustic setup.',
+                      position: 'object-center',
                     },
                     {
                       src: '/images/extracted/raw_p16_1.jpeg',
                       title: 'Velvet Talk Show & Interview Lounge',
                       desc: 'Parabolic softbox diffuse lighting, velvet armchairs, teleprompter glass, and real-time audio monitors.',
-                    },
-                    {
-                      src: '/images/extracted/raw_p14_1.jpeg',
-                      title: 'Executive Multi-Cam Boardroom Studio',
-                      desc: 'Multi-camera setup with live director preview monitor, overhead boom lights, and executive seating.',
-                    },
-                    {
-                      src: '/images/extracted/raw_p14_3.jpeg',
-                      title: 'Wide Commercial Studio Bay',
-                      desc: 'Spacious soundstage for commercial filming, furniture arrangements, and large multi-person panels.',
-                    },
-                    {
-                      src: '/images/extracted/raw_p16_2.jpeg',
-                      title: 'Dual-Camera Podcast Setup',
-                      desc: 'Close-angle directional microphones, coffee table set, dual camera tripods, and acoustic drapes.',
+                      position: 'object-center',
                     },
                     {
                       src: '/images/portfolio_photos/p12_live_broadcast_atem_switcher.jpg',
                       title: 'ATEM Broadcast Switcher Console',
                       desc: 'Hardware control surface, multi-view preview screens, and broadcast audio mixer.',
+                      position: 'object-center',
                     },
                   ].map((space, idx) => (
                     <div
@@ -1298,6 +1332,7 @@ export default function App() {
                           fallbackCategory="Studio Space"
                           fallbackIcon="camera"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          style={{ objectPosition: (space as any).stylePosition || 'center center' }}
                         />
                         <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition-colors" />
                       </div>
