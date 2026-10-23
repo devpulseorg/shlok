@@ -429,33 +429,33 @@ export default function App() {
                   Documentary Series Selector ({featuredFilmIndex + 1} / {featuredFilms.length})
                 </div>
 
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3.5">
                   {featuredFilms.map((film, idx) => (
                     <button
                       key={idx}
                       onClick={() => setFeaturedFilmIndex(idx)}
-                      className={`text-left p-4 rounded-md border transition-all duration-200 flex items-center gap-4 ${
+                      className={`text-left p-5 rounded-xl border transition-all duration-200 flex items-center gap-4 ${
                         featuredFilmIndex === idx
-                          ? 'bg-[#ffffff] border-[#b82329] shadow-md'
-                          : 'bg-[#ffffff]/60 border-[#ded8cb] hover:bg-white'
+                          ? 'bg-[#ffffff] border-[#b82329] shadow-lg scale-[1.01]'
+                          : 'bg-[#ffffff]/80 border-[#ded8cb] hover:bg-white hover:shadow-md'
                       }`}
                     >
-                      <div className="w-16 h-16 rounded overflow-hidden shrink-0 relative bg-black">
+                      <div className="w-20 h-20 rounded-lg overflow-hidden shrink-0 relative bg-black shadow-sm">
                         <img src={film.image} alt={film.title} className="w-full h-full object-cover" />
                         {featuredFilmIndex === idx && (
                           <div className="absolute inset-0 bg-[#b82329]/40 flex items-center justify-center">
-                            <Play className="w-4 h-4 fill-white text-white" />
+                            <Play className="w-5 h-5 fill-white text-white" />
                           </div>
                         )}
                       </div>
-                      <div>
-                        <div className="text-[10px] uppercase tracking-wider font-semibold text-[#b82329]">
+                      <div className="flex-1">
+                        <div className="text-[11px] uppercase tracking-wider font-semibold text-[#b82329]">
                           0{idx + 1} • {film.category}
                         </div>
-                        <h4 className="font-serif text-lg font-bold text-[#141310] leading-snug">
+                        <h4 className="font-serif text-xl font-bold text-[#141310] leading-snug">
                           {film.title}
                         </h4>
-                        <div className="text-xs text-[#747169] line-clamp-1 mt-0.5">
+                        <div className="text-xs sm:text-sm text-[#5d5951] line-clamp-1 mt-1 font-normal">
                           {film.tagline}
                         </div>
                       </div>
@@ -464,12 +464,12 @@ export default function App() {
                 </div>
 
                 {/* Callout box */}
-                <div className="p-5 rounded-md bg-[#ffffff] border border-[#ded8cb] mt-2">
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#141310] mb-1">
+                <div className="p-6 rounded-xl bg-[#ffffff] border border-[#ded8cb] shadow-sm mt-3">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#141310] mb-2">
                     <Award className="w-4 h-4 text-[#b82329]" />
                     Official Screening & Archive
                   </div>
-                  <p className="text-xs text-[#5d5951] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#5d5951] leading-relaxed">
                     Our documentaries have been screened at prestigious state ceremonies, ministerial summits, and preserved for national craft archives.
                   </p>
                 </div>
@@ -526,7 +526,7 @@ export default function App() {
             </div>
 
             {/* 14 Services Grid — Spacious, Fluid, Un-Boxed */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-8 2xl:gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
               {filteredServices.map((service) => (
                 <article
                   key={service.slug}
@@ -540,39 +540,39 @@ export default function App() {
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-black/30" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-black/30" />
                     
                     {/* Top Status Bar */}
-                    <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
-                      <span className="px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-[10px] font-mono font-bold tracking-widest uppercase text-white/95 border border-white/15">
+                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+                      <span className="px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-[11px] font-mono font-bold tracking-widest uppercase text-white/95 border border-white/15 shadow-sm">
                         SERVICE {service.number}
                       </span>
-                      <span className="px-2.5 py-1 rounded-full bg-[#b82329] text-[9px] font-bold uppercase tracking-wider text-white shadow-sm">
+                      <span className="px-3 py-1 rounded-full bg-[#b82329] text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
                         {service.category}
                       </span>
                     </div>
 
-                    <div className="absolute bottom-3 left-4 text-white/70 text-[10px] uppercase tracking-widest font-mono pointer-events-none">
+                    <div className="absolute bottom-3.5 left-4 text-white/80 text-[11px] uppercase tracking-widest font-mono pointer-events-none">
                       Shlokh Production • 4K Master
                     </div>
                   </div>
 
-                  <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between bg-white">
+                  <div className="p-7 sm:p-9 lg:p-10 flex-1 flex flex-col justify-between bg-white min-h-0 sm:min-h-[260px] lg:min-h-[280px]">
                     <div>
-                      <h3 className="font-serif text-2xl font-bold leading-snug text-[#141310] group-hover:text-[#b82329] transition-colors mb-2.5">
+                      <h3 className="font-serif text-2xl sm:text-[26px] font-bold leading-snug text-[#141310] group-hover:text-[#b82329] transition-colors mb-3">
                         {service.title}
                       </h3>
 
-                      <p className="text-xs sm:text-sm text-[#5d5951] leading-relaxed line-clamp-2 mb-4 font-normal">
+                      <p className="text-sm sm:text-[15px] text-[#555149] leading-relaxed line-clamp-3 mb-5 font-normal">
                         {service.description}
                       </p>
 
                       {/* Clean Capability Tags */}
-                      <div className="flex flex-wrap gap-1.5 mb-2">
+                      <div className="flex flex-wrap gap-2 mb-4">
                         {service.tags.slice(0, 3).map((tag, idx) => (
                           <span
                             key={idx}
-                            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#f7f5f0] border border-[#ded8cb] text-[11px] font-semibold text-[#423f39]"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#f7f5f0] border border-[#ded8cb] text-xs font-semibold text-[#423f39]"
                           >
                             <span className="w-1.5 h-1.5 rounded-full bg-[#b82329]" />
                             {tag}
@@ -582,10 +582,10 @@ export default function App() {
                     </div>
 
                     {/* Action Bar */}
-                    <div className="pt-4 border-t border-[#f0ede6] flex items-center justify-between mt-4">
-                      <span className="text-xs font-bold uppercase tracking-wider text-[#b82329] group-hover:text-[#9e1c21] inline-flex items-center gap-1.5">
+                    <div className="pt-5 border-t border-[#f0ede6] flex items-center justify-between mt-4">
+                      <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#b82329] group-hover:text-[#9e1c21] inline-flex items-center gap-2">
                         Full Scope & Deliverables
-                        <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform" />
+                        <ChevronRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
                       </span>
 
                       <button
@@ -594,7 +594,7 @@ export default function App() {
                           setFormData((prev) => ({ ...prev, service: service.title }))
                           setQuoteModalOpen(true)
                         }}
-                        className="p-2 rounded-full hover:bg-[#f7f5f0] text-[#747169] hover:text-[#b82329] transition-colors"
+                        className="p-2.5 rounded-full hover:bg-[#f7f5f0] text-[#747169] hover:text-[#b82329] transition-colors"
                         title="Inquire for this service"
                       >
                         <ExternalLink className="w-4 h-4" />
@@ -606,13 +606,13 @@ export default function App() {
             </div>
 
             {/* Pricing and Location Assurance Banner from Docx */}
-            <div className="mt-16 p-8 lg:p-12 rounded-xl bg-[#141310] text-white flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl">
+            <div className="mt-16 p-8 sm:p-12 lg:p-16 rounded-2xl bg-[#141310] text-white flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 shadow-2xl border border-white/10">
               <div className="max-w-3xl">
                 <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#b82329] font-bold mb-3">
                   <Sliders className="w-4 h-4" />
                   Customized Quotes & Flexible Packages
                 </div>
-                <h3 className="text-3xl sm:text-4xl font-serif mb-3">
+                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-serif mb-4 leading-tight">
                   Affordable Project-Based Rates
                 </h3>
                 <p className="text-sm sm:text-base text-[#ccc7bd] leading-relaxed font-light">
@@ -620,17 +620,17 @@ export default function App() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4 shrink-0">
-                <a href="tel:+919505555277" className="btn-outline-white">
-                  <Phone className="w-3.5 h-3.5 text-[#b82329]" />
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 shrink-0 w-full lg:w-auto">
+                <a href="tel:+919505555277" className="btn-outline-white justify-center text-center py-3.5 px-6">
+                  <Phone className="w-4 h-4 text-[#b82329]" />
                   Call Direct
                 </a>
                 <button
                   onClick={() => setQuoteModalOpen(true)}
-                  className="btn-primary"
+                  className="btn-primary justify-center text-center py-3.5 px-6"
                 >
                   Request Custom Quote
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
@@ -659,7 +659,7 @@ export default function App() {
             </div>
 
             {/* Featured Books Grid — Fluid & Expansive */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 mb-16">
               {[
                 {
                   title: 'WEAVES ANDHRA PRADESH',
@@ -708,18 +708,18 @@ export default function App() {
               ].map((book, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-xl border border-[#ded8cb] overflow-hidden flex flex-col justify-between hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group"
+                  className="bg-white rounded-2xl border border-[#ded8cb] overflow-hidden flex flex-col justify-between hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 group shadow-sm"
                 >
                   <div>
                     {/* Archival Showcase Stage */}
                     <div
-                      className="w-full h-64 sm:h-72 bg-gradient-to-br from-[#faf8f5] to-[#ece5d8] p-6 flex items-center justify-center relative cursor-pointer border-b border-[#ded8cb]/60 overflow-hidden"
+                      className="w-full h-72 sm:h-80 md:h-96 bg-gradient-to-br from-[#faf8f5] to-[#ece5d8] p-6 sm:p-8 flex items-center justify-center relative cursor-pointer border-b border-[#ded8cb]/60 overflow-hidden"
                       onClick={() => setLightboxImage({ src: book.image, title: book.title, subtitle: book.sub })}
                     >
                       <img
                         src={book.image}
                         alt={book.title}
-                        className="max-h-full max-w-full object-contain filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.18)] group-hover:scale-105 transition-transform duration-500"
+                        className="max-h-full max-w-full object-contain filter drop-shadow-[0_16px_32px_rgba(0,0,0,0.22)] group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs uppercase font-bold tracking-widest gap-2">
                         <ZoomIn className="w-4 h-4" />
@@ -727,38 +727,42 @@ export default function App() {
                       </div>
                     </div>
 
-                    <div className="p-6 sm:p-7">
-                      <div className="inline-block px-3 py-1 rounded-full bg-[#fbebed] border border-[#b82329]/20 text-[#b82329] text-[10px] font-bold uppercase tracking-wider mb-3">
+                    {/* Expanded, Spacious White Box Content */}
+                    <div className="p-7 sm:p-9 lg:p-10">
+                      <div className="inline-block px-3.5 py-1.5 rounded-full bg-[#fbebed] border border-[#b82329]/20 text-[#b82329] text-[11px] font-bold uppercase tracking-wider mb-4">
                         {book.badge}
                       </div>
 
-                      <h3 className="font-serif text-2xl font-bold text-[#141310] leading-snug group-hover:text-[#b82329] transition-colors">
+                      <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#141310] leading-tight group-hover:text-[#b82329] transition-colors mb-2">
                         {book.title}
                       </h3>
-                      <div className="text-xs uppercase tracking-wider font-semibold text-[#747169] mb-4 mt-1">
+                      <div className="text-xs sm:text-sm uppercase tracking-wider font-semibold text-[#747169] mb-4">
                         {book.sub}
                       </div>
 
-                      <p className="text-xs sm:text-sm text-[#5d5951] leading-relaxed">
+                      <p className="text-sm sm:text-base text-[#4e4a42] leading-relaxed font-light">
                         {book.desc}
                       </p>
                     </div>
                   </div>
 
                   {book.launchImg && (
-                    <div
-                      className="mx-6 sm:mx-7 mb-6 p-3 rounded-lg bg-[#f7f5f0] border border-[#ded8cb] flex items-center gap-3 cursor-pointer group/launch hover:bg-[#eeeae0] transition-colors"
-                      onClick={() => setLightboxImage({ src: book.launchImg!, title: `${book.title} — Official Launch`, subtitle: book.badge })}
-                    >
-                      <div className="w-14 h-14 rounded overflow-hidden shrink-0 bg-black border border-white/20">
-                        <img src={book.launchImg} alt="Book Launch Ceremony" className="w-full h-full object-cover group-hover/launch:scale-110 transition-transform" />
-                      </div>
-                      <div className="text-xs text-[#141310] font-medium leading-snug group-hover/launch:text-[#b82329] transition-colors">
-                        <span className="font-bold block text-[11px] uppercase tracking-wider text-[#b82329]">
-                          Official Launch Ceremony
-                        </span>
-                        Chief Minister Sri Nara Chandrababu Naidu Garu
-                        <span className="text-[10px] block text-[#747169]">Click to view full photograph</span>
+                    <div className="p-7 sm:p-9 lg:p-10 pt-0">
+                      <div
+                        className="p-4 sm:p-5 rounded-xl bg-[#faf8f5] border border-[#ded8cb] flex items-center gap-4 cursor-pointer group/launch hover:bg-[#eeeae0] hover:border-[#b82329]/40 transition-all shadow-sm"
+                        onClick={() => setLightboxImage({ src: book.launchImg!, title: `${book.title} — Official Launch`, subtitle: book.badge })}
+                      >
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden shrink-0 bg-black border border-white/20 shadow-md">
+                          <img src={book.launchImg} alt="Book Launch Ceremony" className="w-full h-full object-cover group-hover/launch:scale-110 transition-transform duration-300" />
+                        </div>
+                        <div className="text-xs sm:text-sm text-[#141310] font-medium leading-relaxed group-hover/launch:text-[#b82329] transition-colors flex-1">
+                          <span className="font-bold block text-[11px] sm:text-xs uppercase tracking-wider text-[#b82329] mb-0.5">
+                            Official Launch Ceremony
+                          </span>
+                          Chief Minister Sri Nara Chandrababu Naidu Garu
+                          <span className="text-[11px] block text-[#747169] mt-0.5 font-normal">Click to view full photograph & ceremonial launch</span>
+                        </div>
+                        <ChevronRight className="w-4 h-4 text-[#747169] group-hover/launch:translate-x-1 transition-transform shrink-0" />
                       </div>
                     </div>
                   )}
