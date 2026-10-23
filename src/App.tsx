@@ -1346,15 +1346,16 @@ export default function App() {
               </div>
             </div>
 
-            {/* Portfolio Grid — Spacious 3-Column Architectural Cards */}
+            {/* Portfolio Grid — Pure Editorial Presentation (Un-Boxed & Spacious) */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
               {filteredPortfolio.map((item) => (
                 <article
                   key={item.id}
                   onClick={() => setLightboxImage({ src: item.image, title: item.title, subtitle: `${item.client} • ${item.category}` })}
-                  className="bg-white rounded-2xl border border-[#ded8cb] overflow-hidden group cursor-pointer shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+                  className="group cursor-pointer flex flex-col justify-between transition-all duration-300"
                 >
-                  <div className="w-full aspect-[16/10] overflow-hidden relative bg-[#faf8f5] border-b border-[#ded8cb]">
+                  {/* Clean Framed Media Container */}
+                  <div className="w-full aspect-[16/10] overflow-hidden relative rounded-xl border border-[#ded8cb] shadow-sm group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 bg-[#eae5d9]">
                     <SmartImage
                       src={item.image}
                       alt={item.title}
@@ -1364,28 +1365,29 @@ export default function App() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
-                    <span className="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#b82329] text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
+                    <span className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#b82329] text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
                       {item.category}
                     </span>
-                    <span className="absolute bottom-4 left-4 text-xs text-white/95 font-mono font-bold bg-black/60 backdrop-blur-md px-3 py-1 rounded-md border border-white/15">
+                    <span className="absolute bottom-3.5 left-3.5 text-xs text-white/95 font-mono font-bold bg-black/60 backdrop-blur-md px-3 py-1 rounded-md border border-white/15">
                       {item.year || 'Selected Project'}
                     </span>
                   </div>
 
-                  <div className="p-6 sm:p-7 lg:p-8 flex-1 flex flex-col justify-between bg-white">
+                  {/* Flowing Editorial Typography — Free from Enclosing Boxes */}
+                  <div className="pt-5 pb-2 flex-1 flex flex-col justify-between">
                     <div>
                       <div className="text-xs uppercase tracking-wider font-bold text-[#b82329] mb-2">
                         {item.client}
                       </div>
-                      <h3 className="font-serif text-2xl sm:text-[26px] font-bold text-[#141310] leading-snug mb-3 group-hover:text-[#b82329] transition-colors">
+                      <h3 className="font-serif text-2xl sm:text-[26px] font-bold text-[#141310] leading-snug mb-2.5 group-hover:text-[#b82329] transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-sm sm:text-[15px] text-[#524e47] leading-relaxed line-clamp-3 mb-4 font-normal">
+                      <p className="text-sm text-[#524e47] leading-relaxed line-clamp-3 mb-4 font-normal">
                         {item.description}
                       </p>
                     </div>
 
-                    <div className="pt-4 border-t border-[#f0ede6] flex items-center justify-between text-xs sm:text-sm text-[#747169]">
+                    <div className="pt-3 border-t border-[#ded8cb]/70 flex items-center justify-between text-xs sm:text-sm text-[#747169]">
                       <span className="font-bold text-[#b82329] group-hover:underline inline-flex items-center gap-1.5">
                         View Project Details
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
