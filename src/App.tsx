@@ -345,201 +345,82 @@ export default function App() {
         {/* =========================================================================
             HERO SECTION
         ========================================================================== */}
-        <section id="hero" className="bg-[#faf8f5] text-[#141310] pt-24 sm:pt-28 pb-10 sm:pb-16 border-b border-[#ded8cb]">
-          <div className="site-container">
-            {/* MOBILE LAYOUT (Directly matching user's mobile plan, elevated with fine art details) */}
-            <div className="lg:hidden flex flex-col">
-              {/* Kicker with Red Accent Dash */}
-              <div className="flex items-center gap-2 mb-3">
-                <span className="w-6 h-[2px] bg-[#b82329]" />
-                <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-[#b82329]">
-                  Film · Photography · Visual Storytelling
-                </span>
+        <section id="hero" className="hero-section">
+          <div className="hero-bg-overlay" />
+          <div className="hero-image-wrapper">
+            <img
+              src="/images/mockup_assets/hero_cinema_bright_daylight.jpg"
+              alt="Cinematic studio camera rig in sun-drenched architectural soundstage"
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+
+          <div className="site-container relative z-10 w-full">
+            <div className="max-w-3xl pt-4 pb-8 sm:py-16 lg:py-24">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#ded8cb] shadow-sm text-[10px] sm:text-xs uppercase tracking-widest text-[#5d5951] mb-4 sm:mb-5 font-semibold">
+                <span className="w-2 h-2 rounded-full bg-[#b82329] animate-pulse shrink-0" />
+                <span className="hidden sm:inline">AI Video Production • Ad Films • Corporate Video • Documentaries</span>
+                <span className="sm:hidden">AI Video • Ad Films • Documentaries</span>
               </div>
 
-              {/* Title */}
-              <h1 className="text-4xl sm:text-5xl font-serif text-[#141310] leading-[1.02] tracking-tight mb-2.5">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-[#141310] font-serif leading-[1.0] tracking-tight mb-4 sm:mb-5">
                 Stories deserve
                 <br />
                 to be <em className="italic text-[#b82329]">seen.</em>
               </h1>
 
-              {/* Subhead */}
-              <p className="text-sm text-[#5d5951] leading-relaxed mb-4 font-normal">
-                Films and visual stories for brands, institutions and people.
+              <p className="text-sm sm:text-base md:text-lg text-[#5d5951] leading-relaxed max-w-xl font-normal mb-6 sm:mb-8">
+                Pioneering AI video synthesis and two decades of master cinematic storytelling for brands, institutions, and statecraft across Telangana & Andhra Pradesh.
               </p>
 
-              {/* Center Framed Photo Card */}
-              <div
-                className="relative rounded-2xl overflow-hidden shadow-lg border border-[#ded8cb] p-1.5 bg-white mb-4 cursor-pointer group"
-                onClick={() => {
-                  setVideoModalTitle('Shlokh Entertainments — Charminar Heritage & Film Production')
-                  setVideoModalOpen(true)
-                }}
-              >
-                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#eeeae0]">
-                  <img
-                    src="/images/mockup_assets/hero_cinema_charminar_hyderabad.jpg"
-                    alt="Cinema camera rig and cinematographer shooting on location at Charminar Hyderabad"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                  />
-                  {/* Floating live badge */}
-                  <div className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[9px] uppercase tracking-wider font-semibold flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#e0434b] animate-pulse" />
-                    <span>On Set • Charminar Hyderabad</span>
-                  </div>
-
-                  {/* Play icon overlay */}
-                  <div className="absolute inset-0 bg-black/15 group-hover:bg-black/5 transition-colors flex items-center justify-center">
-                    <div className="w-12 h-12 rounded-full bg-white/95 text-[#b82329] shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Play className="w-5 h-5 fill-current ml-0.5" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Primary Call to Action Button */}
-              <button
-                onClick={() => {
-                  setVideoModalTitle('Shlokh Entertainments — 2026 Master Showreel')
-                  setVideoModalOpen(true)
-                }}
-                className="w-full h-12 py-3 px-5 rounded-md font-bold text-xs uppercase tracking-widest flex items-center justify-between shadow-md active:scale-[0.98] transition-all mb-3.5"
-                style={{ backgroundColor: '#b82329', color: '#ffffff' }}
-              >
-                <div className="flex items-center gap-2.5">
-                  <span className="w-6 h-6 rounded-full bg-white text-[#b82329] flex items-center justify-center shadow-sm">
-                    <Play className="w-3 h-3 fill-current ml-0.5" />
+              <div className="flex flex-row items-center gap-3 sm:gap-5 mb-7 sm:mb-10 max-w-md">
+                <button
+                  onClick={() => {
+                    setVideoModalTitle('Shlokh Entertainments — 2026 Master Showreel')
+                    setVideoModalOpen(true)
+                  }}
+                  className="btn-primary group flex-1 sm:flex-initial justify-center py-3 px-3 sm:py-3.5 sm:px-6 text-[11px] sm:text-xs"
+                >
+                  <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                    <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
                   </span>
-                  <span className="text-white font-bold tracking-widest">Watch Showreel</span>
-                </div>
-                <ArrowRight className="w-4 h-4 text-white" />
-              </button>
+                  <span>Watch Showreel</span>
+                </button>
 
-              {/* Secondary Action */}
-              <div className="text-center mb-5">
                 <a
                   href="#services"
-                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#141310] hover:text-[#b82329] transition-colors relative py-1"
+                  className="btn-outline flex-1 sm:flex-initial justify-center py-3 px-3 sm:py-3.5 sm:px-5 text-[11px] sm:text-xs bg-white/80 hover:bg-white text-[#141310] border-[#ded8cb]"
                 >
-                  <span className="border-b-2 border-[#b82329] pb-0.5">Explore 14 Capabilities</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <span>14 Capabilities</span>
+                  <ArrowRight className="w-3.5 h-3.5 shrink-0" />
                 </a>
               </div>
 
-              {/* Bottom 3-Metric Trust Strip */}
-              <div className="pt-3.5 border-t border-[#ded8cb] grid grid-cols-3 divide-x divide-[#ded8cb] text-center text-[#5d5951]">
-                <div className="px-1.5 flex flex-col items-center justify-center gap-1">
-                  <MapPin className="w-3.5 h-3.5 text-[#b82329]" />
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-[#141310]">Hyderabad & Guntur</span>
+              {/* Location and Heritage Badges */}
+              <div className="pt-4 border-t border-[#ded8cb] flex items-center gap-x-2.5 sm:gap-x-5 text-[10px] sm:text-xs uppercase tracking-wider text-[#747169] overflow-x-auto scrollbar-none">
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <MapPin className="w-3.5 h-3.5 text-[#b82329] shrink-0" />
+                  <span className="text-[#3b3832] font-medium">Hyderabad & Guntur</span>
                 </div>
-                <div className="px-1.5 flex flex-col items-center justify-center gap-1">
-                  <Award className="w-3.5 h-3.5 text-[#b82329]" />
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-[#141310]">20+ Years</span>
+                <span className="text-[#c2bcb0] shrink-0">•</span>
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <Award className="w-3.5 h-3.5 text-[#b82329] shrink-0" />
+                  <span className="text-[#3b3832] font-medium">20+ Years</span>
                 </div>
-                <div className="px-1.5 flex flex-col items-center justify-center gap-1">
-                  <Users className="w-3.5 h-3.5 text-[#b82329]" />
-                  <span className="text-[9px] uppercase font-bold tracking-wider text-[#141310] leading-tight">Trusted by Brands & State</span>
-                </div>
+                <span className="text-[#c2bcb0] shrink-0">•</span>
+                <span className="text-[#141310] font-bold shrink-0">500+ Films</span>
               </div>
             </div>
+          </div>
 
-            {/* DESKTOP LAYOUT (Grand 2-Column Editorial Spread) */}
-            <div className="hidden lg:grid grid-cols-12 gap-12 items-center py-6">
-              <div className="col-span-7">
-                {/* Kicker with Red Dash */}
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="w-8 h-[2px] bg-[#b82329]" />
-                  <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#b82329]">
-                    Film · Photography · Visual Storytelling
-                  </span>
-                </div>
-
-                {/* Title */}
-                <h1 className="text-6xl xl:text-7xl font-serif text-[#141310] leading-[0.98] tracking-tight mb-5">
-                  Stories deserve
-                  <br />
-                  to be <em className="italic text-[#b82329]">seen.</em>
-                </h1>
-
-                {/* Subhead */}
-                <p className="text-lg text-[#5d5951] leading-relaxed max-w-xl font-normal mb-8">
-                  Films and visual stories for brands, institutions, and statecraft across Telangana & Andhra Pradesh. Combining artificial intelligence with two decades of human cinematic craft.
-                </p>
-
-                {/* Action Buttons */}
-                <div className="flex items-center gap-5 mb-10">
-                  <button
-                    onClick={() => {
-                      setVideoModalTitle('Shlokh Entertainments — 2026 Master Showreel')
-                      setVideoModalOpen(true)
-                    }}
-                    className="btn-primary group py-3.5 px-7 text-xs flex items-center gap-3 shadow-md hover:shadow-lg transition-all"
-                  >
-                    <span className="w-6 h-6 rounded-full bg-white text-[#b82329] flex items-center justify-center shadow-sm">
-                      <Play className="w-3 h-3 fill-current ml-0.5" />
-                    </span>
-                    <span>Watch Showreel</span>
-                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </button>
-
-                  <a
-                    href="#services"
-                    className="btn-outline py-3.5 px-6 text-xs bg-white/90 hover:bg-white text-[#141310] border-[#ded8cb] hover:border-[#141310]"
-                  >
-                    <span>Explore 14 Capabilities</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-
-                {/* Desktop Trust Strip */}
-                <div className="pt-6 border-t border-[#ded8cb] flex items-center gap-8 text-xs text-[#5d5951]">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-[#b82329]" />
-                    <span className="font-semibold text-[#141310] uppercase tracking-wider">Hyderabad & Guntur</span>
-                  </div>
-                  <span className="text-[#ded8cb]">•</span>
-                  <div className="flex items-center gap-2">
-                    <Award className="w-4 h-4 text-[#b82329]" />
-                    <span className="font-semibold text-[#141310] uppercase tracking-wider">20+ Years Legacy</span>
-                  </div>
-                  <span className="text-[#ded8cb]">•</span>
-                  <div className="flex items-center gap-2">
-                    <Users className="w-4 h-4 text-[#b82329]" />
-                    <span className="font-semibold text-[#141310] uppercase tracking-wider">500+ Films Produced</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Framed Charminar Cinema Photo Card */}
-              <div className="col-span-5">
-                <div
-                  className="relative rounded-2xl overflow-hidden shadow-xl border border-[#ded8cb] p-2 bg-white cursor-pointer group"
-                  onClick={() => {
-                    setVideoModalTitle('Shlokh Entertainments — Charminar Heritage & Film Production')
-                    setVideoModalOpen(true)
-                  }}
-                >
-                  <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-[#eeeae0]">
-                    <img
-                      src="/images/mockup_assets/hero_cinema_charminar_hyderabad.jpg"
-                      alt="Cinema camera rig and cinematographer shooting on location at Charminar Hyderabad"
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[10px] uppercase tracking-widest font-semibold flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-[#e0434b] animate-pulse" />
-                      <span>On Set • Charminar Hyderabad</span>
-                    </div>
-
-                    <div className="absolute inset-0 bg-black/15 group-hover:bg-black/5 transition-colors flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-white/95 text-[#b82329] shadow-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Play className="w-7 h-7 fill-current ml-0.5" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* Artistic Script Overlay */}
+          <div className="hidden xl:block absolute right-12 bottom-16 z-10 pointer-events-none text-right">
+            <span className="font-script text-4xl lg:text-5xl text-[#141310]/30 block leading-tight">
+              Ideas • People • Places • Impact
+            </span>
+            <span className="text-[10px] tracking-[0.25em] text-[#5d5951]/70 uppercase mt-1 block font-mono">
+              Shlokh Entertainments
+            </span>
           </div>
         </section>
 
