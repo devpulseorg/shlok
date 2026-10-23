@@ -284,7 +284,12 @@ export default function App() {
       {/* Mobile Drawer */}
       <div className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}>
         <div className="flex justify-between items-center mb-8 pb-4 border-b border-white/10">
-          <img src="/images/shlokh_logo_light_header.png" alt="Shlokh Logo" className="h-8 w-auto" />
+          <img
+            src="/images/shlokh_logo_light_header.png"
+            alt="Shlokh Logo"
+            className="h-8 w-auto max-w-[180px] object-contain block"
+            style={{ height: '32px', width: 'auto' }}
+          />
           <button onClick={() => setMobileMenuOpen(false)} className="text-white p-2">
             <X className="w-6 h-6" />
           </button>
@@ -1721,7 +1726,12 @@ export default function App() {
         <div className="site-container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
             <div>
-              <img src="/images/shlokh_logo_light_header.png" alt="Shlokh Entertainments" className="h-10 w-auto mb-4" />
+              <img
+                src="/images/shlokh_logo_light_header.png"
+                alt="Shlokh Entertainments"
+                className="h-10 w-auto max-w-[220px] object-contain mb-4 block"
+                style={{ height: '40px', width: 'auto' }}
+              />
               <p className="text-xs text-[#a9a59c] leading-relaxed mb-4">
                 Films, Photography, Visual Communication. Combining artificial intelligence with seasoned cinematic craft for a better tomorrow.
               </p>
