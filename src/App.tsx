@@ -29,7 +29,8 @@ import {
   Radio,
   FileText,
   Volume2,
-  ZoomIn
+  ZoomIn,
+  MessageSquare
 } from 'lucide-react'
 
 import { servicesData, businessInfo, type ServiceItem } from './data/servicesData'
@@ -282,23 +283,24 @@ export default function App() {
           </div>
 
           <div className="site-container relative z-10 w-full">
-            <div className="max-w-2xl lg:max-w-3xl py-12 lg:py-20">
-              <div className="inline-flex flex-wrap items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[9px] sm:text-[11px] md:text-xs uppercase tracking-wider text-[#d5d0c5] mb-6 font-semibold max-w-full">
+            <div className="max-w-3xl py-12 sm:py-16 lg:py-24">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[10px] sm:text-xs uppercase tracking-widest text-[#d5d0c5] mb-5 font-semibold">
                 <span className="w-2 h-2 rounded-full bg-[#b82329] animate-pulse shrink-0" />
-                <span>AI Video Production • Ad Films • Corporate Video • Documentaries</span>
+                <span className="hidden sm:inline">AI Video Production • Ad Films • Corporate Video • Documentaries</span>
+                <span className="sm:hidden">AI Video • Ad Films • Documentaries</span>
               </div>
 
-              <h1 className="text-5xl sm:text-7xl lg:text-8xl text-white font-serif leading-[0.92] tracking-tight mb-6">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white font-serif leading-[0.94] tracking-tight mb-5">
                 Stories deserve
                 <br />
                 to be <em>seen.</em>
               </h1>
 
-              <p className="text-base sm:text-lg text-[#ccc7bd] leading-relaxed max-w-xl font-light mb-8">
-                {businessInfo.description}
+              <p className="text-sm sm:text-base md:text-lg text-[#ccc7bd] leading-relaxed max-w-xl font-light mb-8">
+                Pioneering AI-driven video synthesis and two decades of human cinematic storytelling for brands, institutions, and statecraft across Telangana & Andhra Pradesh.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4 sm:gap-6 mb-12">
+              <div className="flex flex-wrap items-center gap-3.5 sm:gap-5 mb-10">
                 <button
                   onClick={() => {
                     setVideoModalTitle('Shlokh Entertainments — 2026 Master Showreel')
@@ -313,24 +315,24 @@ export default function App() {
                 </button>
 
                 <a href="#services" className="btn-outline-white">
-                  Explore All 14 Services
+                  Explore 14 Capabilities
                   <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
 
               {/* Location and Heritage Badges */}
-              <div className="pt-6 border-t border-white/15 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs uppercase tracking-wider text-[#9d998f]">
-                <div className="flex items-center gap-2">
+              <div className="pt-5 border-t border-white/15 flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] sm:text-xs uppercase tracking-wider text-[#a9a59c]">
+                <div className="flex items-center gap-1.5">
                   <MapPin className="w-3.5 h-3.5 text-[#b82329]" />
-                  <span>Punjagutta, Hyderabad (Telangana)</span>
+                  <span>Hyderabad & Guntur</span>
                 </div>
-                <div className="hidden sm:block w-1 h-1 rounded-full bg-white/30" />
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-[#b82329]" />
-                  <span>SVN Colony, Guntur (Andhra Pradesh)</span>
+                <span className="text-white/25 hidden sm:inline">•</span>
+                <div className="flex items-center gap-1.5">
+                  <Award className="w-3.5 h-3.5 text-[#b82329]" />
+                  <span>20+ Years Leadership</span>
                 </div>
-                <div className="hidden sm:block w-1 h-1 rounded-full bg-white/30" />
-                <span className="text-white/80 font-medium">20+ Years of Creative Leadership</span>
+                <span className="text-white/25 hidden sm:inline">•</span>
+                <span className="text-white/80 font-medium">500+ Films Produced</span>
               </div>
             </div>
           </div>
@@ -538,7 +540,7 @@ export default function App() {
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-black/30" />
                     
                     {/* Top Status Bar */}
                     <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
@@ -550,43 +552,37 @@ export default function App() {
                       </span>
                     </div>
 
-                    {/* Bottom Title inside Image Banner */}
-                    <div className="absolute bottom-4 left-4 right-4 text-white pointer-events-none">
-                      <span className="text-[10px] text-white/60 uppercase tracking-[0.2em] font-semibold block mb-1">
-                        Shlokh Production • Hyderabad
-                      </span>
-                      <h3 className="font-serif text-2xl font-bold leading-tight drop-shadow-md text-white group-hover:text-amber-200 transition-colors">
-                        {service.title}
-                      </h3>
+                    <div className="absolute bottom-3 left-4 text-white/70 text-[10px] uppercase tracking-widest font-mono pointer-events-none">
+                      Shlokh Production • 4K Master
                     </div>
                   </div>
 
                   <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between bg-white">
                     <div>
-                      {/* Description from docx */}
-                      <p className="text-xs sm:text-sm text-[#5d5951] leading-relaxed mb-6 font-normal">
+                      <h3 className="font-serif text-2xl font-bold leading-snug text-[#141310] group-hover:text-[#b82329] transition-colors mb-2.5">
+                        {service.title}
+                      </h3>
+
+                      <p className="text-xs sm:text-sm text-[#5d5951] leading-relaxed line-clamp-2 mb-4 font-normal">
                         {service.description}
                       </p>
 
-                      {/* Scope Capabilities */}
-                      <div className="pt-4 border-t border-[#eeeae0] mb-6">
-                        <div className="text-[10px] uppercase tracking-widest font-bold text-[#b82329] mb-3 flex items-center justify-between">
-                          <span>Key Deliverables</span>
-                          <span className="text-[10px] text-[#9d998f] font-normal">({service.deliverables.length} capabilities)</span>
-                        </div>
-                        <ul className="space-y-2">
-                          {service.deliverables.slice(0, 3).map((item, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-xs text-[#423f39]">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#b82329] shrink-0 mt-1.5" />
-                              <span className="leading-snug">{item}</span>
-                            </li>
-                          ))}
-                        </ul>
+                      {/* Clean Capability Tags */}
+                      <div className="flex flex-wrap gap-1.5 mb-2">
+                        {service.tags.slice(0, 3).map((tag, idx) => (
+                          <span
+                            key={idx}
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#f7f5f0] border border-[#ded8cb] text-[11px] font-semibold text-[#423f39]"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#b82329]" />
+                            {tag}
+                          </span>
+                        ))}
                       </div>
                     </div>
 
                     {/* Action Bar */}
-                    <div className="pt-4 border-t border-[#f0ede6] flex items-center justify-between">
+                    <div className="pt-4 border-t border-[#f0ede6] flex items-center justify-between mt-4">
                       <span className="text-xs font-bold uppercase tracking-wider text-[#b82329] group-hover:text-[#9e1c21] inline-flex items-center gap-1.5">
                         Full Scope & Deliverables
                         <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform" />
@@ -771,26 +767,55 @@ export default function App() {
             </div>
 
             {/* 10 Clusters of India — Expansive National Artisan Showcase */}
-            <div className="p-8 lg:p-12 rounded-xl bg-white border border-[#ded8cb] shadow-sm">
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 pb-6 border-b border-[#eeeae0]">
+            <div className="p-5 sm:p-8 lg:p-12 rounded-xl bg-white border border-[#ded8cb] shadow-sm">
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-6 sm:mb-8 pb-6 border-b border-[#eeeae0]">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-widest text-[#b82329] flex items-center gap-2 mb-2">
                     <span className="w-2 h-2 rounded-full bg-[#b82329] animate-pulse" />
                     National Footprint • Ministry of Textiles, GOI
                   </span>
-                  <h3 className="text-3xl sm:text-4xl font-serif text-[#141310]">
+                  <h3 className="text-2xl sm:text-4xl font-serif text-[#141310]">
                     10 Clusters. Countless Stories. One Heritage.
                   </h3>
-                  <p className="text-sm text-[#747169] mt-2 max-w-2xl font-light">
+                  <p className="text-xs sm:text-sm text-[#747169] mt-2 max-w-2xl font-light">
                     Comprehensive visual documentation, branding, and publication of India’s living craft traditions across Gujarat, Telangana, Andhra Pradesh, Karnataka, Rajasthan, and Uttar Pradesh.
                   </p>
                 </div>
-                <div className="text-xs uppercase tracking-widest text-[#5d5951] font-semibold shrink-0">
-                  6 States • 10 Living Traditions
+                <div className="flex items-center justify-between sm:justify-end gap-3 text-xs uppercase tracking-widest text-[#5d5951] font-semibold shrink-0">
+                  <span>6 States • 10 Living Traditions</span>
+                  <span className="sm:hidden text-[10px] text-[#b82329] font-mono font-bold flex items-center gap-1">Swipe →</span>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 lg:gap-6">
+              {/* Mobile Horizontal Swipeable Deck */}
+              <div className="flex sm:hidden overflow-x-auto gap-3.5 pb-4 snap-x snap-mandatory scrollbar-none -mx-2 px-2">
+                {craftClustersList.map((cluster, idx) => (
+                  <div
+                    key={idx}
+                    className="snap-start min-w-[220px] shrink-0 p-4 rounded-xl bg-[#faf8f5] border border-[#ded8cb] flex flex-col justify-between shadow-sm min-h-[125px]"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-[10px] font-mono font-bold text-[#9d998f]">
+                          0{idx + 1}
+                        </span>
+                        <span className="text-[9px] px-2 py-0.5 rounded-full bg-[#fbebed] text-[#b82329] font-bold uppercase tracking-wider">
+                          {cluster.state}
+                        </span>
+                      </div>
+                      <h4 className="font-serif text-lg font-bold text-[#141310]">
+                        {cluster.name}
+                      </h4>
+                    </div>
+                    <div className="pt-3 mt-3 border-t border-[#ded8cb]/60 text-xs text-[#5d5951] font-medium">
+                      {cluster.craft}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Desktop / Tablet Grid */}
+              <div className="hidden sm:grid sm:grid-cols-3 md:grid-cols-5 gap-4 lg:gap-6">
                 {craftClustersList.map((cluster, idx) => (
                   <div
                     key={idx}
@@ -894,42 +919,42 @@ export default function App() {
             </div>
 
             {/* Core Commitments from PDF Page 8 */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 p-8 rounded-md bg-[#eeeae0] border border-[#ded8cb]">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[#b82329] text-white flex items-center justify-center shrink-0 font-serif font-bold text-lg">
-                  1
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {[
+                {
+                  num: '01',
+                  title: 'Capture Accurately',
+                  desc: 'Preserving the authentic voice and dialects of everyday citizens without staging or artificial bias.',
+                },
+                {
+                  num: '02',
+                  title: 'Document Responsibly',
+                  desc: 'Ethical filming with verified consent protocols, respectful community engagement, and dignified framing.',
+                },
+                {
+                  num: '03',
+                  title: 'Deliver on Time',
+                  desc: 'Rapid overnight editing turnaround, multilingual subtitle integration, and seamless governmental submissions.',
+                },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="p-7 rounded-xl bg-white border border-[#ded8cb] shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between"
+                >
+                  <span className="text-6xl font-serif font-bold text-[#141310]/5 absolute right-4 top-2 pointer-events-none">
+                    {item.num}
+                  </span>
+                  <div>
+                    <div className="w-10 h-10 rounded-full bg-[#b82329] text-white flex items-center justify-center font-serif font-bold text-sm mb-4 shadow-sm">
+                      {item.num}
+                    </div>
+                    <h4 className="font-serif text-xl font-bold text-[#141310] mb-2">{item.title}</h4>
+                    <p className="text-xs text-[#5d5951] leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-serif text-xl font-bold text-[#141310] mb-1">Capture Accurately</h4>
-                  <p className="text-xs text-[#5d5951] leading-relaxed">
-                    Preserving the authentic voice and dialects of everyday citizens without staging or artificial bias.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[#b82329] text-white flex items-center justify-center shrink-0 font-serif font-bold text-lg">
-                  2
-                </div>
-                <div>
-                  <h4 className="font-serif text-xl font-bold text-[#141310] mb-1">Document Responsibly</h4>
-                  <p className="text-xs text-[#5d5951] leading-relaxed">
-                    Ethical filming with verified consent protocols, respectful community engagement, and dignified framing.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[#b82329] text-white flex items-center justify-center shrink-0 font-serif font-bold text-lg">
-                  3
-                </div>
-                <div>
-                  <h4 className="font-serif text-xl font-bold text-[#141310] mb-1">Deliver on Time</h4>
-                  <p className="text-xs text-[#5d5951] leading-relaxed">
-                    Rapid overnight editing turnaround, multilingual subtitle integration, and seamless governmental submissions.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -1590,28 +1615,35 @@ export default function App() {
           MOBILE FLOATING QUICK ACTION BAR
       ========================================================================== */}
       <div className="mobile-action-bar">
-        <a href="tel:+919505555277" className="flex flex-col items-center justify-center text-white/80 hover:text-white">
-          <Phone className="w-5 h-5 text-[#b82329]" />
-          <span className="text-[10px] uppercase tracking-wider font-semibold mt-1">Call Us</span>
+        <a
+          href="tel:+919505555277"
+          aria-label="Call Shlokh Production Desk"
+          className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 text-white flex items-center justify-center transition-all shrink-0"
+        >
+          <Phone className="w-4 h-4 text-[#e0434b]" />
         </a>
         <a
           href="https://wa.me/919505555277"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center text-white/80 hover:text-white"
+          aria-label="Chat on WhatsApp"
+          className="w-10 h-10 rounded-full bg-emerald-500/15 hover:bg-emerald-500/25 active:scale-90 text-emerald-400 flex items-center justify-center transition-all shrink-0"
         >
-          <Radio className="w-5 h-5 text-emerald-500" />
-          <span className="text-[10px] uppercase tracking-wider font-semibold mt-1">WhatsApp</span>
+          <MessageSquare className="w-4 h-4" />
         </a>
-        <a href="#services" className="flex flex-col items-center justify-center text-white/80 hover:text-white">
-          <Film className="w-5 h-5 text-[#b82329]" />
-          <span className="text-[10px] uppercase tracking-wider font-semibold mt-1">14 Services</span>
+        <a
+          href="#services"
+          aria-label="View 14 Services"
+          className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 text-white flex items-center justify-center transition-all shrink-0"
+        >
+          <Film className="w-4 h-4 text-white/80" />
         </a>
         <button
           onClick={() => setQuoteModalOpen(true)}
-          className="px-2.5 py-2 rounded bg-[#b82329] text-white text-[10px] font-bold uppercase tracking-wider shrink-0 whitespace-nowrap active:scale-95 transition-transform"
+          className="flex-1 h-10 rounded-full bg-[#b82329] hover:bg-[#9e1c21] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-md active:scale-95 transition-all"
         >
-          Get Quote
+          <span>Get Quote</span>
+          <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>
 
