@@ -1,3 +1,89 @@
+export interface ExecutiveLeader {
+  id: string
+  name: string
+  role: string
+  titleBadge: string
+  initials: string
+  quote: string
+  description: string
+  highlights: string[]
+  credentials: string
+}
+
+export const executiveLeaders: ExecutiveLeader[] = [
+  {
+    id: "founder",
+    name: "Founder & Chairman",
+    role: "Foundational Visionary & Senior Patron",
+    titleBadge: "Founding Leadership",
+    initials: "FC",
+    quote: "Rooted in artistic truth, built on institutional trust, and committed to visual storytelling that endures across generations.",
+    description:
+      "Pioneering the foundational vision and values of Shlokh. Steering strategic institutional governance, senior governmental liaison, and high-profile empanelment across Andhra Pradesh and Telangana for over two decades.",
+    highlights: [
+      "Foundational architect of Shlokh's media & publishing legacy",
+      "Senior advisor on state welfare & cultural heritage documentation",
+      "Guiding two decades of ethical, client-first production standards"
+    ],
+    credentials: "20+ Years Institutional Legacy • State Advisory"
+  },
+  {
+    id: "sasi-krishna",
+    name: "Ponnekanti Sasi Krishna",
+    role: "Managing Partner & Creative Director",
+    titleBadge: "Directorial Head",
+    initials: "SK",
+    quote: "Every frame must honor the dignity of the subject — whether an artisan weaving gold zari, a farmer receiving water, or a global enterprise innovating the future.",
+    description:
+      "Visionary creative head and director steering Shlokh’s end-to-end productions. Spearheading AI-driven video synthesis, 4K documentary filmmaking, national handicraft cluster chronicles, and landmark coffee table books launched by state leadership.",
+    highlights: [
+      "Directorial helm for 100+ state government ad campaigns & films",
+      "Lead creator of national heritage coffee table books & films",
+      "Pioneer in ethical AI video production & high-fidelity multi-cam sets"
+    ],
+    credentials: "Managing Partner • Directorial & Creative Lead"
+  }
+]
+
+export interface SyndicateDepartment {
+  title: string
+  headcount: string
+  icon: string
+  summary: string
+  capabilities: string[]
+}
+
+export const productionSyndicateDepartments: SyndicateDepartment[] = [
+  {
+    title: "Directorial & Scriptwriting Guild",
+    headcount: "6 Specialists",
+    icon: "Compass",
+    summary: "Narrative architects, investigative researchers, and bilingual dialogue writers crafting authentic resonance.",
+    capabilities: ["Research-backed field narratives", "Telugu, Hindi & English scriptwriting", "Political & corporate speechwriting"]
+  },
+  {
+    title: "Cinematography & Aerial Wing",
+    headcount: "8+ Operators",
+    icon: "Camera",
+    summary: "Masters of visual framing, anamorphic cinema lenses, and DGCA-certified aerial drone tracking.",
+    capabilities: ["Sony Venice & FX cinema rigs", "4K HDR drone cinematography", "Wireless director monitoring setups"]
+  },
+  {
+    title: "Post-Production & Sound Design",
+    headcount: "10+ Editors & Musicians",
+    icon: "Layers",
+    summary: "Dedicated 4K editing bays, DaVinci Resolve color finishing, and original orchestral score composers.",
+    capabilities: ["Frame-accurate rhythm montage", "Broadcast color grading", "Multilingual Dolby 5.1 audio mixing"]
+  },
+  {
+    title: "AI Synthesis & Motion Graphics",
+    headcount: "6 Technologists",
+    icon: "Sparkles",
+    summary: "Pioneering neural avatar synthesis, virtual studio production, and 3D kinetic product visualization.",
+    capabilities: ["Photorealistic digital avatars", "Kinetic brand typography", "3D architectural render walk-throughs"]
+  }
+]
+
 export interface TeamMember {
   name: string
   role: string

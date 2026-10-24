@@ -22,3 +22,5 @@ screen_tests/
 # beside it.
 /.plugins/
 /.opencode-skills/
+/.opencode/
+capture_sections.js
