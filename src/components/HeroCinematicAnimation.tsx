@@ -193,7 +193,7 @@ export function HeroCinematicAnimation({
   return (
     <>
       {/* =========================================================================
-          AMBIENT DARK VELVET BACKDROP (ONLY ACTIVE DURING LARGE OPENING STAGE)
+          AMBIENT DEEP BLACK BACKDROP (SEAMLESSLY MATCHES CAMERA LENS CASING)
       ========================================================================== */}
       <div
         onClick={startDocking}
@@ -202,7 +202,7 @@ export function HeroCinematicAnimation({
           inset: 0,
           zIndex: 40,
         }}
-        className={`bg-[#080807]/95 backdrop-blur-md transition-opacity duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] select-none ${
+        className={`bg-black transition-opacity duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] select-none ${
           stage === "center"
             ? "opacity-100 pointer-events-auto cursor-pointer"
             : "opacity-0 pointer-events-none"
@@ -254,21 +254,29 @@ export function HeroCinematicAnimation({
               ? {
                   transform: `translate3d(${coords.x}px, ${coords.y}px, 0) scale(${coords.scale})`,
                   zIndex: 50,
-                  boxShadow: "0 30px 100px -10px rgba(0, 0, 0, 0.9)",
+                  boxShadow: "none",
+                  backgroundColor: "#000000",
+                  borderColor: "transparent",
                 }
               : stage === "docking"
               ? {
                   transform: "translate3d(0, 0, 0) scale(1)",
                   zIndex: 45,
-                  transition: "transform 850ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 850ms ease",
+                  transition: "transform 850ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 850ms ease, border-color 850ms ease, background-color 850ms ease",
                   boxShadow: "0 24px 60px -12px rgba(20, 19, 16, 0.35)",
+                  backgroundColor: "#0c0c0b",
+                  borderColor: "#2a2925",
                 }
               : {
                   zIndex: 10,
                   boxShadow: "0 24px 60px -12px rgba(20, 19, 16, 0.35)",
+                  backgroundColor: "#0c0c0b",
+                  borderColor: "#2a2925",
                 }
           }
-          className="relative w-full aspect-[16/10.5] sm:aspect-[16/10] bg-[#0c0c0b] text-[#fffdf8] border border-[#2a2925] overflow-hidden rounded-none group will-change-transform"
+          className={`relative w-full aspect-[16/10.5] sm:aspect-[16/10] text-[#fffdf8] border overflow-hidden rounded-none group will-change-transform ${
+            stage === "center" ? "border-transparent" : "border-[#2a2925]"
+          }`}
           aria-label="Shlokh cinematic unit camera monitor"
         >
           {/*
@@ -294,6 +302,14 @@ export function HeroCinematicAnimation({
             }}
             onTimeUpdate={handleTimeUpdate}
             className="w-full h-full object-cover object-center"
+          />
+
+          {/* Seamless Edge Feathering: blends outer video corners seamlessly into pure black background */}
+          <div
+            className={`absolute inset-0 pointer-events-none transition-opacity duration-700 z-10 ${
+              stage === "center" ? "opacity-100" : "opacity-0"
+            } bg-[radial-gradient(ellipse_at_center,transparent_68%,#000000_96%)]`}
+            aria-hidden="true"
           />
 
           {/* Anamorphic Lens Flare Sweep across camera glass */}
