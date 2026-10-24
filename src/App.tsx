@@ -613,13 +613,13 @@ export default function App() {
             <div className="hero-horizon-line" aria-hidden="true" />
 
             <div className="site-container relative z-10 w-full">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-5 lg:gap-x-12 items-center pt-2 sm:pt-4 pb-8 sm:py-12 lg:py-16">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-4 lg:gap-x-12 items-center pt-2 sm:pt-4 pb-6 sm:py-12 lg:py-16">
                 {/* 1. Header & Title (Row 1 on Mobile, Left Column Row 1 on Desktop) */}
                 <div className="order-1 lg:col-span-7 max-w-2xl">
-                  <div className="hero-eyebrow-entrance inline-flex items-center gap-2.5 text-xs sm:text-sm uppercase tracking-[0.16em] text-[#b82329] font-condensed font-bold mb-2.5 sm:mb-4">
+                  <div className="hero-eyebrow-entrance inline-flex items-center gap-2 text-[11px] sm:text-sm uppercase tracking-[0.16em] text-[#b82329] font-condensed font-bold mb-2 sm:mb-4">
                     <span className="w-2 h-2 rounded-full bg-[#b82329] animate-pulse" />
                     <span>CAPTURING STORIES • CREATING IMPACT</span>
-                    <span className="w-10 h-px bg-[#b82329]/30 hidden sm:inline-block" />
+                    <span className="w-8 h-px bg-[#b82329]/30 hidden sm:inline-block" />
                   </div>
 
                   <h1 className="mb-2 sm:mb-5">
@@ -639,8 +639,8 @@ export default function App() {
                   </h1>
                 </div>
 
-                {/* 2. Cinema Monitor Card (Row 2 on Mobile -> Instant High Visibility; Right Column on Desktop) */}
-                <div className="order-2 lg:col-span-5 lg:row-span-2 relative my-3 sm:my-5 lg:my-0">
+                {/* 2. Compact Cinema Monitor Card (Row 2 on Mobile -> Crisp, Centered & Space-Efficient; Right Column on Desktop) */}
+                <div className="order-2 lg:col-span-5 lg:row-span-2 relative my-2 sm:my-5 lg:my-0">
                   <HeroCinematicAnimation
                     onExplore={navigateToPhotography}
                     onAnimationComplete={() => setIsEntranceFinished(true)}
@@ -660,44 +660,46 @@ export default function App() {
 
                 {/* 3. Description, Actions & Trust Badges (Row 3 on Mobile; Left Column Row 2 on Desktop) */}
                 <div className="order-3 lg:col-span-7 max-w-2xl">
-                  <p className="hero-desc-entrance text-sm sm:text-base md:text-lg text-[#5d5951] leading-relaxed font-normal mb-5 sm:mb-8">
+                  <p className="hero-desc-entrance text-xs sm:text-base text-[#5d5951] leading-relaxed font-normal mb-4 sm:mb-8 max-w-xl">
                     Films, photography and visual communication for people,
                     institutions and brands that create change. Trusted by state
                     ministries, enterprises, and visionary brands across Telangana
                     &amp; Andhra Pradesh.
                   </p>
 
-                  <div className="hero-actions-entrance flex flex-wrap items-center gap-3 sm:gap-4 mb-6 sm:mb-9">
+                  <div className="hero-actions-entrance flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-4 mb-5 sm:mb-9">
                     <button
                       onClick={() => setQuoteModalOpen(true)}
-                      className="btn-primary group flex-1 sm:flex-initial justify-center py-3 px-4 sm:py-3.5 sm:px-6 text-xs sm:text-sm font-bold shadow-lg shadow-[#b82329]/25 cursor-pointer rounded-none"
+                      className="btn-primary group justify-center py-2.5 px-4 sm:py-3.5 sm:px-6 text-xs sm:text-sm font-bold shadow-lg shadow-[#b82329]/25 cursor-pointer rounded-none w-full sm:w-auto"
                     >
                       <span>Start a Project</span>
                       <ArrowRight className="w-3.5 h-3.5 ml-1" />
                     </button>
 
-                    <button
-                      onClick={navigateToPhotography}
-                      className="btn-outline flex-1 sm:flex-initial justify-center py-3 px-4 sm:py-3.5 sm:px-5 text-xs sm:text-sm bg-white/95 hover:bg-[#b82329] hover:text-white text-[#b82329] border-[#b82329]/60 font-bold shadow-md transition-all cursor-pointer rounded-none"
-                    >
-                      <Camera className="w-4 h-4 shrink-0" />
-                      <span>Our Photographic Work</span>
-                      <span className="px-1.5 py-0.5 rounded-none text-[9px] bg-[#b82329]/15 group-hover:bg-white/20 font-mono">
-                        50 Master Photos
-                      </span>
-                    </button>
+                    <div className="flex items-center gap-2.5 sm:gap-4 w-full sm:w-auto">
+                      <button
+                        onClick={navigateToPhotography}
+                        className="btn-outline flex-1 sm:flex-initial justify-center py-2.5 px-3 sm:py-3.5 sm:px-5 text-xs sm:text-sm bg-white/95 hover:bg-[#b82329] hover:text-white text-[#b82329] border-[#b82329]/60 font-bold shadow-sm transition-all cursor-pointer rounded-none whitespace-nowrap"
+                      >
+                        <Camera className="w-3.5 h-3.5 shrink-0" />
+                        <span>Our Work</span>
+                        <span className="px-1.5 py-0.5 rounded-none text-[9px] bg-[#b82329]/15 group-hover:bg-white/20 font-mono hidden xs:inline">
+                          50 Photos
+                        </span>
+                      </button>
 
-                    <a
-                      href="#services"
-                      className="btn-outline flex-1 sm:flex-initial justify-center py-3 px-4 sm:py-3.5 sm:px-5 text-xs sm:text-sm bg-white/90 hover:bg-white text-[#141310] border-[#ded8cb] rounded-none"
-                    >
-                      <span>14 Capabilities</span>
-                      <ArrowRight className="w-4 h-4 shrink-0" />
-                    </a>
+                      <a
+                        href="#services"
+                        className="btn-outline flex-1 sm:flex-initial justify-center py-2.5 px-3 sm:py-3.5 sm:px-5 text-xs sm:text-sm bg-white/90 hover:bg-white text-[#141310] border-[#ded8cb] rounded-none whitespace-nowrap"
+                      >
+                        <span>14 Capabilities</span>
+                        <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+                      </a>
+                    </div>
                   </div>
 
                   {/* Location and Heritage Badges */}
-                  <div className="hero-badges-entrance pt-4 border-t border-[#ded8cb] flex items-center gap-x-3 sm:gap-x-5 text-[10px] sm:text-xs uppercase tracking-wider text-[#747169] overflow-x-auto scrollbar-none">
+                  <div className="hero-badges-entrance pt-3 sm:pt-4 border-t border-[#ded8cb] flex items-center gap-x-3 sm:gap-x-5 text-[10px] sm:text-xs uppercase tracking-wider text-[#747169] overflow-x-auto scrollbar-none">
                     <div className="flex items-center gap-1.5 shrink-0">
                       <MapPin className="w-3.5 h-3.5 text-[#b82329] shrink-0" />
                       <span className="text-[#3b3832] font-medium">

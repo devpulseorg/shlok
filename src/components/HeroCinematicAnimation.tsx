@@ -34,7 +34,7 @@ function FilmstripSpool() {
 
   return (
     <div
-      className="hero-filmstrip-entrance absolute -top-14 -right-6 sm:-right-8 w-36 sm:w-44 md:w-52 z-0 pointer-events-none transform rotate-[13deg] select-none opacity-90 drop-shadow-[0_20px_28px_rgba(0,0,0,0.35)]"
+      className="hero-filmstrip-entrance hidden lg:block absolute -top-14 -right-6 sm:-right-8 w-36 sm:w-44 md:w-52 z-0 pointer-events-none transform rotate-[13deg] select-none opacity-90 drop-shadow-[0_20px_28px_rgba(0,0,0,0.35)]"
       aria-hidden="true"
     >
       <div className="bg-[#0c0c0b] border-x border-[#282723] py-3 flex flex-col gap-2.5">
@@ -120,7 +120,7 @@ export function HeroCinematicAnimation({
     const dy = centerY - cardCenterY
     const isMobile = window.innerWidth < 768
     const maxTargetWidth = isMobile
-      ? Math.min(window.innerWidth * 0.92, 380)
+      ? Math.min(window.innerWidth * 0.88, 320)
       : Math.min(window.innerWidth * 0.72, 980)
     const scale = Math.max(1, maxTargetWidth / rect.width)
     setCoords({ x: dx, y: dy, scale })
@@ -274,7 +274,7 @@ export function HeroCinematicAnimation({
                   borderColor: "#2a2925",
                 }
           }
-          className={`relative w-full aspect-[16/10.5] sm:aspect-[16/10] text-[#fffdf8] border overflow-hidden rounded-none group will-change-transform ${
+          className={`relative w-full max-w-[320px] sm:max-w-none mx-auto aspect-[16/9.5] sm:aspect-[16/10] text-[#fffdf8] border overflow-hidden rounded-none group will-change-transform ${
             stage === "center" ? "border-transparent" : "border-[#2a2925]"
           }`}
           aria-label="Shlokh cinematic unit camera monitor"
