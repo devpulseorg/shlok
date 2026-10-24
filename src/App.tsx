@@ -2850,10 +2850,11 @@ export default function App() {
       {/* =========================================================================
           SITE FOOTER
       ========================================================================== */}
-      <footer
-        className="bg-[#141310] text-white pt-16 pb-12 border-t border-white/10"
-        role="contentinfo"
-      >
+      {currentView === "home" && (
+        <footer
+          className="bg-[#141310] text-white pt-16 pb-12 border-t border-white/10"
+          role="contentinfo"
+        >
         <div className="site-container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
             <div>
@@ -3004,42 +3005,45 @@ export default function App() {
           </div>
         </div>
       </footer>
+      )}
 
       {/* =========================================================================
-          MOBILE FLOATING QUICK ACTION BAR
+          MOBILE FLOATING QUICK ACTION BAR (ONLY ON HOME PAGE)
       ========================================================================== */}
-      <div className="mobile-action-bar">
-        <a
-          href="tel:+919505555277"
-          aria-label="Call Shlokh Production Desk"
-          className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 text-white flex items-center justify-center transition-all shrink-0"
-        >
-          <Phone className="w-4 h-4 text-[#e0434b]" />
-        </a>
-        <a
-          href="https://wa.me/919505555277"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Chat on WhatsApp"
-          className="w-10 h-10 rounded-full bg-emerald-500/15 hover:bg-emerald-500/25 active:scale-90 text-emerald-400 flex items-center justify-center transition-all shrink-0"
-        >
-          <MessageSquare className="w-4 h-4" />
-        </a>
-        <a
-          href="#services"
-          aria-label="View 14 Services"
-          className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 text-white flex items-center justify-center transition-all shrink-0"
-        >
-          <Film className="w-4 h-4 text-white/80" />
-        </a>
-        <button
-          onClick={() => setQuoteModalOpen(true)}
-          className="flex-1 h-10 rounded-full bg-[#b82329] hover:bg-[#9e1c21] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-md active:scale-95 transition-all"
-        >
-          <span>Get Quote</span>
-          <ArrowRight className="w-3.5 h-3.5" />
-        </button>
-      </div>
+      {currentView === "home" && (
+        <div className="mobile-action-bar">
+          <a
+            href="tel:+919505555277"
+            aria-label="Call Shlokh Production Desk"
+            className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 text-white flex items-center justify-center transition-all shrink-0"
+          >
+            <Phone className="w-4 h-4 text-[#e0434b]" />
+          </a>
+          <a
+            href="https://wa.me/919505555277"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+            className="w-10 h-10 rounded-full bg-emerald-500/15 hover:bg-emerald-500/25 active:scale-90 text-emerald-400 flex items-center justify-center transition-all shrink-0"
+          >
+            <MessageSquare className="w-4 h-4" />
+          </a>
+          <a
+            href="#services"
+            aria-label="View 14 Services"
+            className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 text-white flex items-center justify-center transition-all shrink-0"
+          >
+            <Film className="w-4 h-4 text-white/80" />
+          </a>
+          <button
+            onClick={() => setQuoteModalOpen(true)}
+            className="flex-1 h-10 rounded-full bg-[#b82329] hover:bg-[#9e1c21] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-md active:scale-95 transition-all"
+          >
+            <span>Get Quote</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      )}
 
       {/* =========================================================================
           VIDEO SHOWREEL MODAL

@@ -1196,15 +1196,15 @@ export function PhotographicWorkPage({
       {/* =========================================================================
           1. TOP NAVIGATION BAR (EXACT RECREATION OF CULTURUM HEADER)
       ========================================================================== */}
-      <nav className="sticky top-0 z-40 bg-[#f7f5f0]/95 backdrop-blur-md border-b border-[#ded8cb] px-4 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
+      <nav className="sticky top-0 z-40 bg-[#f7f5f0]/95 backdrop-blur-md border-b border-[#ded8cb] px-4 sm:px-8 lg:px-12 h-16 sm:h-20 flex items-center justify-between">
         {/* Left: Client's Official Logo Mixed with Hero Page Branding */}
-        <div className="flex items-center gap-3 cursor-pointer" onClick={onBackToHome}>
+        <div className="flex items-center gap-2.5 sm:gap-3 cursor-pointer shrink-0" onClick={onBackToHome}>
           <img
             src="/images/shlokh_logo_transparent.png"
             alt="Shlokh Entertainments"
-            className="logo-img shrink-0 max-h-[38px] w-auto object-contain" style={{ height: "38px", maxHeight: "38px", width: "auto" }}
+            className="logo-img shrink-0 max-h-[30px] sm:max-h-[38px] w-auto object-contain" style={{ height: "30px", maxHeight: "38px", width: "auto" }}
           />
-          <div className="flex flex-col border-l border-[#ded8cb] pl-3">
+          <div className="hidden sm:flex flex-col border-l border-[#ded8cb] pl-3">
             <span className="font-editorial text-xs sm:text-sm font-bold tracking-tight text-[#141310] uppercase">
               Visual Archive
             </span>
@@ -1239,14 +1239,14 @@ export function PhotographicWorkPage({
         </div>
 
         {/* Right: Search Icon + Outlined 'Back to Site ->' Pill */}
-        <div className="flex items-center gap-4">
-          <button className="text-[#747169] hover:text-[#141310] transition-colors p-2 cursor-pointer" aria-label="Search Archive">
+        <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+          <button className="hidden sm:block text-[#747169] hover:text-[#141310] transition-colors p-2 cursor-pointer" aria-label="Search Archive">
             <Search className="w-4 h-4" />
           </button>
 
           <button
             onClick={onBackToHome}
-            className="inline-flex items-center gap-2 px-4 py-2 border border-[#ded8cb] hover:border-[#b82329] hover:bg-[#b82329]/10 text-[#141310] text-xs font-mono font-medium tracking-wider transition-all cursor-pointer shadow-sm bg-white"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 border border-[#ded8cb] hover:border-[#b82329] hover:bg-[#b82329]/10 text-[#141310] text-[11px] sm:text-xs font-mono font-medium tracking-wider transition-all cursor-pointer shadow-sm bg-white whitespace-nowrap"
           >
             <span>Back to Site</span>
             <ArrowRight className="w-3.5 h-3.5 text-[#b82329]" />
@@ -1257,7 +1257,7 @@ export function PhotographicWorkPage({
       {/* =========================================================================
           2. HERO SECTION: "PHOTOGRAPHIC WORKS" (EXACT RECREATION OF REFERENCE)
       ========================================================================== */}
-      <header className="relative pt-8 pb-12 sm:pt-14 sm:pb-16 px-4 sm:px-8 lg:px-12 max-w-[1440px] mx-auto border-b border-[#ded8cb]">
+      <header className="relative pt-6 pb-10 sm:pt-14 sm:pb-16 px-4 sm:px-8 lg:px-12 max-w-[1440px] mx-auto border-b border-[#ded8cb]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           {/* Left Column: Title, Subtitle, Stats */}
           <div className="lg:col-span-5 flex flex-col justify-center">
@@ -1268,7 +1268,7 @@ export function PhotographicWorkPage({
             </div>
 
             {/* Giant Ultra-Bold Condensed Title (Bebas Neue / Oswald) */}
-            <h1 className="font-condensed text-6xl sm:text-7xl lg:text-8xl tracking-tight leading-[0.92] text-[#141310] uppercase mb-5">
+            <h1 className="font-condensed text-[2.65rem] xs:text-5xl sm:text-7xl lg:text-8xl tracking-tight leading-[0.92] text-[#141310] uppercase mb-4 sm:mb-5">
               PHOTOGRAPHIC
               <br />
               WORKS
@@ -1279,20 +1279,20 @@ export function PhotographicWorkPage({
             </p>
 
             {/* Stats Row with Vertical Dividers */}
-            <div className="flex items-center gap-6 sm:gap-8 text-[#141310] pt-6 border-t border-[#ded8cb]">
+            <div className="flex items-center justify-between sm:justify-start gap-3 sm:gap-8 text-[#141310] pt-4 sm:pt-6 border-t border-[#ded8cb]">
               <div>
-                <div className="font-editorial text-2xl sm:text-3xl font-bold tracking-tight">50+</div>
-                <div className="text-[11px] font-mono uppercase tracking-wider text-[#747169] mt-0.5">Photographs</div>
+                <div className="font-editorial text-xl sm:text-3xl font-bold tracking-tight">50+</div>
+                <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#747169] mt-0.5">Photographs</div>
               </div>
-              <div className="w-[1px] h-10 bg-[#ded8cb]" />
+              <div className="w-[1px] h-8 sm:h-10 bg-[#ded8cb]" />
               <div>
-                <div className="font-editorial text-2xl sm:text-3xl font-bold tracking-tight">7</div>
-                <div className="text-[11px] font-mono uppercase tracking-wider text-[#747169] mt-0.5">Collections</div>
+                <div className="font-editorial text-xl sm:text-3xl font-bold tracking-tight">7</div>
+                <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#747169] mt-0.5">Collections</div>
               </div>
-              <div className="w-[1px] h-10 bg-[#ded8cb]" />
+              <div className="w-[1px] h-8 sm:h-10 bg-[#ded8cb]" />
               <div>
-                <div className="font-editorial text-2xl sm:text-3xl font-bold tracking-tight">6</div>
-                <div className="text-[11px] font-mono uppercase tracking-wider text-[#747169] mt-0.5">States Covered</div>
+                <div className="font-editorial text-xl sm:text-3xl font-bold tracking-tight">6</div>
+                <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#747169] mt-0.5">States Covered</div>
               </div>
             </div>
           </div>
@@ -1367,7 +1367,7 @@ export function PhotographicWorkPage({
       ========================================================================== */}
       <section className="px-4 sm:px-8 lg:px-12 max-w-[1440px] mx-auto py-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4">
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 overflow-x-auto scrollbar-none pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:pb-0">
             <span className="text-[11px] font-mono uppercase tracking-wider text-[#747169] mr-2 font-bold shrink-0">
               EXPLORE BY COLLECTION
             </span>
@@ -1376,7 +1376,7 @@ export function PhotographicWorkPage({
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-none text-xs font-mono uppercase tracking-wider transition-all cursor-pointer ${
+                className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-none text-[11px] sm:text-xs font-mono uppercase tracking-wider whitespace-nowrap transition-all cursor-pointer shrink-0 ${
                   selectedCategory === cat
                     ? 'bg-[#b82329] text-white font-bold shadow-sm'
                     : 'bg-white text-[#423f39] hover:text-[#141310] hover:border-[#141310] border border-[#ded8cb]'
