@@ -51,11 +51,11 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
   {
     id: 'work-01',
     number: '01',
-    title: "Resilience of Heritage",
+    title: "Dignity of the Artisan",
     category: 'PEOPLE',
     location: 'Dharmavaram',
     state: 'ANDHRA PRADESH',
-    image: '/images/portfolio_shareef/photos_raw/photo_p01_1_524x744.jpeg',
+    image: '/images/portfolio_shareef/photos_raw/photo_p02_1_600x800.png',
     aspect: 'portrait',
     story: "From Page 1 of Shareef Sir's portfolio. Cover study capturing the quiet dignity and generational dedication of Andhra Pradesh's traditional artisans.",
     values: {
@@ -93,11 +93,11 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
   {
     id: 'work-03',
     number: '03',
-    title: "The Master Loom Weaver",
+    title: "Dharmavaram Silk Heritage",
     category: 'HANDLOOM',
     location: 'Pochampally Cluster',
     state: 'TELANGANA / AP',
-    image: '/images/portfolio_shareef/photos_raw/photo_p04_1_554x784.jpeg',
+    image: '/images/portfolio_shareef/photos_raw/photo_p17_2_534x800.png',
     aspect: 'portrait',
     story: "From Page 4 of Shareef Sir's portfolio. A portrait of a master ikat weaver at his wooden fly-shuttle pit loom, translating complex geometric patterns into silk.",
     values: {
@@ -198,11 +198,11 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
   {
     id: 'work-08',
     number: '08',
-    title: "Sacred Stone Gopuram",
-    category: 'ARCHITECTURE',
-    location: 'Historic Shrine Complex',
+    title: "The Terracotta Sculptor",
+    category: 'CRAFT PROCESS',
+    location: 'Seethampeta Agency',
     state: 'ANDHRA PRADESH',
-    image: '/images/portfolio_shareef/photos_raw/photo_p06_1_529x752.jpeg',
+    image: '/images/portfolio_shareef/photos_raw/photo_p07_2_223x706.jpeg',
     aspect: 'portrait',
     story: "From Page 6 of Shareef Sir's portfolio. Towering Dravidian stone gopuram and intricate granite carvings capturing medieval architectural prowess.",
     values: {
@@ -261,11 +261,11 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
   {
     id: 'work-11',
     number: '11',
-    title: "Cooperative Enterprise",
+    title: "Aaradhya Women's Cooperative",
     category: 'PEOPLE',
     location: 'SERP Rural Cluster',
     state: 'ANDHRA PRADESH',
-    image: '/images/portfolio_shareef/photos_raw/photo_p08_1_1239x1755.jpeg',
+    image: '/images/portfolio_shareef/photos_raw/photo_p08_5_533x800.png',
     aspect: 'portrait',
     story: "From Page 8 of Shareef Sir's portfolio. Women micro-entrepreneurs managing sustainable community enterprises and handicraft cooperatives.",
     values: {
@@ -429,11 +429,11 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
   {
     id: 'work-19',
     number: '19',
-    title: "The Wooden Fly-Shuttle",
+    title: "Handwoven Heritage Textiles",
     category: 'CRAFT PROCESS',
     location: 'Handloom Hub',
     state: 'ANDHRA PRADESH',
-    image: '/images/portfolio_shareef/photos_raw/photo_p10_1_533x784.jpeg',
+    image: '/images/portfolio_shareef/photos_raw/photo_p19_3_534x800.png',
     aspect: 'portrait',
     story: "From Page 10 of Shareef Sir's portfolio. Macro view of polished rosewood fly-shuttles speeding across warp threads with clockwork precision.",
     values: {
@@ -1059,11 +1059,11 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
   {
     id: 'work-49',
     number: '49',
-    title: "Sacred Sanctum of Peace",
-    category: 'ARCHITECTURE',
-    location: 'Simhachalam Foothills',
-    state: 'ANDHRA PRADESH',
-    image: '/images/portfolio_shareef/photos_raw/photo_p23_1_554x787.jpeg',
+    title: "TruJet Regional Aviation",
+    category: 'COMMERCIAL',
+    location: 'Hyderabad Airport',
+    state: 'TELANGANA',
+    image: '/images/portfolio_shareef/photos_raw/photo_p22_1_300x169.jpeg',
     aspect: 'portrait',
     story: "From Page 23 of Shareef Sir's portfolio. Timeless temple courtyard shrouded in morning mist, capturing centuries of spiritual contemplation.",
     values: {
@@ -1080,11 +1080,11 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
   {
     id: 'work-50',
     number: '50',
-    title: "Fisherfolk of the Bay",
-    category: 'PEOPLE',
-    location: 'Machilipatnam Coast',
+    title: "Kailasagiri Bay & Coastline",
+    category: 'LANDSCAPES',
+    location: 'Visakhapatnam',
     state: 'ANDHRA PRADESH',
-    image: '/images/portfolio_shareef/photos_raw/photo_p24_1_550x778.jpeg',
+    image: '/images/portfolio_shareef/photos_raw/photo_p24_2_791x279.jpeg',
     aspect: 'portrait',
     story: "From Page 24 of Shareef Sir's portfolio. Portrait of a seasoned seafaring fisherman mending handwoven nylon nets against the backdrop of the Bay.",
     values: {
@@ -1121,7 +1121,7 @@ const heroStories = [
     title: 'Wefts of Gold & Silk',
     state: 'ANDHRA PRADESH',
     caption: 'Dharmavaram royal handloom masters preserving timeless weaves.',
-    image: '/images/portfolio_shareef/photos_raw/photo_p10_1_533x784.jpeg'
+    image: '/images/portfolio_shareef/photos_raw/photo_p17_2_534x800.png'
   },
   {
     number: '04 / 06',
