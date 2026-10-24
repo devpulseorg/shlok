@@ -9,18 +9,9 @@
 *.sketch             filter=lfs diff=lfs merge=lfs -text
 
 # ---------------------------------------------------------------------------
-# Video
+# Video (Managed directly in git for reliable Vercel/CDN streaming)
 # ---------------------------------------------------------------------------
-*.mp4                filter=lfs diff=lfs merge=lfs -text
-*.mov                filter=lfs diff=lfs merge=lfs -text
-*.avi                filter=lfs diff=lfs merge=lfs -text
-*.mkv                filter=lfs diff=lfs merge=lfs -text
-*.wmv                filter=lfs diff=lfs merge=lfs -text
-*.flv                filter=lfs diff=lfs merge=lfs -text
-*.webm               filter=lfs diff=lfs merge=lfs -text
-*.m4v                filter=lfs diff=lfs merge=lfs -text
-*.mpg                filter=lfs diff=lfs merge=lfs -text
-*.mpeg               filter=lfs diff=lfs merge=lfs -text
+# *.mp4 - stored directly in git for instant Vercel playback
 
 # ---------------------------------------------------------------------------
 # Audio
@@ -62,7 +53,7 @@
 # ---------------------------------------------------------------------------
 # Documents & Fonts
 # ---------------------------------------------------------------------------
-*.pdf                filter=lfs diff=lfs merge=lfs -text
+# *.pdf - stored directly in git
 *.docx               filter=lfs diff=lfs merge=lfs -text
 *.xlsx               filter=lfs diff=lfs merge=lfs -text
 *.pptx               filter=lfs diff=lfs merge=lfs -text

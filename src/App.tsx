@@ -351,58 +351,6 @@ export default function App() {
       className={`min-h-screen bg-[#f7f5f0] text-[#141310] flex flex-col selection:bg-[#b82329] selection:text-white theme-${fontTheme}`}
     >
       {/* =========================================================================
-          LIVE STUDIO TYPOGRAPHY SUITE (ONLY ON HOME PAGE, APPEARS AFTER ENTRANCE)
-      ========================================================================== */}
-      {currentView === "home" && isEntranceFinished && (
-        <div className="bg-[#141310] text-white py-2 px-4 border-b border-white/10 text-xs flex flex-wrap items-center justify-between gap-3 z-50">
-          <div className="flex items-center gap-2 text-[10px] uppercase font-mono tracking-wider text-[#ccc7bd]">
-            <Sliders className="w-3.5 h-3.5 text-[#b82329]" />
-            <span className="font-bold text-white">Live Font Suite:</span>
-            <span className="hidden sm:inline text-[#747169]">
-              • Click to test different aesthetic directions
-            </span>
-          </div>
-          <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none py-0.5">
-            {[
-              {
-                id: "modern",
-                label: "1. Modern Studio (Plus Jakarta Sans)",
-                desc: "Clean, contemporary, ultra-crisp gallery standard",
-              },
-              {
-                id: "playfair",
-                label: "2. Fine-Art Editorial (Playfair Display)",
-                desc: "Warm, timeless luxury photo book editorial",
-              },
-              {
-                id: "syne",
-                label: "3. Avant-Garde Cinema (Syne)",
-                desc: "Bold European cinema & creative agency",
-              },
-              {
-                id: "cormorant",
-                label: "4. Haute Couture (Cormorant)",
-                desc: "Refined Italian luxury typography",
-              },
-            ].map((f) => (
-              <button
-                key={f.id}
-                onClick={() => setFontTheme(f.id as any)}
-                className={`px-3 py-1 rounded text-[11px] font-medium transition-all cursor-pointer ${
-                  fontTheme === f.id
-                    ? "bg-[#b82329] text-white font-bold shadow-md ring-1 ring-white/20"
-                    : "bg-white/10 text-[#ccc7bd] hover:bg-white/20 hover:text-white"
-                }`}
-                title={f.desc}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* =========================================================================
           SITE HEADER & NAVIGATION (ONLY ON HOME PAGE, SMOOTHLY REVEALS AFTER ENTRANCE)
       ========================================================================== */}
       {currentView === "home" && (

@@ -164,6 +164,14 @@ export function HeroCinematicAnimation({
     }
   }, [stage])
 
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true
+      videoRef.current.defaultMuted = true
+      videoRef.current.play().catch(() => {})
+    }
+  }, [])
+
   // Smooth loop & continuous morph:
   // Aperture dilates open from 0s to 1.15s, then we trigger docking while video keeps playing smoothly
   const handleTimeUpdate = () => {
@@ -276,6 +284,14 @@ export function HeroCinematicAnimation({
             muted
             playsInline
             preload="auto"
+            onCanPlay={() => {
+              if (videoRef.current && videoRef.current.paused) {
+                videoRef.current.play().catch(() => {})
+              }
+            }}
+            onError={() => {
+              startDocking()
+            }}
             onTimeUpdate={handleTimeUpdate}
             className="w-full h-full object-cover object-center"
           />
