@@ -613,17 +613,17 @@ export default function App() {
             <div className="hero-horizon-line" aria-hidden="true" />
 
             <div className="site-container relative z-10 w-full">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pt-4 pb-8 sm:py-12 lg:py-16">
-                {/* Left Column: Bold Typography & Primary Actions */}
-                <div className="lg:col-span-7 max-w-2xl">
-                  <div className="hero-eyebrow-entrance inline-flex items-center gap-2.5 text-xs sm:text-sm uppercase tracking-[0.16em] text-[#b82329] font-condensed font-bold mb-3 sm:mb-4">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-5 lg:gap-x-12 items-center pt-2 sm:pt-4 pb-8 sm:py-12 lg:py-16">
+                {/* 1. Header & Title (Row 1 on Mobile, Left Column Row 1 on Desktop) */}
+                <div className="order-1 lg:col-span-7 max-w-2xl">
+                  <div className="hero-eyebrow-entrance inline-flex items-center gap-2.5 text-xs sm:text-sm uppercase tracking-[0.16em] text-[#b82329] font-condensed font-bold mb-2.5 sm:mb-4">
                     <span className="w-2 h-2 rounded-full bg-[#b82329] animate-pulse" />
                     <span>CAPTURING STORIES • CREATING IMPACT</span>
                     <span className="w-10 h-px bg-[#b82329]/30 hidden sm:inline-block" />
                   </div>
 
-                  <h1 className="mb-4 sm:mb-5">
-                    <span className="block font-condensed font-bold text-5xl sm:text-7xl md:text-8xl lg:text-[7.25rem] text-[#141310] leading-[0.88] tracking-tight uppercase">
+                  <h1 className="mb-2 sm:mb-5">
+                    <span className="block font-condensed font-bold text-4xl sm:text-6xl md:text-8xl lg:text-[7.25rem] text-[#141310] leading-[0.88] tracking-tight uppercase">
                       <span className="hero-text-line block">
                         <span className="hero-text-line-inner-1">STORIES</span>
                       </span>
@@ -637,15 +637,37 @@ export default function App() {
                       </span>
                     </span>
                   </h1>
+                </div>
 
-                  <p className="hero-desc-entrance text-sm sm:text-base md:text-lg text-[#5d5951] leading-relaxed font-normal mb-6 sm:mb-8">
+                {/* 2. Cinema Monitor Card (Row 2 on Mobile -> Instant High Visibility; Right Column on Desktop) */}
+                <div className="order-2 lg:col-span-5 lg:row-span-2 relative my-3 sm:my-5 lg:my-0">
+                  <HeroCinematicAnimation
+                    onExplore={navigateToPhotography}
+                    onAnimationComplete={() => setIsEntranceFinished(true)}
+                  />
+
+                  {/* Floating Aesthetic Accent Badge */}
+                  <div className="hidden xl:flex absolute -top-5 -left-6 z-20 bg-white/95 backdrop-blur-sm p-3 shadow-xl border border-[#ded8cb] items-center gap-2.5 max-w-[215px] rounded-none">
+                    <Award className="w-6 h-6 text-[#b82329] shrink-0" />
+                    <div className="text-[10px] text-[#141310] leading-snug">
+                      <span className="font-bold block">
+                        State Coffee Table Books
+                      </span>
+                      Launched by Hon&apos;ble CM Sri Nara Chandrababu Naidu
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. Description, Actions & Trust Badges (Row 3 on Mobile; Left Column Row 2 on Desktop) */}
+                <div className="order-3 lg:col-span-7 max-w-2xl">
+                  <p className="hero-desc-entrance text-sm sm:text-base md:text-lg text-[#5d5951] leading-relaxed font-normal mb-5 sm:mb-8">
                     Films, photography and visual communication for people,
                     institutions and brands that create change. Trusted by state
                     ministries, enterprises, and visionary brands across Telangana
                     &amp; Andhra Pradesh.
                   </p>
 
-                  <div className="hero-actions-entrance flex flex-wrap items-center gap-3 sm:gap-4 mb-7 sm:mb-9">
+                  <div className="hero-actions-entrance flex flex-wrap items-center gap-3 sm:gap-4 mb-6 sm:mb-9">
                     <button
                       onClick={() => setQuoteModalOpen(true)}
                       className="btn-primary group flex-1 sm:flex-initial justify-center py-3 px-4 sm:py-3.5 sm:px-6 text-xs sm:text-sm font-bold shadow-lg shadow-[#b82329]/25 cursor-pointer rounded-none"
@@ -693,25 +715,6 @@ export default function App() {
                     <span className="text-[#141310] font-bold shrink-0">
                       500+ Films
                     </span>
-                  </div>
-                </div>
-
-                {/* Right Column: Layered Cinematic & Photographic Showcase Stage */}
-                <div className="lg:col-span-5 relative mt-6 lg:mt-0">
-                  <HeroCinematicAnimation
-                    onExplore={navigateToPhotography}
-                    onAnimationComplete={() => setIsEntranceFinished(true)}
-                  />
-
-                  {/* Floating Aesthetic Accent Badge */}
-                  <div className="hidden xl:flex absolute -top-5 -left-6 z-20 bg-white/95 backdrop-blur-sm p-3 shadow-xl border border-[#ded8cb] items-center gap-2.5 max-w-[215px] rounded-none">
-                    <Award className="w-6 h-6 text-[#b82329] shrink-0" />
-                    <div className="text-[10px] text-[#141310] leading-snug">
-                      <span className="font-bold block">
-                        State Coffee Table Books
-                      </span>
-                      Launched by Hon&apos;ble CM Sri Nara Chandrababu Naidu
-                    </div>
                   </div>
                 </div>
               </div>
