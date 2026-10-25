@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import {
   ArrowLeft,
   ArrowRight,
@@ -261,27 +261,6 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
   {
     id: 'work-11',
     number: '11',
-    title: "Aaradhya Women's Cooperative",
-    category: 'PEOPLE',
-    location: 'SERP Rural Cluster',
-    state: 'ANDHRA PRADESH',
-    image: '/images/portfolio_shareef/photos_raw/photo_p08_1_1239x1755.jpeg',
-    aspect: 'portrait',
-    story: "From Page 8 of Shareef's portfolio. Authentic documentary portraits of rural women entrepreneurs managing sustainable community craft enterprises in their sunlit workshop.",
-    values: {
-      focalLength: '50mm Prime',
-      aperture: 'f/2.2',
-      shutterSpeed: '1/320s',
-      iso: 'ISO 200',
-      lighting: "Open Verandah Natural Daylight",
-      colorTemp: '5400K Daylight',
-      cameraBody: 'Sony Alpha 1',
-      lensModel: 'FE 50mm f/1.2 GM'
-    }
-  },
-  {
-    id: 'work-12',
-    number: '12',
     title: "Colours of a Community",
     category: 'HANDLOOM',
     location: 'Craft Cooperatives',
@@ -301,8 +280,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-13',
-    number: '13',
+    id: 'work-12',
+    number: '12',
     title: "Handwoven Eco Fibers",
     category: 'CRAFT PROCESS',
     location: 'Sustainable Workshop',
@@ -322,8 +301,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-14',
-    number: '14',
+    id: 'work-13',
+    number: '13',
     title: "Artisan Collaboration",
     category: 'PEOPLE',
     location: 'Community Center',
@@ -343,8 +322,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-15',
-    number: '15',
+    id: 'work-14',
+    number: '14',
     title: "Paddy Field Horizon",
     category: 'LANDSCAPES',
     location: 'Delta Agricultural Belt',
@@ -364,8 +343,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-16',
-    number: '16',
+    id: 'work-15',
+    number: '15',
     title: "Elder of the Soil",
     category: 'PEOPLE',
     location: 'Rural Mandals',
@@ -385,8 +364,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-17',
-    number: '17',
+    id: 'work-16',
+    number: '16',
     title: "Morning in the Fields",
     category: 'PEOPLE',
     location: 'Godavari Fields',
@@ -406,8 +385,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-18',
-    number: '18',
+    id: 'work-17',
+    number: '17',
     title: "Rural Community Fellowship",
     category: 'PEOPLE',
     location: 'Village Panchayat',
@@ -427,8 +406,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-19',
-    number: '19',
+    id: 'work-18',
+    number: '18',
     title: "The Master Craftsman",
     category: 'CRAFT PROCESS',
     location: 'Artisan Hub',
@@ -448,8 +427,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-20',
-    number: '20',
+    id: 'work-19',
+    number: '19',
     title: "Hands of Heritage",
     category: 'CULTURE',
     location: 'Rural Workshop',
@@ -469,8 +448,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-21',
-    number: '21',
+    id: 'work-20',
+    number: '20',
     title: "Centering on the Wheel",
     category: 'CRAFT PROCESS',
     location: 'Artisan Pottery Colony',
@@ -490,8 +469,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-22',
-    number: '22',
+    id: 'work-21',
+    number: '21',
     title: "Firing the Kiln",
     category: 'CRAFT PROCESS',
     location: 'Traditional Potter Hamlet',
@@ -511,8 +490,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-23',
-    number: '23',
+    id: 'work-22',
+    number: '22',
     title: "Granite Gopuram Architecture",
     category: 'ARCHITECTURE',
     location: 'Medieval Temple Complex',
@@ -532,8 +511,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-24',
-    number: '24',
+    id: 'work-23',
+    number: '23',
     title: "Rhythms of Araku",
     category: 'CULTURE',
     location: 'Araku Valley',
@@ -553,8 +532,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-25',
-    number: '25',
+    id: 'work-24',
+    number: '24',
     title: "Movement & Heritage",
     category: 'CULTURE',
     location: 'Araku Highlands',
@@ -574,8 +553,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-26',
-    number: '26',
+    id: 'work-25',
+    number: '25',
     title: "The Tribal Drummer",
     category: 'CULTURE',
     location: 'Agency Agency Tracts',
@@ -595,8 +574,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-27',
-    number: '27',
+    id: 'work-26',
+    number: '26',
     title: "Village Congregation",
     category: 'PEOPLE',
     location: 'Rural Temple Grounds',
@@ -616,8 +595,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-28',
-    number: '28',
+    id: 'work-27',
+    number: '27',
     title: "Sacred Devotion",
     category: 'CULTURE',
     location: 'Temple Corridor',
@@ -637,8 +616,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-29',
-    number: '29',
+    id: 'work-28',
+    number: '28',
     title: "Temple Festivity Colors",
     category: 'CULTURE',
     location: 'Gopuram Forecourt',
@@ -658,8 +637,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-30',
-    number: '30',
+    id: 'work-29',
+    number: '29',
     title: "Folk Storytellers",
     category: 'PEOPLE',
     location: 'Mandals',
@@ -679,8 +658,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-31',
-    number: '31',
+    id: 'work-30',
+    number: '30',
     title: "The Narrative Song",
     category: 'CULTURE',
     location: 'Open Amphitheater',
@@ -700,8 +679,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-32',
-    number: '32',
+    id: 'work-31',
+    number: '31',
     title: "The Weaver's Smile",
     category: 'PEOPLE',
     location: 'Dharmavaram',
@@ -721,8 +700,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-33',
-    number: '33',
+    id: 'work-32',
+    number: '32',
     title: "Tholu Bommalata Puppeteer",
     category: 'CRAFT PROCESS',
     location: 'Nimmalakunta',
@@ -742,8 +721,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-34',
-    number: '34',
+    id: 'work-33',
+    number: '33',
     title: "The Artisan's Hands",
     category: 'CRAFT PROCESS',
     location: 'Nimmalakunta Cluster',
@@ -763,8 +742,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-35',
-    number: '35',
+    id: 'work-34',
+    number: '34',
     title: "Mythological Figures",
     category: 'TRIBAL ART',
     location: 'Anantapur Workshop',
@@ -784,8 +763,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-36',
-    number: '36',
+    id: 'work-35',
+    number: '35',
     title: "Shadow Puppet Masterwork",
     category: 'TRIBAL ART',
     location: 'Puppetry Cooperative',
@@ -805,8 +784,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-37',
-    number: '37',
+    id: 'work-36',
+    number: '36',
     title: "Legacy of Shadow Theater",
     category: 'TRIBAL ART',
     location: 'Nimmalakunta',
@@ -826,29 +805,29 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-38',
-    number: '38',
-    title: "Chiseled Stone Pillars",
-    category: 'ARCHITECTURE',
-    location: 'Kakatiya / Vijayanagara Heritage',
+    id: 'work-37',
+    number: '37',
+    title: "Heritage Handloom Cushions & Home Textiles",
+    category: 'HANDLOOM',
+    location: 'Craft Design Studio',
     state: 'ANDHRA PRADESH',
     image: '/images/portfolio_shareef/photos_raw/photo_p18_1_534x756.jpeg',
     aspect: 'portrait',
-    story: "From Page 18 of Shareef Sir's portfolio. Monolithic polished black granite temple pillars inscribed with classical epigraphs and ornate dancers.",
+    story: "From Page 18 of Shareef Sir's portfolio. Handcrafted artisanal cushion covers and textured textiles showcasing traditional weave geometry in contemporary interior living.",
     values: {
-      focalLength: '24mm Prime',
-      aperture: 'f/8.0',
-      shutterSpeed: '1/125s',
-      iso: 'ISO 100',
-      lighting: "Raking Sunlight on Stone",
+      focalLength: '50mm Prime',
+      aperture: 'f/2.8',
+      shutterSpeed: '1/250s',
+      iso: 'ISO 160',
+      lighting: "Natural Ambient Studio Light",
       colorTemp: '5400K Daylight',
       cameraBody: 'Sony Alpha 1',
-      lensModel: 'FE 24-70mm f/2.8 GM II'
+      lensModel: 'FE 50mm f/1.2 GM'
     }
   },
   {
-    id: 'work-39',
-    number: '39',
+    id: 'work-38',
+    number: '38',
     title: "Sacred Temple Sanctuary",
     category: 'ARCHITECTURE',
     location: 'Heritage Temple Complex',
@@ -868,8 +847,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-40',
-    number: '40',
+    id: 'work-39',
+    number: '39',
     title: "Fisherman of the Bay",
     category: 'PEOPLE',
     location: 'Visakhapatnam Shore',
@@ -889,8 +868,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-41',
-    number: '41',
+    id: 'work-40',
+    number: '40',
     title: "Pouring Molten Brass",
     category: 'CRAFT PROCESS',
     location: 'Perumallapalli Foundry',
@@ -910,8 +889,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-42',
-    number: '42',
+    id: 'work-41',
+    number: '41',
     title: "Dokra Lost-Wax Craft",
     category: 'CRAFT PROCESS',
     location: 'Tribal Metal Guild',
@@ -931,8 +910,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-43',
-    number: '43',
+    id: 'work-42',
+    number: '42',
     title: "Chiseling the Brass Vessel",
     category: 'CRAFT PROCESS',
     location: 'Artisan Foundry',
@@ -952,8 +931,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-44',
-    number: '44',
+    id: 'work-43',
+    number: '43',
     title: "Polished Bell Metal",
     category: 'CRAFT PROCESS',
     location: 'Craft Guild',
@@ -973,8 +952,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-45',
-    number: '45',
+    id: 'work-44',
+    number: '44',
     title: "Metal Inlay Detailing",
     category: 'CRAFT PROCESS',
     location: 'Heritage Workshop',
@@ -994,8 +973,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-46',
-    number: '46',
+    id: 'work-45',
+    number: '45',
     title: "Carving Kondapalli Toys",
     category: 'CRAFT PROCESS',
     location: 'Kondapalli Colony',
@@ -1015,8 +994,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-47',
-    number: '47',
+    id: 'work-46',
+    number: '46',
     title: "Natural Lacquer Painting",
     category: 'CRAFT PROCESS',
     location: 'Kondapalli',
@@ -1036,8 +1015,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-48',
-    number: '48',
+    id: 'work-47',
+    number: '47',
     title: "The Folk Toy Guild",
     category: 'CRAFT PROCESS',
     location: 'Krishna District',
@@ -1057,8 +1036,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-49',
-    number: '49',
+    id: 'work-48',
+    number: '48',
     title: "TruJet Regional Aviation",
     category: 'COMMERCIAL',
     location: 'Hyderabad Airport',
@@ -1078,8 +1057,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-50',
-    number: '50',
+    id: 'work-49',
+    number: '49',
     title: "Kailasagiri Bay & Coastline",
     category: 'LANDSCAPES',
     location: 'Visakhapatnam',
@@ -1103,7 +1082,7 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
 // Featured Signature Masterpiece for Hero Showcase
 const heroMasterpiece: GalleryWorkItem = {
   id: 'hero-masterpiece',
-  number: '15',
+  number: '14',
   title: 'The Strength in Tradition',
   category: 'PEOPLE',
   location: 'Dharmavaram',
@@ -1123,6 +1102,12 @@ const heroMasterpiece: GalleryWorkItem = {
   }
 }
 
+function getWorkAspectRatio(work: GalleryWorkItem): number {
+  const match = work.image.match(/_(\d+)x(\d+)\.jpe?g/)
+  if (match) return parseInt(match[2], 10) / parseInt(match[1], 10)
+  return work.aspect === 'portrait' ? 1.414 : 0.65
+}
+
 export function PhotographicWorkPage({
   onBackToHome,
   onOpenQuoteModal
@@ -1130,6 +1115,21 @@ export function PhotographicWorkPage({
   // Navigation & Category states
   const [selectedCategory, setSelectedCategory] = useState<string>('All Works')
   const [viewFormat, setViewFormat] = useState<'grid' | 'spreads'>('grid')
+
+  // Responsive column count for perfectly balanced masonry
+  const [columnCount, setColumnCount] = useState(3)
+
+  useEffect(() => {
+    const updateColumns = () => {
+      const w = window.innerWidth
+      if (w < 640) setColumnCount(1)
+      else if (w < 1024) setColumnCount(2)
+      else setColumnCount(3)
+    }
+    updateColumns()
+    window.addEventListener('resize', updateColumns)
+    return () => window.removeEventListener('resize', updateColumns)
+  }, [])
 
   // Lightbox Modals
   const [selectedPhotoModal, setSelectedPhotoModal] = useState<GalleryWorkItem | null>(null)
@@ -1158,6 +1158,25 @@ export function PhotographicWorkPage({
       return true
     })
   }, [selectedCategory])
+
+  // Greedy Height-Balanced Column Distribution: Guarantees zero orphan cards and even bottom lines
+  const balancedColumns = useMemo(() => {
+    const cols: GalleryWorkItem[][] = Array.from({ length: columnCount }, () => [])
+    const colHeights = new Array(columnCount).fill(0)
+
+    filteredWorks.forEach((work) => {
+      let minIdx = 0
+      for (let c = 1; c < columnCount; c++) {
+        if (colHeights[c] < colHeights[minIdx]) {
+          minIdx = c
+        }
+      }
+      cols[minIdx].push(work)
+      colHeights[minIdx] += getWorkAspectRatio(work) + 0.15
+    })
+
+    return cols
+  }, [filteredWorks, columnCount])
 
   return (
     <div className="min-h-screen bg-[#f7f5f0] text-[#141310] font-sans selection:bg-[#b82329] selection:text-white">
@@ -1391,119 +1410,50 @@ export function PhotographicWorkPage({
             4. THE 10 MASONRY GALLERY CARDS (NATURAL PROPORTIONS, NO BOXES, NO GAPS)
         ========================================================================== */}
         {viewFormat === 'grid' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pt-4 items-start">
-            {/* Column 1 */}
-            <div className="flex flex-col gap-6 sm:gap-8">
-              {filteredWorks.filter((_, i) => i % 3 === 0).map((work) => (
-                <div
-                  key={work.id}
-                  onClick={() => setSelectedPhotoModal(work)}
-                  className="group relative rounded-none overflow-hidden cursor-pointer transition-all duration-500 shadow-md hover:shadow-xl bg-white border border-[#ded8cb]"
-                >
-                  <img
-                    src={work.image}
-                    alt={work.title}
-                    className="w-full h-auto block transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                    loading="lazy"
-                  />
-                  {/* Seamless gradient overlay pinned directly to photo */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity pointer-events-none" />
+          <div
+            className={`grid gap-6 sm:gap-8 pt-4 items-start ${
+              columnCount === 1 ? 'grid-cols-1' : columnCount === 2 ? 'grid-cols-2' : 'grid-cols-3'
+            }`}
+          >
+            {balancedColumns.map((colWorks, colIdx) => (
+              <div key={colIdx} className="flex flex-col gap-6 sm:gap-8">
+                {colWorks.map((work) => (
+                  <div
+                    key={work.id}
+                    onClick={() => setSelectedPhotoModal(work)}
+                    className="group relative rounded-none overflow-hidden cursor-pointer transition-all duration-500 shadow-md hover:shadow-xl bg-white border border-[#ded8cb]"
+                  >
+                    <img
+                      src={work.image}
+                      alt={work.title}
+                      className="w-full h-auto block transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      loading="lazy"
+                    />
+                    {/* Seamless gradient overlay pinned directly to photo */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity pointer-events-none" />
 
-                  {/* Editorial typography overlay directly on photo */}
-                  <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 z-10 flex items-end justify-between pointer-events-none">
-                    <div className="pr-2">
-                      <div className="text-[11px] font-mono font-bold text-white/70 mb-0.5">
-                        {work.number}
+                    {/* Editorial typography overlay directly on photo */}
+                    <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 z-10 flex items-end justify-between pointer-events-none">
+                      <div className="pr-2">
+                        <div className="text-[11px] font-mono font-bold text-white/70 mb-0.5">
+                          {work.number}
+                        </div>
+                        <h3 className="font-editorial text-xl sm:text-2xl font-bold text-white leading-snug group-hover:text-[#ff6b6b] transition-colors drop-shadow">
+                          {work.title}
+                        </h3>
+                        <div className="text-[10px] font-mono uppercase tracking-wider text-[#d4cfc4] mt-1 drop-shadow">
+                          {work.category} • {work.state}
+                        </div>
                       </div>
-                      <h3 className="font-editorial text-xl sm:text-2xl font-bold text-white leading-snug group-hover:text-[#ff6b6b] transition-colors drop-shadow">
-                        {work.title}
-                      </h3>
-                      <div className="text-[10px] font-mono uppercase tracking-wider text-[#d4cfc4] mt-1 drop-shadow">
-                        {work.category} • {work.state}
-                      </div>
-                    </div>
 
-                    <div className="w-8 h-8 rounded-full bg-white/20 group-hover:bg-[#b82329] backdrop-blur-md flex items-center justify-center text-white transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1 shrink-0">
-                      <ArrowUpRight className="w-4 h-4" />
+                      <div className="w-8 h-8 rounded-full bg-white/20 group-hover:bg-[#b82329] backdrop-blur-md flex items-center justify-center text-white transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1 shrink-0">
+                        <ArrowUpRight className="w-4 h-4" />
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Column 2 */}
-            <div className="flex flex-col gap-6 sm:gap-8">
-              {filteredWorks.filter((_, i) => i % 3 === 1).map((work) => (
-                <div
-                  key={work.id}
-                  onClick={() => setSelectedPhotoModal(work)}
-                  className="group relative rounded-none overflow-hidden cursor-pointer transition-all duration-500 shadow-md hover:shadow-xl bg-white border border-[#ded8cb]"
-                >
-                  <img
-                    src={work.image}
-                    alt={work.title}
-                    className="w-full h-auto block transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity pointer-events-none" />
-
-                  <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 z-10 flex items-end justify-between pointer-events-none">
-                    <div className="pr-2">
-                      <div className="text-[11px] font-mono font-bold text-white/70 mb-0.5">
-                        {work.number}
-                      </div>
-                      <h3 className="font-editorial text-xl sm:text-2xl font-bold text-white leading-snug group-hover:text-[#ff6b6b] transition-colors drop-shadow">
-                        {work.title}
-                      </h3>
-                      <div className="text-[10px] font-mono uppercase tracking-wider text-[#d4cfc4] mt-1 drop-shadow">
-                        {work.category} • {work.state}
-                      </div>
-                    </div>
-
-                    <div className="w-8 h-8 rounded-full bg-white/20 group-hover:bg-[#b82329] backdrop-blur-md flex items-center justify-center text-white transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1 shrink-0">
-                      <ArrowUpRight className="w-4 h-4" />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Column 3 */}
-            <div className="flex flex-col gap-6 sm:gap-8">
-              {filteredWorks.filter((_, i) => i % 3 === 2).map((work) => (
-                <div
-                  key={work.id}
-                  onClick={() => setSelectedPhotoModal(work)}
-                  className="group relative rounded-none overflow-hidden cursor-pointer transition-all duration-500 shadow-md hover:shadow-xl bg-white border border-[#ded8cb]"
-                >
-                  <img
-                    src={work.image}
-                    alt={work.title}
-                    className="w-full h-auto block transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity pointer-events-none" />
-
-                  <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 z-10 flex items-end justify-between pointer-events-none">
-                    <div className="pr-2">
-                      <div className="text-[11px] font-mono font-bold text-white/70 mb-0.5">
-                        {work.number}
-                      </div>
-                      <h3 className="font-editorial text-xl sm:text-2xl font-bold text-white leading-snug group-hover:text-[#ff6b6b] transition-colors drop-shadow">
-                        {work.title}
-                      </h3>
-                      <div className="text-[10px] font-mono uppercase tracking-wider text-[#d4cfc4] mt-1 drop-shadow">
-                        {work.category} • {work.state}
-                      </div>
-                    </div>
-
-                    <div className="w-8 h-8 rounded-full bg-white/20 group-hover:bg-[#b82329] backdrop-blur-md flex items-center justify-center text-white transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1 shrink-0">
-                      <ArrowUpRight className="w-4 h-4" />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ))}
           </div>
         )}
 
