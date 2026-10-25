@@ -93,27 +93,6 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
   {
     id: 'work-03',
     number: '03',
-    title: "Master Weaver at the Loom",
-    category: 'HANDLOOM',
-    location: 'Pochampally Cluster',
-    state: 'TELANGANA / AP',
-    image: '/images/portfolio_shareef/photos_raw/photo_p10_1_533x784.jpeg',
-    aspect: 'portrait',
-    story: "From Page 10 of Shareef's portfolio. A portrait of a master ikat weaver at his wooden fly-shuttle pit loom, translating complex geometric patterns into silk in warm natural room light.",
-    values: {
-      focalLength: '50mm Prime',
-      aperture: 'f/1.8',
-      shutterSpeed: '1/320s',
-      iso: 'ISO 160',
-      lighting: "Loom Skylight Ambient",
-      colorTemp: '5400K Daylight',
-      cameraBody: 'Sony A7R V',
-      lensModel: 'FE 50mm f/1.2 GM'
-    }
-  },
-  {
-    id: 'work-04',
-    number: '04',
     title: "Evening on the Godavari",
     category: 'LANDSCAPES',
     location: 'Godavari Basin',
@@ -133,8 +112,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-05',
-    number: '05',
+    id: 'work-04',
+    number: '04',
     title: "Coastal Estuary Waters",
     category: 'LANDSCAPES',
     location: 'Bay of Bengal Coastline',
@@ -154,8 +133,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-06',
-    number: '06',
+    id: 'work-05',
+    number: '05',
     title: "Mangrove Reflections",
     category: 'LANDSCAPES',
     location: 'Coringa Delta',
@@ -175,8 +154,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-07',
-    number: '07',
+    id: 'work-06',
+    number: '06',
     title: "Golden Bay Sands",
     category: 'LANDSCAPES',
     location: 'Eastern Seaboard',
@@ -196,8 +175,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-08',
-    number: '08',
+    id: 'work-07',
+    number: '07',
     title: "The Terracotta Sculptor",
     category: 'CRAFT PROCESS',
     location: 'Seethampeta Agency',
@@ -217,8 +196,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-09',
-    number: '09',
+    id: 'work-08',
+    number: '08',
     title: "Shaping Wet Clay",
     category: 'CRAFT PROCESS',
     location: 'Rural Potters Guild',
@@ -238,8 +217,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-10',
-    number: '10',
+    id: 'work-09',
+    number: '09',
     title: "Wall Stories of Seethampeta",
     category: 'TRIBAL ART',
     location: 'Seethampeta Agency',
@@ -259,8 +238,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-11',
-    number: '11',
+    id: 'work-10',
+    number: '10',
     title: "Colours of a Community",
     category: 'HANDLOOM',
     location: 'Craft Cooperatives',
@@ -280,8 +259,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-12',
-    number: '12',
+    id: 'work-11',
+    number: '11',
     title: "Handwoven Eco Fibers",
     category: 'CRAFT PROCESS',
     location: 'Sustainable Workshop',
@@ -301,8 +280,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-13',
-    number: '13',
+    id: 'work-12',
+    number: '12',
     title: "Artisan Collaboration",
     category: 'PEOPLE',
     location: 'Community Center',
@@ -322,8 +301,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-14',
-    number: '14',
+    id: 'work-13',
+    number: '13',
     title: "Paddy Field Horizon",
     category: 'LANDSCAPES',
     location: 'Delta Agricultural Belt',
@@ -343,8 +322,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-15',
-    number: '15',
+    id: 'work-14',
+    number: '14',
     title: "Elder of the Soil",
     category: 'PEOPLE',
     location: 'Rural Mandals',
@@ -364,8 +343,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-16',
-    number: '16',
+    id: 'work-15',
+    number: '15',
     title: "Morning in the Fields",
     category: 'PEOPLE',
     location: 'Godavari Fields',
@@ -385,8 +364,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-17',
-    number: '17',
+    id: 'work-16',
+    number: '16',
     title: "Rural Community Fellowship",
     category: 'PEOPLE',
     location: 'Village Panchayat',
@@ -406,8 +385,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-18',
-    number: '18',
+    id: 'work-17',
+    number: '17',
     title: "The Master Craftsman",
     category: 'CRAFT PROCESS',
     location: 'Artisan Hub',
@@ -427,8 +406,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-19',
-    number: '19',
+    id: 'work-18',
+    number: '18',
     title: "Hands of Heritage",
     category: 'CULTURE',
     location: 'Rural Workshop',
@@ -448,8 +427,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-20',
-    number: '20',
+    id: 'work-19',
+    number: '19',
     title: "Centering on the Wheel",
     category: 'CRAFT PROCESS',
     location: 'Artisan Pottery Colony',
@@ -469,8 +448,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-21',
-    number: '21',
+    id: 'work-20',
+    number: '20',
     title: "Firing the Kiln",
     category: 'CRAFT PROCESS',
     location: 'Traditional Potter Hamlet',
@@ -490,8 +469,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-22',
-    number: '22',
+    id: 'work-21',
+    number: '21',
     title: "Granite Gopuram Architecture",
     category: 'ARCHITECTURE',
     location: 'Medieval Temple Complex',
@@ -511,8 +490,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-23',
-    number: '23',
+    id: 'work-22',
+    number: '22',
     title: "Rhythms of Araku",
     category: 'CULTURE',
     location: 'Araku Valley',
@@ -532,8 +511,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-24',
-    number: '24',
+    id: 'work-23',
+    number: '23',
     title: "Movement & Heritage",
     category: 'CULTURE',
     location: 'Araku Highlands',
@@ -553,8 +532,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-25',
-    number: '25',
+    id: 'work-24',
+    number: '24',
     title: "The Tribal Drummer",
     category: 'CULTURE',
     location: 'Agency Agency Tracts',
@@ -574,8 +553,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-26',
-    number: '26',
+    id: 'work-25',
+    number: '25',
     title: "Village Congregation",
     category: 'PEOPLE',
     location: 'Rural Temple Grounds',
@@ -595,8 +574,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-27',
-    number: '27',
+    id: 'work-26',
+    number: '26',
     title: "Sacred Devotion",
     category: 'CULTURE',
     location: 'Temple Corridor',
@@ -616,8 +595,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-28',
-    number: '28',
+    id: 'work-27',
+    number: '27',
     title: "Temple Festivity Colors",
     category: 'CULTURE',
     location: 'Gopuram Forecourt',
@@ -637,8 +616,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-29',
-    number: '29',
+    id: 'work-28',
+    number: '28',
     title: "Folk Storytellers",
     category: 'PEOPLE',
     location: 'Mandals',
@@ -658,8 +637,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-30',
-    number: '30',
+    id: 'work-29',
+    number: '29',
     title: "The Narrative Song",
     category: 'CULTURE',
     location: 'Open Amphitheater',
@@ -679,8 +658,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-31',
-    number: '31',
+    id: 'work-30',
+    number: '30',
     title: "The Weaver's Smile",
     category: 'PEOPLE',
     location: 'Dharmavaram',
@@ -700,8 +679,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-32',
-    number: '32',
+    id: 'work-31',
+    number: '31',
     title: "Tholu Bommalata Puppeteer",
     category: 'CRAFT PROCESS',
     location: 'Nimmalakunta',
@@ -721,8 +700,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-33',
-    number: '33',
+    id: 'work-32',
+    number: '32',
     title: "The Artisan's Hands",
     category: 'CRAFT PROCESS',
     location: 'Nimmalakunta Cluster',
@@ -742,8 +721,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-34',
-    number: '34',
+    id: 'work-33',
+    number: '33',
     title: "Mythological Figures",
     category: 'TRIBAL ART',
     location: 'Anantapur Workshop',
@@ -763,8 +742,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-35',
-    number: '35',
+    id: 'work-34',
+    number: '34',
     title: "Shadow Puppet Masterwork",
     category: 'TRIBAL ART',
     location: 'Puppetry Cooperative',
@@ -784,8 +763,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-36',
-    number: '36',
+    id: 'work-35',
+    number: '35',
     title: "Legacy of Shadow Theater",
     category: 'TRIBAL ART',
     location: 'Nimmalakunta',
@@ -805,8 +784,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-37',
-    number: '37',
+    id: 'work-36',
+    number: '36',
     title: "Heritage Handloom Cushions & Home Textiles",
     category: 'HANDLOOM',
     location: 'Craft Design Studio',
@@ -826,8 +805,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-38',
-    number: '38',
+    id: 'work-37',
+    number: '37',
     title: "Sacred Temple Sanctuary",
     category: 'ARCHITECTURE',
     location: 'Heritage Temple Complex',
@@ -847,8 +826,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-39',
-    number: '39',
+    id: 'work-38',
+    number: '38',
     title: "Fisherman of the Bay",
     category: 'PEOPLE',
     location: 'Visakhapatnam Shore',
@@ -868,8 +847,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-40',
-    number: '40',
+    id: 'work-39',
+    number: '39',
     title: "Pouring Molten Brass",
     category: 'CRAFT PROCESS',
     location: 'Perumallapalli Foundry',
@@ -889,8 +868,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-41',
-    number: '41',
+    id: 'work-40',
+    number: '40',
     title: "Dokra Lost-Wax Craft",
     category: 'CRAFT PROCESS',
     location: 'Tribal Metal Guild',
@@ -910,8 +889,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-42',
-    number: '42',
+    id: 'work-41',
+    number: '41',
     title: "Chiseling the Brass Vessel",
     category: 'CRAFT PROCESS',
     location: 'Artisan Foundry',
@@ -931,8 +910,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-43',
-    number: '43',
+    id: 'work-42',
+    number: '42',
     title: "Polished Bell Metal",
     category: 'CRAFT PROCESS',
     location: 'Craft Guild',
@@ -952,8 +931,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-44',
-    number: '44',
+    id: 'work-43',
+    number: '43',
     title: "Metal Inlay Detailing",
     category: 'CRAFT PROCESS',
     location: 'Heritage Workshop',
@@ -973,8 +952,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-45',
-    number: '45',
+    id: 'work-44',
+    number: '44',
     title: "Carving Kondapalli Toys",
     category: 'CRAFT PROCESS',
     location: 'Kondapalli Colony',
@@ -994,8 +973,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-46',
-    number: '46',
+    id: 'work-45',
+    number: '45',
     title: "Natural Lacquer Painting",
     category: 'CRAFT PROCESS',
     location: 'Kondapalli',
@@ -1015,8 +994,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-47',
-    number: '47',
+    id: 'work-46',
+    number: '46',
     title: "The Folk Toy Guild",
     category: 'CRAFT PROCESS',
     location: 'Krishna District',
@@ -1036,8 +1015,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-48',
-    number: '48',
+    id: 'work-47',
+    number: '47',
     title: "TruJet Regional Aviation",
     category: 'COMMERCIAL',
     location: 'Hyderabad Airport',
@@ -1057,8 +1036,8 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     }
   },
   {
-    id: 'work-49',
-    number: '49',
+    id: 'work-48',
+    number: '48',
     title: "Kailasagiri Bay & Coastline",
     category: 'LANDSCAPES',
     location: 'Visakhapatnam',
@@ -1082,7 +1061,7 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
 // Featured Signature Masterpiece for Hero Showcase
 const heroMasterpiece: GalleryWorkItem = {
   id: 'hero-masterpiece',
-  number: '14',
+  number: '13',
   title: 'The Strength in Tradition',
   category: 'PEOPLE',
   location: 'Dharmavaram',
