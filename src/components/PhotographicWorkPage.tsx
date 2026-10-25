@@ -55,7 +55,7 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     category: 'HANDLOOM',
     location: 'Hyderabad & Dharmavaram',
     state: 'ANDHRA PRADESH / TELANGANA',
-    image: '/images/portfolio_shareef/photos_raw/photo_p17_handloom_models_studio.jpg',
+    image: '/images/portfolio_shareef/photos_raw/photo_p17_editorial_portfolio_full.jpg',
     aspect: 'portrait',
     story: "From Page 17 of Shareef's portfolio. High-profile handloom apparel editorial documenting contemporary drape, traditional weaves, and warm architectural studio lighting.",
     values: {
@@ -1407,7 +1407,7 @@ export function PhotographicWorkPage({
                     loading="lazy"
                   />
                   {/* Seamless gradient overlay pinned directly to photo */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent opacity-85 group-hover:opacity-95 transition-opacity pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity pointer-events-none" />
 
                   {/* Editorial typography overlay directly on photo */}
                   <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 z-10 flex items-end justify-between pointer-events-none">
@@ -1445,7 +1445,7 @@ export function PhotographicWorkPage({
                     className="w-full h-auto block transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent opacity-85 group-hover:opacity-95 transition-opacity pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity pointer-events-none" />
 
                   <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 z-10 flex items-end justify-between pointer-events-none">
                     <div className="pr-2">
@@ -1482,7 +1482,7 @@ export function PhotographicWorkPage({
                     className="w-full h-auto block transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent opacity-85 group-hover:opacity-95 transition-opacity pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity pointer-events-none" />
 
                   <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 z-10 flex items-end justify-between pointer-events-none">
                     <div className="pr-2">
