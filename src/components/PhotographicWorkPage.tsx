@@ -51,20 +51,20 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
   {
     id: 'work-01',
     number: '01',
-    title: "Dignity of the Artisan",
-    category: 'PEOPLE',
-    location: 'Dharmavaram',
-    state: 'ANDHRA PRADESH',
-    image: '/images/portfolio_shareef/photos_raw/photo_p02_1_600x800.png',
+    title: "Handloom Apparel: Studio Editorial",
+    category: 'HANDLOOM',
+    location: 'Hyderabad & Dharmavaram',
+    state: 'ANDHRA PRADESH / TELANGANA',
+    image: '/images/portfolio_shareef/photos_raw/photo_p17_handloom_models_studio.jpg',
     aspect: 'portrait',
-    story: "From Page 1 of Shareef Sir's portfolio. Cover study capturing the quiet dignity and generational dedication of Andhra Pradesh's traditional artisans.",
+    story: "From Page 17 of Shareef's portfolio. High-profile handloom apparel editorial documenting contemporary drape, traditional weaves, and warm architectural studio lighting.",
     values: {
       focalLength: '85mm Prime',
-      aperture: 'f/2.0',
-      shutterSpeed: '1/400s',
+      aperture: 'f/2.8',
+      shutterSpeed: '1/250s',
       iso: 'ISO 100',
-      lighting: "Natural Ambient North Light",
-      colorTemp: '5400K Daylight',
+      lighting: "Architectural Studio Ambient + Soft Key",
+      colorTemp: '5200K Balanced',
       cameraBody: 'Sony Alpha 1',
       lensModel: 'FE 85mm f/1.4 GM'
     }
@@ -93,13 +93,13 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
   {
     id: 'work-03',
     number: '03',
-    title: "Dharmavaram Silk Heritage",
+    title: "Master Weaver at the Loom",
     category: 'HANDLOOM',
     location: 'Pochampally Cluster',
     state: 'TELANGANA / AP',
-    image: '/images/portfolio_shareef/photos_raw/photo_p17_2_534x800.png',
+    image: '/images/portfolio_shareef/photos_raw/photo_p10_1_533x784.jpeg',
     aspect: 'portrait',
-    story: "From Page 4 of Shareef Sir's portfolio. A portrait of a master ikat weaver at his wooden fly-shuttle pit loom, translating complex geometric patterns into silk.",
+    story: "From Page 10 of Shareef's portfolio. A portrait of a master ikat weaver at his wooden fly-shuttle pit loom, translating complex geometric patterns into silk in warm natural room light.",
     values: {
       focalLength: '50mm Prime',
       aperture: 'f/1.8',
@@ -265,9 +265,9 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
     category: 'PEOPLE',
     location: 'SERP Rural Cluster',
     state: 'ANDHRA PRADESH',
-    image: '/images/portfolio_shareef/photos_raw/photo_p08_5_533x800.png',
+    image: '/images/portfolio_shareef/photos_raw/photo_p08_1_1239x1755.jpeg',
     aspect: 'portrait',
-    story: "From Page 8 of Shareef Sir's portfolio. Women micro-entrepreneurs managing sustainable community enterprises and handicraft cooperatives.",
+    story: "From Page 8 of Shareef's portfolio. Authentic documentary portraits of rural women entrepreneurs managing sustainable community craft enterprises in their sunlit workshop.",
     values: {
       focalLength: '50mm Prime',
       aperture: 'f/2.2',
@@ -429,40 +429,40 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
   {
     id: 'work-19',
     number: '19',
-    title: "Handwoven Heritage Textiles",
+    title: "The Master Craftsman",
     category: 'CRAFT PROCESS',
-    location: 'Handloom Hub',
+    location: 'Artisan Hub',
     state: 'ANDHRA PRADESH',
-    image: '/images/portfolio_shareef/photos_raw/photo_p19_3_534x800.png',
+    image: '/images/portfolio_shareef/photos_raw/photo_p04_1_554x784.jpeg',
     aspect: 'portrait',
-    story: "From Page 10 of Shareef Sir's portfolio. Macro view of polished rosewood fly-shuttles speeding across warp threads with clockwork precision.",
+    story: "From Page 4 of Shareef's portfolio. Senior artisan in his natural workshop environment, handcrafting heritage wooden implements with timeless dedication and natural light.",
     values: {
-      focalLength: '90mm Macro',
-      aperture: 'f/2.8',
-      shutterSpeed: '1/500s',
-      iso: 'ISO 320',
-      lighting: "Focused Loom Light",
+      focalLength: '50mm Prime',
+      aperture: 'f/2.0',
+      shutterSpeed: '1/320s',
+      iso: 'ISO 160',
+      lighting: "Workshop Window Diffused Daylight",
       colorTemp: '5400K Daylight',
-      cameraBody: 'Sony A7R V',
-      lensModel: 'FE 90mm f/2.8 Macro G'
+      cameraBody: 'Sony Alpha 1',
+      lensModel: 'FE 50mm f/1.2 GM'
     }
   },
   {
     id: 'work-20',
     number: '20',
-    title: "Threads of Tradition",
-    category: 'HANDLOOM',
-    location: 'Pochampally Cluster',
+    title: "Hands of Heritage",
+    category: 'CULTURE',
+    location: 'Rural Workshop',
     state: 'ANDHRA PRADESH',
-    image: '/images/portfolio_shareef/photos_raw/photo_p10_2_800x450.png',
-    aspect: 'landscape',
-    story: "From Page 10 of Shareef Sir's portfolio. Crystal-clear handloom weaving study showing pure silk yarn tensioned across the heddles.",
+    image: '/images/portfolio_shareef/photos_raw/photo_p01_1_524x744.jpeg',
+    aspect: 'portrait',
+    story: "From Page 1 of Shareef's portfolio. Intimate documentary study honoring the hands, tools, and generational wisdom of traditional craftspeople in natural light.",
     values: {
       focalLength: '50mm Prime',
-      aperture: 'f/1.8',
-      shutterSpeed: '1/320s',
-      iso: 'ISO 160',
-      lighting: "Loom North Skylight",
+      aperture: 'f/2.0',
+      shutterSpeed: '1/400s',
+      iso: 'ISO 100',
+      lighting: "Natural Ambient North Light",
       colorTemp: '5400K Daylight',
       cameraBody: 'Sony Alpha 1',
       lensModel: 'FE 50mm f/1.2 GM'
@@ -513,22 +513,22 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
   {
     id: 'work-23',
     number: '23',
-    title: "Terracotta Heritage",
-    category: 'CRAFT PROCESS',
-    location: 'Clay Artisan Village',
+    title: "Granite Gopuram Architecture",
+    category: 'ARCHITECTURE',
+    location: 'Medieval Temple Complex',
     state: 'ANDHRA PRADESH',
-    image: '/images/portfolio_shareef/photos_raw/photo_p11_3_533x800.png',
+    image: '/images/portfolio_shareef/photos_raw/photo_p06_1_529x752.jpeg',
     aspect: 'portrait',
-    story: "From Page 11 of Shareef Sir's portfolio. Finished terracotta urns and ceremonial lamps arranged in geometric formations ready for temple markets.",
+    story: "From Page 6 of Shareef's portfolio. Towering Dravidian stone gopuram and intricate granite carvings capturing medieval architectural prowess under open skies.",
     values: {
-      focalLength: '85mm Prime',
-      aperture: 'f/2.8',
-      shutterSpeed: '1/320s',
+      focalLength: '24mm Wide Prime',
+      aperture: 'f/8.0',
+      shutterSpeed: '1/500s',
       iso: 'ISO 100',
-      lighting: "Courtyard Sunlight",
+      lighting: "Direct Open Sky Sun",
       colorTemp: '5400K Daylight',
       cameraBody: 'Sony Alpha 1',
-      lensModel: 'FE 85mm f/1.4 GM'
+      lensModel: 'FE 24-70mm f/2.8 GM II'
     }
   },
   {
@@ -849,19 +849,19 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
   {
     id: 'work-39',
     number: '39',
-    title: "Eastern Ghats Homestead",
-    category: 'PEOPLE',
-    location: 'Tribal Agency Tracts',
+    title: "Sacred Temple Sanctuary",
+    category: 'ARCHITECTURE',
+    location: 'Heritage Temple Complex',
     state: 'ANDHRA PRADESH',
-    image: '/images/portfolio_shareef/photos_raw/photo_p19_1_534x800.png',
+    image: '/images/portfolio_shareef/photos_raw/photo_p23_1_554x787.jpeg',
     aspect: 'portrait',
-    story: "From Page 19 of Shareef Sir's portfolio. A serene highland tribal homestead surrounded by organic forest produce and bamboo fencing.",
+    story: "From Page 23 of Shareef's portfolio. Meditative temple corridor bathed in natural morning light, capturing the quiet serenity of ancient sacred architecture.",
     values: {
       focalLength: '35mm Prime',
-      aperture: 'f/2.8',
-      shutterSpeed: '1/500s',
-      iso: 'ISO 125',
-      lighting: "Soft Highland Daylight",
+      aperture: 'f/4.0',
+      shutterSpeed: '1/250s',
+      iso: 'ISO 160',
+      lighting: "Morning Temple Ambient",
       colorTemp: '5400K Daylight',
       cameraBody: 'Sony A7R V',
       lensModel: 'FE 35mm f/1.4 GM'
@@ -870,19 +870,19 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
   {
     id: 'work-40',
     number: '40',
-    title: "Forest Gatherer",
+    title: "Fisherman of the Bay",
     category: 'PEOPLE',
-    location: 'Paderu Belt',
+    location: 'Visakhapatnam Shore',
     state: 'ANDHRA PRADESH',
-    image: '/images/portfolio_shareef/photos_raw/photo_p19_2_428x640.png',
+    image: '/images/portfolio_shareef/photos_raw/photo_p24_1_550x778.jpeg',
     aspect: 'portrait',
-    story: "From Page 19 of Shareef Sir's portfolio. A portrait of an indigenous elder holding wild forest herbs, reflecting deep ecological knowledge.",
+    story: "From Page 24 of Shareef's portfolio. Authentic coastal portrait of a seafaring fisherman mending his nets along the Bay of Bengal at sunrise.",
     values: {
       focalLength: '85mm Prime',
-      aperture: 'f/1.8',
-      shutterSpeed: '1/400s',
-      iso: 'ISO 200',
-      lighting: "Forest Canopy Dappled Light",
+      aperture: 'f/2.0',
+      shutterSpeed: '1/640s',
+      iso: 'ISO 100',
+      lighting: "Coastal Sunrise Natural Glow",
       colorTemp: '5400K Daylight',
       cameraBody: 'Sony Alpha 1',
       lensModel: 'FE 85mm f/1.4 GM'
@@ -1100,51 +1100,28 @@ const curatedGalleryWorks: GalleryWorkItem[] = [
   }
 ]
 
-// 6 Featured Stories for the Hero Slider (Right Card)
-const heroStories = [
-  {
-    number: '01 / 06',
-    title: 'The Strength in Tradition',
-    state: 'ANDHRA PRADESH',
-    caption: 'Generations of knowledge, woven with resilience and pride.',
-    image: '/images/portfolio_shareef/photos_raw/photo_p15_1_2481x3509.jpeg'
-  },
-  {
-    number: '02 / 06',
-    title: 'Living Hands of Savara',
-    state: 'ANDHRA PRADESH',
-    caption: 'Sacred ritual murals chronicling harvest, ancestors, and sky.',
-    image: '/images/portfolio_shareef/photos_raw/photo_p07_3_800x398.jpeg'
-  },
-  {
-    number: '03 / 06',
-    title: 'Wefts of Gold & Silk',
-    state: 'ANDHRA PRADESH',
-    caption: 'Dharmavaram royal handloom masters preserving timeless weaves.',
-    image: '/images/portfolio_shareef/photos_raw/photo_p17_2_534x800.png'
-  },
-  {
-    number: '04 / 06',
-    title: 'Coastal Monoliths',
-    state: 'ANDHRA PRADESH',
-    caption: 'Visakhapatnam naval submarines, turquoise shores, and aerial horizons.',
-    image: '/images/portfolio_shareef/photos_raw/photo_p05_1_800x252.jpeg'
-  },
-  {
-    number: '05 / 06',
-    title: 'The Sacred Woodcraft',
-    state: 'ANDHRA PRADESH',
-    caption: 'Generations of Kondapalli softwood artisans carving heritage folk legends.',
-    image: '/images/portfolio_shareef/photos_raw/photo_p07_1_313x441.jpeg'
-  },
-  {
-    number: '06 / 06',
-    title: 'Mega Infrastructure Stills',
-    state: 'ANDHRA PRADESH',
-    caption: 'Polavaram Dam civil engineering monuments and river basin cinema.',
-    image: '/images/portfolio_shareef/photos_raw/photo_p13_1_800x573.jpeg'
+// Featured Signature Masterpiece for Hero Showcase
+const heroMasterpiece: GalleryWorkItem = {
+  id: 'hero-masterpiece',
+  number: '15',
+  title: 'The Strength in Tradition',
+  category: 'PEOPLE',
+  location: 'Dharmavaram',
+  state: 'ANDHRA PRADESH',
+  image: '/images/portfolio_shareef/photos_raw/photo_p15_1_2481x3509.jpeg',
+  aspect: 'portrait',
+  story: "Native high-resolution portrait from Page 15 of Shareef's portfolio. The acclaimed master character study capturing generational dignity, resilience, and craft wisdom under directional north daylight.",
+  values: {
+    focalLength: '85mm Prime',
+    aperture: 'f/2.0',
+    shutterSpeed: '1/400s',
+    iso: 'ISO 100',
+    lighting: "Overcast Diffused Daylight with Calico Reflector",
+    colorTemp: '5400K Daylight',
+    cameraBody: 'Sony Alpha 1 (50.1 MP Sensor)',
+    lensModel: 'FE 85mm f/1.4 GM'
   }
-]
+}
 
 export function PhotographicWorkPage({
   onBackToHome,
@@ -1153,7 +1130,6 @@ export function PhotographicWorkPage({
   // Navigation & Category states
   const [selectedCategory, setSelectedCategory] = useState<string>('All Works')
   const [viewFormat, setViewFormat] = useState<'grid' | 'spreads'>('grid')
-  const [heroStoryIndex, setHeroStoryIndex] = useState(0)
 
   // Lightbox Modals
   const [selectedPhotoModal, setSelectedPhotoModal] = useState<GalleryWorkItem | null>(null)
@@ -1182,14 +1158,6 @@ export function PhotographicWorkPage({
       return true
     })
   }, [selectedCategory])
-
-  const nextStory = () => {
-    setHeroStoryIndex((i) => (i + 1) % heroStories.length)
-  }
-
-  const prevStory = () => {
-    setHeroStoryIndex((i) => (i - 1 + heroStories.length) % heroStories.length)
-  }
 
   return (
     <div className="min-h-screen bg-[#f7f5f0] text-[#141310] font-sans selection:bg-[#b82329] selection:text-white">
@@ -1255,12 +1223,12 @@ export function PhotographicWorkPage({
       </nav>
 
       {/* =========================================================================
-          2. HERO SECTION: "PHOTOGRAPHIC WORKS" (EXACT RECREATION OF REFERENCE)
+          2. HERO SECTION: "PHOTOGRAPHIC WORKS" (CLEAN EDITORIAL 2-COLUMN SHOWCASE)
       ========================================================================== */}
-      <header className="relative pt-6 pb-10 sm:pt-14 sm:pb-16 px-4 sm:px-8 lg:px-12 max-w-[1440px] mx-auto border-b border-[#ded8cb]">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
-          {/* Left Column: Title, Subtitle, Stats */}
-          <div className="lg:col-span-5 flex flex-col justify-center">
+      <header className="relative pt-6 pb-10 sm:pt-12 sm:pb-16 px-4 sm:px-8 lg:px-12 max-w-[1440px] mx-auto border-b border-[#ded8cb]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left Column: Title, Subtitle, Stats, Curatorial Card */}
+          <div className="lg:col-span-5 xl:col-span-5 flex flex-col justify-center">
             {/* Red Archive Tag with Line */}
             <div className="flex items-center gap-3 text-[#b82329] text-[11px] font-mono font-bold tracking-[0.25em] uppercase mb-3">
               <span>VISUAL ARCHIVE</span>
@@ -1274,89 +1242,94 @@ export function PhotographicWorkPage({
               WORKS
             </h1>
 
-            <p className="text-sm sm:text-[15px] text-[#423f39] leading-relaxed max-w-md font-light mb-8">
-              A visual record of people, places, craft and the living traditions that continue to shape our communities.
+            <p className="text-sm sm:text-[15px] text-[#423f39] leading-relaxed max-w-md font-light mb-6 sm:mb-8">
+              A high-fidelity visual record of people, places, master craftspeople, and living traditions that continue to shape our communities — captured with natural light and archival purity.
             </p>
 
             {/* Stats Row with Vertical Dividers */}
-            <div className="flex items-center justify-between sm:justify-start gap-3 sm:gap-8 text-[#141310] pt-4 sm:pt-6 border-t border-[#ded8cb]">
+            <div className="flex items-center justify-between sm:justify-start gap-4 sm:gap-8 text-[#141310] pt-4 sm:pt-6 border-t border-[#ded8cb] mb-6">
               <div>
-                <div className="font-editorial text-xl sm:text-3xl font-bold tracking-tight">50+</div>
+                <div className="font-editorial text-2xl sm:text-3xl font-bold tracking-tight">50+</div>
                 <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#747169] mt-0.5">Photographs</div>
               </div>
               <div className="w-[1px] h-8 sm:h-10 bg-[#ded8cb]" />
               <div>
-                <div className="font-editorial text-xl sm:text-3xl font-bold tracking-tight">7</div>
+                <div className="font-editorial text-2xl sm:text-3xl font-bold tracking-tight">7</div>
                 <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#747169] mt-0.5">Collections</div>
               </div>
               <div className="w-[1px] h-8 sm:h-10 bg-[#ded8cb]" />
               <div>
-                <div className="font-editorial text-xl sm:text-3xl font-bold tracking-tight">6</div>
+                <div className="font-editorial text-2xl sm:text-3xl font-bold tracking-tight">6</div>
                 <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#747169] mt-0.5">States Covered</div>
               </div>
             </div>
+
+            {/* Curatorial Provenance Card */}
+            <div className="p-4 sm:p-5 bg-white border border-[#ded8cb] rounded-none shadow-sm flex flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#b82329] font-bold flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#b82329]" />
+                  FEATURED MASTERPIECE
+                </span>
+                <span className="text-[10px] font-mono text-[#747169] uppercase tracking-wider">
+                  PAGE 15 ARCHIVE
+                </span>
+              </div>
+              <div className="font-editorial text-lg sm:text-xl font-bold text-[#141310] leading-snug">
+                {heroMasterpiece.title}
+              </div>
+              <p className="text-xs text-[#5c584e] leading-relaxed font-light">
+                Generations of craft knowledge, woven with resilience and quiet dignity. Documented under natural directional north daylight.
+              </p>
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-2 border-t border-[#f0ede6] text-[10px] font-mono text-[#747169]">
+                <span>Sony Alpha 1 • 85mm GM</span>
+                <span>•</span>
+                <span>f/2.0 @ 1/400s</span>
+                <span>•</span>
+                <span>Natural North Light</span>
+              </div>
+            </div>
           </div>
 
-          {/* Center Column: Magnificently Lit Hero Character Portrait (Shareef Sir Page 15 2.5K Master) */}
-          <div className="lg:col-span-4 relative flex items-center justify-center">
+          {/* Right Column: Single Grand Masterpiece Photograph (Highest Quality, Zero Slider) */}
+          <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-center">
             <div
-              className="relative w-full max-w-[380px] aspect-[4/5] rounded-none overflow-hidden shadow-xl border border-[#ded8cb] bg-white group cursor-pointer"
-              onClick={() => setSelectedPhotoModal(curatedGalleryWorks[0])}
+              className="relative w-full rounded-none overflow-hidden shadow-2xl border border-[#ded8cb] bg-[#141310] group cursor-pointer"
+              onClick={() => setSelectedPhotoModal(heroMasterpiece)}
             >
               <img
-                src={heroStories[heroStoryIndex].image}
-                alt={heroStories[heroStoryIndex].title}
-                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                src={heroMasterpiece.image}
+                alt={heroMasterpiece.title}
+                className="w-full h-[360px] xs:h-[420px] sm:h-[480px] lg:h-[540px] object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                loading="eager"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
-              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-white/90">
-                <span className="px-2 py-0.5 rounded-none bg-black/70 backdrop-blur-md">
-                  {heroStories[heroStoryIndex].state}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
+
+              {/* Top Badges */}
+              <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
+                <span className="px-2.5 py-1 bg-black/75 backdrop-blur-md text-white text-[10px] font-mono uppercase tracking-widest border border-white/10">
+                  ARCHIVAL MASTERPIECE
                 </span>
-                <span className="text-[#ff6b6b] font-bold flex items-center gap-1">
-                  Click to inspect <ArrowUpRight className="w-3.5 h-3.5" />
+                <span className="px-2.5 py-1 bg-[#b82329] text-white text-[10px] font-mono uppercase tracking-wider font-bold shadow-md">
+                  FULL 4K
                 </span>
               </div>
-            </div>
-          </div>
 
-          {/* Right Column: Featured Story Box with Red Corner Accent & Navigation */}
-          <div className="lg:col-span-3 flex flex-col justify-between self-stretch py-2">
-            {/* Top Red Right-Angle Corner Bracket */}
-            <div className="relative pl-6 pt-6 border-l-2 border-t-2 border-[#b82329]/70 rounded-none pr-2 pb-6">
-              <div className="text-xs font-mono font-bold tracking-widest text-[#747169] mb-2">
-                {heroStories[heroStoryIndex].number}
+              {/* Bottom Metadata & Click To Inspect */}
+              <div className="absolute bottom-3.5 left-3.5 right-3.5 flex items-end justify-between pointer-events-none">
+                <div className="text-white pr-2">
+                  <div className="text-[10px] font-mono uppercase tracking-wider text-white/70">
+                    {heroMasterpiece.state} • {heroMasterpiece.location}
+                  </div>
+                  <div className="font-editorial text-base sm:text-xl font-bold text-white leading-tight mt-0.5">
+                    {heroMasterpiece.title}
+                  </div>
+                </div>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white text-[#141310] text-[10px] font-mono uppercase tracking-wider font-bold shadow hover:bg-[#b82329] hover:text-white transition-colors shrink-0">
+                  <span>Inspect</span>
+                  <Maximize2 className="w-3 h-3 text-[#b82329]" />
+                </span>
               </div>
-
-              <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-[#141310] leading-tight mb-2">
-                {heroStories[heroStoryIndex].title}
-              </h2>
-
-              <div className="text-[11px] font-mono uppercase tracking-widest text-[#b82329] font-bold mb-3">
-                {heroStories[heroStoryIndex].state}
-              </div>
-
-              <p className="text-xs sm:text-sm text-[#423f39] leading-relaxed font-light">
-                {heroStories[heroStoryIndex].caption}
-              </p>
-            </div>
-
-            {/* Slider Navigation Arrows (<-) (->) */}
-            <div className="flex items-center gap-3 pt-4 pl-6">
-              <button
-                onClick={prevStory}
-                className="w-10 h-10 rounded-full border border-[#ded8cb] hover:border-[#141310] hover:bg-[#141310] hover:text-white flex items-center justify-center text-[#141310] bg-white transition-all cursor-pointer"
-                aria-label="Previous Story"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={nextStory}
-                className="w-10 h-10 rounded-full border border-[#ded8cb] hover:border-[#141310] hover:bg-[#141310] hover:text-white flex items-center justify-center text-[#141310] bg-white transition-all cursor-pointer"
-                aria-label="Next Story"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
             </div>
           </div>
         </div>
