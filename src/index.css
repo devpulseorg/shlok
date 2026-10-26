@@ -323,6 +323,13 @@ h1 em, h2 em, h3 em {
 }
 
 /* Viraloop-style Pill Navigation */
+
+@media (max-width: 767px) {
+  .nav-pill-bar {
+    display: none !important;
+  }
+}
+
 .nav-pill-bar {
   display: flex;
   align-items: center;
@@ -712,21 +719,49 @@ h1 em, h2 em, h3 em {
   align-items: center;
   justify-content: flex-start;
   overflow-x: auto;
-  padding-bottom: 12px;
-  margin-bottom: 3rem;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+  margin-bottom: 2.5rem;
   scrollbar-width: none;
+  width: 100%;
 }
-
+.category-filter-wrap::-webkit-scrollbar {
+  display: none;
+}
 @media (min-width: 1024px) {
   .category-filter-wrap {
     justify-content: center;
   }
 }
 
+@media (min-width: 1024px) {
+  .category-filter-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+  margin-bottom: 2.5rem;
+  scrollbar-width: none;
+  width: 100%;
+}
+.category-filter-wrap::-webkit-scrollbar {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .category-filter-wrap {
+    justify-content: center;
+  }
+}
+}
+
 .category-segmented-bar {
   display: inline-flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
   align-items: center;
-  padding: 6px;
+  padding: 4px;
   border-radius: 9999px;
   background: #eeeae0;
   border: 1px solid #ded8cb;

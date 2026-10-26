@@ -83,7 +83,7 @@ export function WorkPage({
               className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#747169] hover:text-[#b82329] transition-colors cursor-pointer group self-start"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-              <span>← Back to Overview</span>
+              <span>Back to Overview</span>
             </button>
             <div className="text-[11px] font-mono uppercase tracking-wider text-[#9d998f]">
               Directorial Catalog • 500+ Projects Executed

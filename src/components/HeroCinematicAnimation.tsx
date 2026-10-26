@@ -139,9 +139,9 @@ export function HeroCinematicAnimation({
   const startDocking = () => {
     if (stage !== "center") return
     setStage("docking")
+    onAnimationComplete?.()
     setTimeout(() => {
       setStage("docked")
-      onAnimationComplete?.()
     }, 850)
   }
 

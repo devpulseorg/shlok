@@ -1160,65 +1160,22 @@ export function PhotographicWorkPage({
   return (
     <div className="min-h-screen bg-[#f7f5f0] text-[#141310] font-sans selection:bg-[#b82329] selection:text-white">
       {/* =========================================================================
-          1. TOP NAVIGATION BAR (EXACT RECREATION OF CULTURUM HEADER)
+          BREADCRUMB & BACK TO HOME
       ========================================================================== */}
-      <nav className="sticky top-0 z-40 bg-[#f7f5f0]/95 backdrop-blur-md border-b border-[#ded8cb] px-4 sm:px-8 lg:px-12 h-16 sm:h-20 flex items-center justify-between">
-        {/* Left: Client's Official Logo Mixed with Hero Page Branding */}
-        <div className="flex items-center gap-2.5 sm:gap-3 cursor-pointer shrink-0" onClick={onBackToHome}>
-          <img
-            src="/images/shlokh_logo_transparent.png"
-            alt="Shlokh Entertainments"
-            className="logo-img shrink-0 max-h-[30px] sm:max-h-[38px] w-auto object-contain" style={{ height: "30px", maxHeight: "38px", width: "auto" }}
-          />
-          <div className="hidden sm:flex flex-col border-l border-[#ded8cb] pl-3">
-            <span className="font-editorial text-xs sm:text-sm font-bold tracking-tight text-[#141310] uppercase">
-              Visual Archive
-            </span>
-            <span className="text-[9px] sm:text-[10px] font-mono tracking-widest text-[#747169] uppercase">
-              Photography Portfolio
-            </span>
-          </div>
-        </div>
-
-        {/* Center: Clean Understated Navigation Links */}
-        <div className="hidden md:flex items-center gap-8 text-xs font-medium tracking-wide">
-          <button onClick={onBackToHome} className="text-[#747169] hover:text-[#141310] transition-colors cursor-pointer">
-            Home
-          </button>
-          <button onClick={onBackToHome} className="text-[#747169] hover:text-[#141310] transition-colors cursor-pointer">
-            About
-          </button>
-          <button onClick={onBackToHome} className="text-[#747169] hover:text-[#141310] transition-colors cursor-pointer">
-            Projects
-          </button>
-          {/* Active Link with Red Underline */}
-          <div className="relative py-2 text-[#141310] font-semibold cursor-pointer">
-            <span>Our Work</span>
-            <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#b82329] rounded-full" />
-          </div>
-          <button onClick={onBackToHome} className="text-[#747169] hover:text-[#141310] transition-colors cursor-pointer">
-            Publications
-          </button>
-          <button onClick={onBackToHome} className="text-[#747169] hover:text-[#141310] transition-colors cursor-pointer">
-            Contact
-          </button>
-        </div>
-
-        {/* Right: Search Icon + Outlined 'Back to Site ->' Pill */}
-        <div className="flex items-center gap-2 sm:gap-4 shrink-0">
-          <button className="hidden sm:block text-[#747169] hover:text-[#141310] transition-colors p-2 cursor-pointer" aria-label="Search Archive">
-            <Search className="w-4 h-4" />
-          </button>
-
+      <div className="border-b border-[#ded8cb] bg-[#f2efe9] pt-6 pb-4 px-4 sm:px-8 lg:px-12">
+        <div className="max-w-[1440px] mx-auto flex items-center justify-between">
           <button
             onClick={onBackToHome}
-            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 border border-[#ded8cb] hover:border-[#b82329] hover:bg-[#b82329]/10 text-[#141310] text-[11px] sm:text-xs font-mono font-medium tracking-wider transition-all cursor-pointer shadow-sm bg-white whitespace-nowrap"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#747169] hover:text-[#b82329] transition-colors cursor-pointer group"
           >
-            <span>Back to Site</span>
-            <ArrowRight className="w-3.5 h-3.5 text-[#b82329]" />
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            <span>Back to Overview</span>
           </button>
+          <div className="text-[11px] font-mono uppercase tracking-wider text-[#9d998f]">
+            Dedicated Archival Showcase • 24 Master Spreads
+          </div>
         </div>
-      </nav>
+      </div>
 
       {/* =========================================================================
           2. HERO SECTION: "PHOTOGRAPHIC WORKS" (CLEAN EDITORIAL 2-COLUMN SHOWCASE)
