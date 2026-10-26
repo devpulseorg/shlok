@@ -94,40 +94,53 @@ export function ServicesPage({ onBackToHome, onOpenQuoteModal }: ServicesPagePro
             {filteredServices.map((service) => (
               <article
                 key={service.slug}
-                className="bg-white border border-[#ded8cb] hover:border-[#b82329] shadow-sm hover:shadow-xl transition-all duration-300 p-8 flex flex-col justify-between group"
+                className="bg-white border border-[#ded8cb] hover:border-[#b82329] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group overflow-hidden rounded-sm"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-xs font-bold text-[#b82329]">
-                      {service.number}
-                    </span>
-                    <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 bg-[#f7f5f0] border border-[#ded8cb] text-[#747169]">
-                      {service.category}
-                    </span>
+                  {/* High Quality Production Photo */}
+                  <div className="relative aspect-[16/10] overflow-hidden bg-[#141310]">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-[0.95]"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/35 pointer-events-none" />
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                      <span className="px-2.5 py-1 bg-black/80 backdrop-blur-md text-[10px] font-mono font-bold tracking-widest uppercase text-white border border-white/20 shadow-sm">
+                        SERVICE {service.number}
+                      </span>
+                      <span className="px-2.5 py-1 bg-white/95 backdrop-blur-md text-[9px] font-mono font-bold uppercase tracking-wider text-[#141310] border border-[#ded8cb] shadow-sm">
+                        {service.category}
+                      </span>
+                    </div>
                   </div>
 
-                  <h3 className="font-editorial text-2xl font-bold text-[#141310] group-hover:text-[#b82329] transition-colors mb-3 leading-snug">
-                    {service.title}
-                  </h3>
+                  {/* Card Body */}
+                  <div className="p-6 sm:p-7">
+                    <h3 className="font-editorial text-2xl font-bold text-[#141310] group-hover:text-[#b82329] transition-colors mb-3 leading-snug">
+                      {service.title}
+                    </h3>
 
-                  <p className="text-xs sm:text-sm text-[#5d5951] leading-relaxed mb-6 font-light">
-                    {service.description}
-                  </p>
+                    <p className="text-xs sm:text-sm text-[#5d5951] leading-relaxed mb-6 font-light">
+                      {service.description}
+                    </p>
 
-                  <div className="space-y-2 mb-6 pt-4 border-t border-[#f0ede6]">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#9d998f] block mb-2 font-bold">
-                      KEY DELIVERABLES:
-                    </span>
-                    {service.deliverables.map((deliv, idx) => (
-                      <div key={idx} className="flex items-start gap-2 text-xs text-[#423f39]">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#b82329] shrink-0 mt-0.5" />
-                        <span className="leading-snug">{deliv}</span>
-                      </div>
-                    ))}
+                    <div className="space-y-2 mb-6 pt-4 border-t border-[#f0ede6]">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#9d998f] block mb-2 font-bold">
+                        KEY DELIVERABLES:
+                      </span>
+                      {service.deliverables.map((deliv, idx) => (
+                        <div key={idx} className="flex items-start gap-2 text-xs text-[#423f39]">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#b82329] shrink-0 mt-0.5" />
+                          <span className="leading-snug">{deliv}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-[#ded8cb]/60 flex items-center justify-between">
+                <div className="px-6 pb-6 sm:px-7 sm:pb-7 pt-4 border-t border-[#ded8cb]/60 flex items-center justify-between">
                   <div className="flex flex-wrap gap-1.5">
                     {service.tags.slice(0, 2).map((tag, idx) => (
                       <span key={idx} className="text-[9px] font-mono text-[#747169] bg-[#f7f5f0] px-2 py-0.5 border border-[#ded8cb]">
