@@ -322,6 +322,102 @@ h1 em, h2 em, h3 em {
   right: 0;
 }
 
+/* Viraloop-style Pill Navigation */
+.nav-pill-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 6px;
+  border-radius: 9999px;
+  border: 1px solid #ded8cb;
+  background-color: rgba(237, 232, 223, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.nav-pill-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #423f39 !important;
+  background-color: transparent !important;
+  border: none !important;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.nav-pill-item:hover {
+  color: #141310 !important;
+  background-color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.nav-pill-item.active {
+  background-color: #141310 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+.btn-header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: var(--red) !important;
+  color: #ffffff !important;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-radius: 0;
+  border: none;
+  box-shadow: 0 4px 12px rgba(184, 35, 41, 0.25);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-header-cta:hover {
+  background-color: var(--red-hover) !important;
+  transform: translateY(-1px);
+}
+
+.sub-tab-pill {
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #5d5951 !important;
+  background-color: transparent !important;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sub-tab-pill:hover {
+  color: #141310 !important;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.sub-tab-pill.active {
+  background-color: #141310 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
 /* Mobile Nav Drawer */
 .mobile-drawer {
   position: fixed;
