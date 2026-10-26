@@ -389,6 +389,15 @@ export default function App() {
                 aria-label="Main Navigation"
               >
                 <a
+                  href="#work"
+                  onClick={() => {
+                    if (currentView !== "home") navigateToHome()
+                  }}
+                  className="nav-link"
+                >
+                  Work (Films)
+                </a>
+                <a
                   href="#services"
                   onClick={() => {
                     if (currentView !== "home") navigateToHome()
@@ -397,17 +406,14 @@ export default function App() {
                 >
                   Capabilities
                 </a>
-
-                {/* CLEAN, TASTEFUL 'OUR WORK' LINK (NO HUGE OVERLAPPING PILL) */}
                 <button
                   onClick={navigateToPhotography}
                   className="nav-link flex items-center gap-1.5 text-[#b82329] font-bold hover:text-[#9e1c21] cursor-pointer"
                 >
                   <Camera className="w-3.5 h-3.5" />
-                  <span>Our Work</span>
+                  <span>Visual Archive</span>
                   <span className="w-1.5 h-1.5 rounded-full bg-[#b82329]" />
                 </button>
-
                 <a
                   href="#publications"
                   onClick={() => {
@@ -433,25 +439,7 @@ export default function App() {
                   }}
                   className="nav-link"
                 >
-                  Leadership & Studio
-                </a>
-                <a
-                  href="#portfolio"
-                  onClick={() => {
-                    if (currentView !== "home") navigateToHome()
-                  }}
-                  className="nav-link"
-                >
-                  Selected Work
-                </a>
-                <a
-                  href="#social-feed"
-                  onClick={() => {
-                    if (currentView !== "home") navigateToHome()
-                  }}
-                  className="nav-link"
-                >
-                  Live BTS
+                  Studio &amp; Team
                 </a>
                 <a
                   href="#contact"
@@ -539,12 +527,11 @@ export default function App() {
           </button>
 
           {[
+            { label: "Selected Work & Films", href: "#work" },
             { label: "Capabilities (14 Services)", href: "#services" },
-            { label: "Featured Cinema Film", href: "#featured-film" },
             { label: "Heritage Publications", href: "#publications" },
             { label: "Field Impact Stories", href: "#impact" },
             { label: "Leadership & The Studio", href: "#studio" },
-            { label: "Selected Work Archive", href: "#portfolio" },
             { label: "Live BTS & Social Feed", href: "#social-feed" },
             { label: "Contact & Quotes", href: "#contact" },
           ].map((item) => (
@@ -779,7 +766,8 @@ export default function App() {
           {/* =========================================================================
             FEATURED FILM SHOWCASE ("Culture in Motion")
         ========================================================================== */}
-          <section
+          <div id="work">
+<section
             id="featured-film"
             className="section-pad bg-[#eeeae0] border-b border-[#ded8cb]"
           >
@@ -787,7 +775,7 @@ export default function App() {
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
                 <div>
                   <span className="section-badge">
-                    02 • Featured Documentary
+                    02A • Featured Cinema Film
                   </span>
                   <h2 className="text-4xl sm:text-5xl lg:text-6xl text-[#141310]">
                     Culture <em>in Motion.</em>
@@ -906,6 +894,114 @@ export default function App() {
               </div>
             </div>
           </section>
+
+
+
+          {/* =========================================================================
+            SELECTED WORK & PORTFOLIO GALLERY (With Filter & Lightbox)
+        ========================================================================== */}
+          <section id="portfolio" className="section-pad bg-[#f7f5f0]">
+            <div className="site-container">
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+                <div>
+                  <span className="section-badge">02B • Selected Commercials &amp; Films</span>
+                  <h2 className="text-4xl sm:text-5xl lg:text-6xl text-[#141310] mb-3">
+                    Communication <em>with Consequence.</em>
+                  </h2>
+                </div>
+                <p className="max-w-md text-sm text-[#5d5951] leading-relaxed">
+                  Over 500 documentaries, corporate films, government
+                  assignments, and publications executed across India.
+                </p>
+              </div>
+
+              {/* Modern Segmented Filter Pills */}
+              <div className="category-filter-wrap">
+                <div className="category-segmented-bar">
+                  {portfolioCategories.map((cat) => {
+                    const count =
+                      cat === "All"
+                        ? portfolioItems.length
+                        : portfolioItems.filter((i) => i.category === cat)
+                            .length
+                    const isActive = selectedPortfolioCategory === cat
+                    return (
+                      <button
+                        key={cat}
+                        onClick={() => setSelectedPortfolioCategory(cat)}
+                        className={`category-tab-btn ${
+                          isActive ? "active" : ""
+                        }`}
+                      >
+                        <span>{cat}</span>
+                        <span className="category-tab-badge">{count}</span>
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+
+              {/* Portfolio Grid — Pure Editorial Presentation (Un-Boxed & Spacious) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
+                {filteredPortfolio.map((item) => (
+                  <article
+                    key={item.id}
+                    onClick={() =>
+                      setLightboxImage({
+                        src: item.image,
+                        title: item.title,
+                        subtitle: `${item.client} • ${item.category}`,
+                      })
+                    }
+                    className="group cursor-pointer flex flex-col justify-between transition-all duration-300"
+                  >
+                    {/* Clean Framed Media Container */}
+                    <div className="w-full aspect-[16/10] overflow-hidden relative rounded-xl border border-[#ded8cb] shadow-sm group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 bg-[#eae5d9]">
+                      <SmartImage
+                        src={item.image}
+                        alt={item.title}
+                        fallbackTitle={item.title}
+                        fallbackCategory={item.category}
+                        fallbackIcon="film"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+                      <span className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#b82329] text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
+                        {item.category}
+                      </span>
+                      <span className="absolute bottom-3.5 left-3.5 text-xs text-white/95 font-mono font-bold bg-black/60 backdrop-blur-md px-3 py-1 rounded-md border border-white/15">
+                        {item.year || "Selected Project"}
+                      </span>
+                    </div>
+
+                    {/* Flowing Editorial Typography — Free from Enclosing Boxes */}
+                    <div className="pt-5 pb-2 flex-1 flex flex-col justify-between">
+                      <div>
+                        <div className="text-xs uppercase tracking-wider font-bold text-[#b82329] mb-2">
+                          {item.client}
+                        </div>
+                        <h3 className="font-serif text-2xl sm:text-[26px] font-bold text-[#141310] leading-snug mb-2.5 group-hover:text-[#b82329] transition-colors">
+                          {item.title}
+                        </h3>
+                        <p className="text-sm text-[#524e47] leading-relaxed line-clamp-3 mb-4 font-normal">
+                          {item.description}
+                        </p>
+                      </div>
+
+                      <div className="pt-3 border-t border-[#ded8cb]/70 flex items-center justify-between text-xs sm:text-sm text-[#747169]">
+                        <span className="font-bold text-[#b82329] group-hover:underline inline-flex items-center gap-1.5">
+                          View Project Details
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </span>
+                        <ZoomIn className="w-4 h-4 text-[#9d998f]" />
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+</div>
 
           {/* =========================================================================
             ALL 14 SERVICES SECTION (From Shlokh_Production_Services.docx)
@@ -1094,7 +1190,7 @@ export default function App() {
               <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
                 <div className="max-w-3xl">
                   <span className="section-badge">
-                    04 • Prestigious Publications
+                    04A • Prestigious Publications
                   </span>
                   <h2 className="text-4xl sm:text-6xl lg:text-7xl text-[#141310] tracking-tight">
                     Crafting Stories. <em>Creating Impact.</em>
@@ -1353,282 +1449,147 @@ export default function App() {
                 </div>
               </div>
             </div>
-          </section>
-
-          {/* =========================================================================
-            PHOTOGRAPHY MASTERWORKS EXHIBITION (DEDICATED CREATIVE SHOWCASE)
+          </section>          {/* =========================================================================
+            ACT 4B: CURATED VISUAL ARCHIVE GATEWAY (PROVENANCE & FULL TELEMETRY)
         ========================================================================== */}
           <section
             id="photography"
-            className={`section-pad darkroom-transition ${
-              darkroomMode
-                ? "bg-[#0c0b0a] text-white border-y border-white/10"
-                : "bg-[#f7f5f0] text-[#141310] border-y border-[#ded8cb]"
-            }`}
+            className="section-pad bg-[#f7f5f0] text-[#141310] border-y border-[#ded8cb]"
           >
             <div className="site-container">
-              {/* Exhibition Header with Darkroom Switcher */}
+              {/* Exhibition Header */}
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
                 <div>
-                  <div
-                    className={`section-badge ${
-                      darkroomMode ? "text-[#ff4a50]" : "text-[#b82329]"
-                    }`}
-                  >
+                  <div className="section-badge text-[#b82329] flex items-center gap-1.5">
                     <Camera className="w-3.5 h-3.5" />
-                    <span>The Photographic Archive</span>
+                    <span>04B • The Visual Archive</span>
                   </div>
-                  <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
-                    Masterworks <em>Behind The Lens</em>
+                  <h2 className="text-4xl sm:text-5xl lg:text-6xl text-[#141310] tracking-tight">
+                    Living Traditions. <em>Documented with Dignity.</em>
                   </h2>
-                  <p
-                    className={`text-sm sm:text-base mt-3 max-w-2xl leading-relaxed ${
-                      darkroomMode ? "text-[#a9a59c]" : "text-[#5d5951]"
-                    }`}
-                  >
-                    Fine-art documentation, royal handloom chronicles, intimate
-                    beneficiary portraits, and heavy-rig cinema stills across
-                    India.
+                  <p className="text-sm sm:text-base text-[#5d5951] mt-3 max-w-2xl leading-relaxed font-light">
+                    An archival record of master craftspeople, communities, and traditions across 6 states — captured with natural daylight, authentic craft processes, and fine-art purity.
                   </p>
                 </div>
 
-                {/* Darkroom / Light Gallery Switcher & Dedicated Page CTA */}
-                <div className="flex flex-wrap items-center gap-3 shrink-0">
-                  <button
-                    onClick={() => setDarkroomMode(!darkroomMode)}
-                    className={`flex items-center gap-2.5 px-4 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 border ${
-                      darkroomMode
-                        ? "bg-[#1b1915] text-[#fffdf8] border-white/20 hover:border-[#b82329] shadow-lg shadow-black/40"
-                        : "bg-white text-[#141310] border-[#ded8cb] hover:border-[#b82329] shadow-sm"
-                    }`}
-                    aria-label="Toggle Darkroom Mode"
-                  >
-                    {darkroomMode ? (
-                      <>
-                        <Sun className="w-4 h-4 text-amber-400" />
-                        <span>Editorial Paper Mode</span>
-                      </>
-                    ) : (
-                      <>
-                        <Moon className="w-4 h-4 text-[#b82329]" />
-                        <span>Velvet Darkroom Mode</span>
-                      </>
-                    )}
-                  </button>
-
+                <div className="flex items-center gap-3 shrink-0">
                   <button
                     onClick={navigateToPhotography}
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 bg-[#b82329] hover:bg-[#9e1c21] text-white shadow-lg shadow-[#b82329]/25 cursor-pointer"
+                    className="flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 bg-[#b82329] hover:bg-[#9e1c21] text-white shadow-lg shadow-[#b82329]/25 cursor-pointer"
                   >
                     <BookOpen className="w-4 h-4" />
-                    <span>Open Dedicated Page (24 Spreads) →</span>
+                    <span>Explore Full Archive (48 Works) →</span>
                   </button>
                 </div>
               </div>
 
-              {/* Dedicated Page Feature Banner */}
+              {/* Master Triptych Preview Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-10">
+                {/* Frame 1 */}
+                <div
+                  onClick={navigateToPhotography}
+                  className="group relative rounded-none overflow-hidden cursor-pointer bg-white border border-[#ded8cb] shadow-md hover:shadow-2xl transition-all duration-500"
+                >
+                  <div className="relative aspect-[3/4] overflow-hidden bg-[#141310]">
+                    <img
+                      src="/images/portfolio_shareef/photos_raw/photo_p15_1_2481x3509.jpeg"
+                      alt="The Strength in Tradition"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-75 group-hover:opacity-90 transition-opacity" />
+                    <div className="absolute top-3 left-3 px-2 py-0.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-mono uppercase tracking-widest border border-white/10">
+                      MASTER CHARACTER STUDY
+                    </div>
+                    <div className="absolute bottom-4 left-4 right-4 z-10 text-white">
+                      <div className="text-[10px] font-mono text-white/70 uppercase">PAGE 15 ARCHIVE • AP</div>
+                      <h3 className="font-editorial text-xl sm:text-2xl font-bold text-white group-hover:text-[#ff6b6b] transition-colors leading-snug">
+                        The Strength in Tradition
+                      </h3>
+                      <div className="text-[10px] font-mono text-[#d4cfc4] mt-1">Sony Alpha 1 • 50.1 MP Sensor</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Frame 2 */}
+                <div
+                  onClick={navigateToPhotography}
+                  className="group relative rounded-none overflow-hidden cursor-pointer bg-white border border-[#ded8cb] shadow-md hover:shadow-2xl transition-all duration-500"
+                >
+                  <div className="relative aspect-[3/4] overflow-hidden bg-[#141310]">
+                    <img
+                      src="/images/portfolio_shareef/photos_raw/photo_p17_editorial_portfolio_full.jpg"
+                      alt="Handloom Apparel: Studio Editorial"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-75 group-hover:opacity-90 transition-opacity" />
+                    <div className="absolute top-3 left-3 px-2 py-0.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-mono uppercase tracking-widest border border-white/10">
+                      COMMERCIAL EDITORIAL
+                    </div>
+                    <div className="absolute bottom-4 left-4 right-4 z-10 text-white">
+                      <div className="text-[10px] font-mono text-white/70 uppercase">PAGE 17 ARCHIVE • AP</div>
+                      <h3 className="font-editorial text-xl sm:text-2xl font-bold text-white group-hover:text-[#ff6b6b] transition-colors leading-snug">
+                        Handloom Apparel Editorial
+                      </h3>
+                      <div className="text-[10px] font-mono text-[#d4cfc4] mt-1">Studio Lighting • High-Fashion Weave</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Frame 3 */}
+                <div
+                  onClick={navigateToPhotography}
+                  className="group relative rounded-none overflow-hidden cursor-pointer bg-white border border-[#ded8cb] shadow-md hover:shadow-2xl transition-all duration-500"
+                >
+                  <div className="relative aspect-[3/4] overflow-hidden bg-[#141310]">
+                    <img
+                      src="/images/portfolio_shareef/photos_raw/photo_p08_2_800x420.jpeg"
+                      alt="Colours of a Community"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-75 group-hover:opacity-90 transition-opacity" />
+                    <div className="absolute top-3 left-3 px-2 py-0.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-mono uppercase tracking-widest border border-white/10">
+                      COMMUNITY ENTERPRISE
+                    </div>
+                    <div className="absolute bottom-4 left-4 right-4 z-10 text-white">
+                      <div className="text-[10px] font-mono text-white/70 uppercase">PAGE 8 ARCHIVE • AP</div>
+                      <h3 className="font-editorial text-xl sm:text-2xl font-bold text-white group-hover:text-[#ff6b6b] transition-colors leading-snug">
+                        Colours of a Community
+                      </h3>
+                      <div className="text-[10px] font-mono text-[#d4cfc4] mt-1">Natural Dyes • Artisan Cooperative</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* High-Impact Archival Portal Banner */}
               <div
                 onClick={navigateToPhotography}
-                className={`mb-10 p-6 sm:p-7 rounded-2xl border transition-all duration-300 cursor-pointer group flex flex-col md:flex-row items-center justify-between gap-6 ${
-                  darkroomMode
-                    ? "bg-gradient-to-r from-[#b82329]/25 via-white/5 to-white/5 border-white/15 hover:border-[#b82329]"
-                    : "bg-gradient-to-r from-[#fdf2f2] via-white to-white border-[#ded8cb] hover:border-[#b82329] shadow-md"
-                }`}
+                className="p-6 sm:p-8 rounded-none bg-[#141310] text-white border border-[#ded8cb] flex flex-col md:flex-row items-center justify-between gap-6 cursor-pointer group shadow-xl hover:border-[#b82329] transition-all"
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#b82329] text-white flex items-center justify-center shrink-0 shadow-lg group-hover:scale-105 transition-transform">
-                    <Camera className="w-6 h-6" />
+                <div className="flex items-center gap-4 sm:gap-6">
+                  <div className="w-14 h-14 rounded-full bg-[#b82329] text-white flex items-center justify-center shrink-0 shadow-lg group-hover:scale-105 transition-transform">
+                    <Camera className="w-7 h-7" />
                   </div>
                   <div>
-                    <div className="flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-wider text-[#b82329]">
-                      <span>Exclusive Archival Release</span>
-                      <span>•</span>
-                      <span>Shareef Sir Master Portfolio</span>
+                    <div className="text-[10px] font-mono uppercase tracking-widest text-[#ff6b6b] font-bold">
+                      OFFICIAL VISUAL ARCHIVE • SHAREEF SIR COLLECTION
                     </div>
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold mt-1 text-inherit group-hover:text-[#b82329] transition-colors">
-                      Explore Our Dedicated Photographic Work Showcase
-                    </h3>
-                    <p className="text-xs sm:text-sm opacity-80 mt-1 max-w-2xl leading-relaxed">
-                      View all 24 original high-definition publication spreads
-                      at 300 DPI, full camera sensor values (aperture, shutter,
-                      ISO, lighting), and coffee table books released by Hon'ble
-                      CM Sri Nara Chandrababu Naidu.
+                    <h4 className="font-editorial text-xl sm:text-2xl font-bold mt-1 text-white group-hover:text-[#ff6b6b] transition-colors">
+                      Enter the 48-Work Photographic Gallery
+                    </h4>
+                    <p className="text-xs sm:text-sm text-[#ccc7bd] mt-1 max-w-2xl font-light">
+                      Inspect complete camera metadata (Aperture, Shutter Speed, ISO, Focal Length, Lighting setups), plus 24 original publication spreads from Andhra Pradesh handloom and craft archives.
                     </p>
                   </div>
                 </div>
 
-                <div className="shrink-0 flex items-center gap-2 px-5 py-3 rounded-full bg-[#b82329] group-hover:bg-[#9e1c21] text-white text-xs font-bold uppercase tracking-wider shadow-lg transition-all">
-                  <span>View All 24 Spreads</span>
-                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <div className="flex items-center gap-2 px-6 py-3 bg-[#b82329] group-hover:bg-[#9e1c21] text-white text-xs font-bold uppercase tracking-wider shrink-0 shadow-md transition-colors">
+                  <span>Open Full Visual Archive</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
-              </div>
-
-              {/* Filter Pills */}
-              <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
-                {photoCategories.map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => setSelectedPhotoCategory(cat)}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
-                      selectedPhotoCategory === cat
-                        ? "bg-[#b82329] text-white shadow-sm font-semibold"
-                        : darkroomMode
-                          ? "bg-white/5 text-[#a9a59c] hover:bg-white/10 hover:text-white border border-white/10"
-                          : "bg-[#eeeae0] text-[#5d5951] hover:bg-[#e4decb] hover:text-[#141310] border border-[#ded8cb]"
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
-
-              {/* Dynamic Asymmetric Editorial Masonry Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredPhotos.map((photo) => (
-                  <div
-                    key={photo.id}
-                    onClick={() => setPhotoLightbox(photo)}
-                    className={`group relative rounded-lg overflow-hidden cursor-pointer border transition-all duration-500 photo-card-sheen ${
-                      darkroomMode
-                        ? "bg-[#141310] border-white/10 hover:border-[#b82329]/60 hover:shadow-2xl hover:shadow-black"
-                        : "bg-white border-[#ded8cb] hover:border-[#b82329]/60 hover:shadow-xl hover:shadow-black/10"
-                    }`}
-                  >
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/10">
-                      <SmartImage
-                        src={photo.image}
-                        alt={photo.title}
-                        fallbackTitle={photo.title}
-                        fallbackCategory={photo.category}
-                        fallbackIcon="camera"
-                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                      />
-                      {/* Top Badge: Category */}
-                      <div className="absolute top-3 left-3 z-10">
-                        <span className="px-2.5 py-1 rounded bg-black/60 backdrop-blur-md text-[10px] uppercase tracking-wider font-mono font-bold text-white border border-white/15">
-                          {photo.category}
-                        </span>
-                      </div>
-                      {/* Top Right: Expand / Magnify Icon */}
-                      <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span className="w-8 h-8 rounded-full bg-black/70 backdrop-blur-md flex items-center justify-center text-white border border-white/20">
-                          <Maximize2 className="w-3.5 h-3.5" />
-                        </span>
-                      </div>
-
-                      {/* Camera Viewfinder Exposure HUD Bar */}
-                      <div className="absolute bottom-2.5 left-2.5 right-2.5 z-10">
-                        <div className="flex items-center justify-between px-2.5 py-1.5 bg-black/85 backdrop-blur-md rounded border border-white/15 text-[10px] font-mono text-white shadow-lg">
-                          <div className="flex items-center gap-1.5">
-                            <span className="text-[#ff4a50] font-bold">
-                              {photo.values.focalLength}
-                            </span>
-                            <span className="text-white/40">•</span>
-                            <span className="text-white font-bold">
-                              {photo.values.aperture}
-                            </span>
-                            <span className="text-white/40">•</span>
-                            <span className="text-[#ccc7bd]">
-                              {photo.values.shutterSpeed}
-                            </span>
-                          </div>
-                          <div className="flex items-center gap-1.5">
-                            <span className="text-amber-400 font-bold">
-                              {photo.values.iso}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Card Meta & Story Details */}
-                    <div
-                      className={`p-5 flex flex-col justify-between ${
-                        darkroomMode ? "bg-[#141310]" : "bg-white"
-                      }`}
-                    >
-                      <div>
-                        <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-[#b82329] font-bold mb-1.5">
-                          <span>{photo.location}</span>
-                          <span>•</span>
-                          <span>{photo.year}</span>
-                        </div>
-                        <h3
-                          className={`font-serif text-lg sm:text-xl font-bold mb-2 transition-colors ${
-                            darkroomMode
-                              ? "text-white group-hover:text-[#ff6b6b]"
-                              : "text-[#141310] group-hover:text-[#b82329]"
-                          }`}
-                        >
-                          {photo.title}
-                        </h3>
-                        <p
-                          className={`text-xs leading-relaxed line-clamp-2 mb-3 ${
-                            darkroomMode ? "text-[#a9a59c]" : "text-[#5d5951]"
-                          }`}
-                        >
-                          {photo.story}
-                        </p>
-                      </div>
-
-                      {/* Technical Values Bar */}
-                      <div
-                        className={`pt-3 border-t flex flex-col gap-1 text-[11px] font-mono ${
-                          darkroomMode
-                            ? "border-white/10 text-[#747169]"
-                            : "border-[#ded8cb] text-[#747169]"
-                        }`}
-                      >
-                        <div className="flex items-center justify-between">
-                          <span
-                            className={`font-medium truncate ${
-                              darkroomMode ? "text-white" : "text-[#141310]"
-                            }`}
-                          >
-                            {photo.values.cameraBody}
-                          </span>
-                          <span className="text-amber-500 font-bold shrink-0">
-                            {photo.values.colorTemp}
-                          </span>
-                        </div>
-                        <div className="flex items-center justify-between text-[10px]">
-                          <span className="truncate pr-2">
-                            {photo.values.lensModel}
-                          </span>
-                          <span
-                            className={`uppercase font-bold shrink-0 ${
-                              darkroomMode
-                                ? "text-white/70"
-                                : "text-[#141310]/70"
-                            }`}
-                          >
-                            {photo.client ? "Official Archive" : "Fine Art"}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Bottom Gallery CTA */}
-              <div className="mt-12 p-6 rounded-lg bg-black/20 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-                <div>
-                  <h4 className="font-serif text-lg font-bold text-white mb-1">
-                    Commission Bespoke Fine-Art & Commercial Photography
-                  </h4>
-                  <p className="text-xs text-[#a9a59c]">
-                    From national handicraft clusters and coffee table books to
-                    high-profile executive portraits.
-                  </p>
-                </div>
-                <button
-                  onClick={() => setQuoteModalOpen(true)}
-                  className="btn-primary text-xs shrink-0"
-                >
-                  Inquire For Shoot
-                  <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                </button>
               </div>
             </div>
           </section>
@@ -1812,7 +1773,7 @@ export default function App() {
               <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
                 <div>
                   <span className="section-badge text-[#b82329]">
-                    06 • The Creative Engine
+                    06 • Directorial Team &amp; Studio
                   </span>
                   <h2 className="text-4xl sm:text-5xl lg:text-6xl text-white">
                     The people behind <em>the frames.</em>
@@ -2214,111 +2175,6 @@ export default function App() {
           </section>
 
           {/* =========================================================================
-            SELECTED WORK & PORTFOLIO GALLERY (With Filter & Lightbox)
-        ========================================================================== */}
-          <section id="portfolio" className="section-pad bg-[#f7f5f0]">
-            <div className="site-container">
-              <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
-                <div>
-                  <span className="section-badge">07 • Curated Portfolio</span>
-                  <h2 className="text-4xl sm:text-5xl lg:text-6xl text-[#141310] mb-3">
-                    Communication <em>with Consequence.</em>
-                  </h2>
-                </div>
-                <p className="max-w-md text-sm text-[#5d5951] leading-relaxed">
-                  Over 500 documentaries, corporate films, government
-                  assignments, and publications executed across India.
-                </p>
-              </div>
-
-              {/* Modern Segmented Filter Pills */}
-              <div className="category-filter-wrap">
-                <div className="category-segmented-bar">
-                  {portfolioCategories.map((cat) => {
-                    const count =
-                      cat === "All"
-                        ? portfolioItems.length
-                        : portfolioItems.filter((i) => i.category === cat)
-                            .length
-                    const isActive = selectedPortfolioCategory === cat
-                    return (
-                      <button
-                        key={cat}
-                        onClick={() => setSelectedPortfolioCategory(cat)}
-                        className={`category-tab-btn ${
-                          isActive ? "active" : ""
-                        }`}
-                      >
-                        <span>{cat}</span>
-                        <span className="category-tab-badge">{count}</span>
-                      </button>
-                    )
-                  })}
-                </div>
-              </div>
-
-              {/* Portfolio Grid — Pure Editorial Presentation (Un-Boxed & Spacious) */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
-                {filteredPortfolio.map((item) => (
-                  <article
-                    key={item.id}
-                    onClick={() =>
-                      setLightboxImage({
-                        src: item.image,
-                        title: item.title,
-                        subtitle: `${item.client} • ${item.category}`,
-                      })
-                    }
-                    className="group cursor-pointer flex flex-col justify-between transition-all duration-300"
-                  >
-                    {/* Clean Framed Media Container */}
-                    <div className="w-full aspect-[16/10] overflow-hidden relative rounded-xl border border-[#ded8cb] shadow-sm group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 bg-[#eae5d9]">
-                      <SmartImage
-                        src={item.image}
-                        alt={item.title}
-                        fallbackTitle={item.title}
-                        fallbackCategory={item.category}
-                        fallbackIcon="film"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
-                      <span className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#b82329] text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
-                        {item.category}
-                      </span>
-                      <span className="absolute bottom-3.5 left-3.5 text-xs text-white/95 font-mono font-bold bg-black/60 backdrop-blur-md px-3 py-1 rounded-md border border-white/15">
-                        {item.year || "Selected Project"}
-                      </span>
-                    </div>
-
-                    {/* Flowing Editorial Typography — Free from Enclosing Boxes */}
-                    <div className="pt-5 pb-2 flex-1 flex flex-col justify-between">
-                      <div>
-                        <div className="text-xs uppercase tracking-wider font-bold text-[#b82329] mb-2">
-                          {item.client}
-                        </div>
-                        <h3 className="font-serif text-2xl sm:text-[26px] font-bold text-[#141310] leading-snug mb-2.5 group-hover:text-[#b82329] transition-colors">
-                          {item.title}
-                        </h3>
-                        <p className="text-sm text-[#524e47] leading-relaxed line-clamp-3 mb-4 font-normal">
-                          {item.description}
-                        </p>
-                      </div>
-
-                      <div className="pt-3 border-t border-[#ded8cb]/70 flex items-center justify-between text-xs sm:text-sm text-[#747169]">
-                        <span className="font-bold text-[#b82329] group-hover:underline inline-flex items-center gap-1.5">
-                          View Project Details
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </span>
-                        <ZoomIn className="w-4 h-4 text-[#9d998f]" />
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* =========================================================================
             SECTOR EXPERTISE SUMMARY
         ========================================================================== */}
           <section
@@ -2327,7 +2183,7 @@ export default function App() {
           >
             <div className="site-container">
               <div className="max-w-3xl mb-12">
-                <span className="section-badge">08 • Sector Expertise</span>
+                <span className="section-badge">07 • Sector Expertise &amp; Why Us</span>
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl text-[#141310] mb-4">
                   Proven Execution. <em>Trusted at Scale.</em>
                 </h2>
